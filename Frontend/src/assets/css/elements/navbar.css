@@ -1,0 +1,12 @@
+#navbar-box {
+  justify-content: space-around;
+  padding: 20px 0px;
+}
+
+#navbar {
+  border-bottom: 1px solid #c8c8c8;
+}
+
+#navbar-box > h1{
+    cursor: pointer;
+}
