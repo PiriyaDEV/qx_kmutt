@@ -1,0 +1,26 @@
+/* ตั้งค่าหน้า */
+body,
+html,
+input,
+select,
+label,
+textarea,
+button {
+  padding: 0;
+  margin: 0;
+  font-size: 8px;
+  font-style: normal;
+  font-family: "Avenir_Heavy";
+  color: #2d435b;
+}
+
+body {
+  background-color: #f3f3f3;
+}
+textarea {
+  resize: none;
+}
+select,
+option {
+  background-color: transparent;
+}
