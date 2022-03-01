@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Quicksand:wght@400;500;700&display=swap");
+
 /* ตั้งค่าหน้า */
 body,
 html,
@@ -10,12 +12,13 @@ button {
   margin: 0;
   font-size: 8px;
   font-style: normal;
-  font-family: "Avenir_Heavy";
-  color: #2d435b;
+  font-family: "Quicksand", sans-serif;
+  /* font-family: "Inter", sans-serif; */
+  color: #333333;
 }
 
 body {
-  background-color: #f3f3f3;
+  background-color: #ffffff;
 }
 textarea {
   resize: none;
@@ -23,4 +26,87 @@ textarea {
 select,
 option {
   background-color: transparent;
+}
+
+.inter {
+  font-family: "Inter", sans-serif !important;
+}
+
+.quicksand {
+  font-family: "Quicksand", sans-serif !important;
+}
+
+/* Font 18px */
+.xm2-text {
+  margin: 0;
+  font-size: 2.25em;
+}
+
+/* Font 20px */
+.xm-text {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+/* Font 24px */
+.vsm-text {
+  margin: 0;
+  font-size: 3em;
+}
+
+/* Font 28px */
+.sm-text {
+  margin: 0;
+  font-size: 3.5em;
+}
+
+/* Font 36px */
+.nm-text {
+  margin: 0;
+  font-size: 4.5em;
+}
+
+/* Font 48px */
+.bg-text {
+  margin: 0;
+  font-size: 6em;
+}
+
+/* Font 64px */
+.vbg-text {
+  margin: 0;
+  font-size: 8em;
+}
+
+/* Font 120px */
+.bg-home-text {
+  margin: 0;
+  font-size: 15em;
+}
+
+/* Font Weight 400 */
+.w400 {
+  font-weight: 400;
+}
+
+/* Font Weight 500 */
+.w500 {
+  font-weight: 500;
+}
+
+/* Font Weight 700 */
+.w700 {
+  font-weight: 700;
+}
+
+.white-text {
+  color: #ffffff;
+}
+
+.blue-text {
+  color: #378798;
+}
+
+.grey-text {
+  color: #c8c8c8;
 }

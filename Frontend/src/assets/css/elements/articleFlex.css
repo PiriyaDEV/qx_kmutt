@@ -1,0 +1,18 @@
+.article-flex{
+    width: 100%;
+    height: 100%;
+}
+
+.article-flex > div:first-child{
+    background-color: #E5E5E5;
+    height: 204px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.article-flex > div:nth-child(2){
+    background-color: #ffffff;
+    height: 100px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
