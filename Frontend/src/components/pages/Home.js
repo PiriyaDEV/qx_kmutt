@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
@@ -28,11 +28,21 @@ import rightArrow from "../../assets/images/home/Polygon 8.png";
 
 import logoFrame from "../../assets/images/home/image 14.png";
 
-import refresh from "../../assets/images/home/refresh.png";
+import refreshIcon from "../../assets/images/home/refresh.png";
 
 SwiperCore.use([Navigation, Pagination, Controller, Thumbs, Autoplay]);
 
 export default function Home() {
+  const [refresh, setRefresh] = useState(false);
+
+  const refreshMember = () => {
+    setRefresh(!refresh);
+  };
+
+  const linkPath = (path) => {
+    window.location.href = path;
+  };
+
   const article = [];
 
   const addArticle = () => {
@@ -114,7 +124,10 @@ export default function Home() {
           >
             {article}
           </Swiper>
-          <h1 className="vsm-text white-text w700 sarabun">
+          <h1
+            className="vsm-text white-text w700 sarabun pointer"
+            onClick={() => linkPath("/article")}
+          >
             &lt;&lt; แสดงทั้งหมด &gt;&gt;
           </h1>
           <img className="prev-article-arrow" src={leftArrow} alt="" />
@@ -133,7 +146,12 @@ export default function Home() {
                 <p className="vsm-text w500 sarabun">
                   โครงการที่น่าสนใจของ QX <br /> ทั้งในอดีต ตลอดจนปัจจุบัน
                 </p>
-                <p className="vsm-text w500 blue-text sarabun">แสดงทั้งหมด &gt;&gt;</p>
+                <p
+                  className="vsm-text w500 blue-text sarabun pointer"
+                  onClick={() => linkPath("/project")}
+                >
+                  แสดงทั้งหมด &gt;&gt;
+                </p>
               </div>
               <div className="temp-project" />
             </div>
@@ -155,7 +173,7 @@ export default function Home() {
               <img className="orange-tri" src={orangeTriangle} alt="" />
               <h1 className="nm-text w700">Member</h1>
               <img className="orange-tri" src={orangeTriangle} alt="" />
-              <p className="vsm-text w500 blue-text sarabun">
+              <p className="vsm-text w500 blue-text sarabun pointer" onClick={() => linkPath("/member")}>
                 รายละเอียดทั้งหมด &gt;&gt;
               </p>
             </div>
@@ -167,7 +185,13 @@ export default function Home() {
           className="section"
         >
           <div className="page-container">
-            <img id="refresh-logo" src={refresh} alt="" />
+            <img
+              id="refresh-logo"
+              src={refreshIcon}
+              alt=""
+              onClick={() => refreshMember()}
+              className={`${refresh ? "rotate" : "rotate rotate-down"}`}
+            />
             <div className="member-flex-container">
               <MemberFlex color="red" />
               <MemberFlex color="blue" />
