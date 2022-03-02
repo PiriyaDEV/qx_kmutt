@@ -15,9 +15,15 @@ body {
   padding: 0;
 }
 
+.post-container {
+  width: 1640px;
+  max-width: 1740px;
+  padding: 0;
+}
+
 .navbar-container {
-  width: 1440px;
-  max-width: 1440px;
+  width: 1540px;
+  max-width: 1540px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -32,14 +38,23 @@ body {
     width: 1280px;
     max-width: 1280px;
   }
+
+  .post-container {
+    width: 1380px;
+    max-width: 1380px;
+  }
 }
-@media screen and (max-width: 1650px) {
-}
+
 @media screen and (max-width: 1440px) {
   .page-container,
   .navbar-container {
     width: 1024px;
     max-width: 1024px;
+  }
+
+  .post-container {
+    width: 1124px;
+    max-width: 1124px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -50,12 +65,22 @@ body {
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  .post-container {
+    width: 1060px;
+    max-width: 1060px;
+  }
 }
 @media screen and (max-width: 768px) {
   .page-container,
   .navbar-container {
     width: 720px;
     max-width: 720px;
+  }
+
+  .post-container {
+    width: 820px;
+    max-width: 820px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -64,26 +89,34 @@ body {
     width: 720px;
     max-width: 720px;
   }
+
+  .post-container {
+    width: 820px;
+    max-width: 820px;
+  }
 }
 
 @media screen and (max-width: 414px) {
   .page-container,
-  .navbar-container {
-    width: 374px;
-    max-width: 374px;
+  .navbar-container,
+  .post-container {
+    width: 474px;
+    max-width: 474px;
   }
 }
 @media screen and (max-width: 375px) {
   .page-container,
-  .navbar-container {
-    width: 355px;
-    max-width: 355px;
+  .navbar-container,
+  .post-container {
+    width: 455px;
+    max-width: 455px;
   }
 }
 @media screen and (max-width: 360px) {
   .page-container,
-  .navbar-container {
-    width: 335px;
-    max-width: 335px;
+  .navbar-container,
+  .post-container {
+    width: 435px;
+    max-width: 435px;
   }
 }

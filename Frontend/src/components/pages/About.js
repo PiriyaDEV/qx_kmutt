@@ -9,7 +9,7 @@ import qxArticleLogo from "../../assets/images/home/image 15.png";
 export default function About() {
   return (
     <div id="about-page" className="section">
-      <div className="page-container">
+      <div className="post-container">
         <div className="section">
           <img id="about-logo" src={qxArticleLogo} alt="" />
         </div>

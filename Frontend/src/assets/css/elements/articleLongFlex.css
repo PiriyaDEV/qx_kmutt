@@ -14,3 +14,8 @@
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
 }
+
+.posttp-long-flex {
+  height: 167px !important;
+  width: 159px !important;
+}
