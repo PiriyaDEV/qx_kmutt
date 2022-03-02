@@ -118,9 +118,9 @@ export default function Home() {
             loop
             loopAdditionalSlides={100}
             centeredSlides={false}
-            // autoplay={{
-            //   delay: 2500,
-            // }}
+            autoplay={{
+              delay: 2500,
+            }}
           >
             {article}
           </Swiper>
