@@ -1,0 +1,26 @@
+#research {
+  padding: 70px 0px;
+}
+
+#research-header > div > p {
+  margin-top: 38px;
+}
+
+#research-header > div > .small-grey-hr {
+  margin-top: 80px;
+  margin-left: auto;
+  width: 20%;
+}
+
+/* Choice */
+#research-tag {
+  margin-top: 40px;
+  gap: 31px;
+}
+
+#research-list {
+  margin-top: 60px;
+  gap: 39px;
+  display: flex;
+  flex-direction: column;
+}

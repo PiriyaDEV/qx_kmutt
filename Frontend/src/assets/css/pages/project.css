@@ -1,0 +1,57 @@
+/* Temp */
+.pj-blue-temp {
+  width: 80%;
+  height: 197px;
+  background-color: #8bbcc7;
+  border-radius: 20px;
+}
+
+.pj-grey-temp {
+  width: 80%;
+  height: 197px;
+  background-color: #e5e5e5;
+  border-radius: 20px;
+  margin-left: 50px;
+  margin-top: -80px;
+}
+
+/* Project */
+#project {
+  padding: 70px 0px;
+}
+
+#project-header {
+  display: grid;
+  align-items: flex-start;
+  justify-content: space-between;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 20px;
+}
+
+#project-header > div {
+  position: relative;
+}
+
+#project-header-text {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+
+#project-header-text > div:first-child > p {
+  margin-top: 38px;
+}
+
+/* Choice */
+#project-tag {
+  margin-top: 40px;
+  gap: 60px;
+}
+
+#project-list {
+  margin-top: 60px;
+  gap: 39px;
+  display: flex;
+  flex-direction: column;
+}

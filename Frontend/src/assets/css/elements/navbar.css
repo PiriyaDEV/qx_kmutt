@@ -1,6 +1,7 @@
 #navbar-box {
   justify-content: space-around;
   padding: 20px 0px;
+  position: relative;
 }
 
 #navbar {
@@ -9,4 +10,11 @@
 
 #navbar-box > h1{
     cursor: pointer;
+}
+
+#nav-logo{
+  width: 58px;
+  position: absolute;
+  left: -100px;
+  cursor: pointer;
 }

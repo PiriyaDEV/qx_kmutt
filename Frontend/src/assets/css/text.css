@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Quicksand:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Quicksand:wght@400;500;700&family=Sarabun:wght@400;500;700&display=swap");
 
 /* ตั้งค่าหน้า */
 body,
@@ -34,6 +34,10 @@ option {
 
 .quicksand {
   font-family: "Quicksand", sans-serif !important;
+}
+
+.sarabun {
+  font-family: "Sarabun", sans-serif !important;
 }
 
 /* Font 18px */
@@ -109,4 +113,35 @@ option {
 
 .grey-text {
   color: #c8c8c8;
+}
+
+.small-blue-hr {
+  background-color: #8bbcc7;
+  border-radius: 10px;
+  height: 5px;
+  border: none;
+  width: 80%;
+  margin-left: 0;
+}
+
+.small-grey-hr {
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  height: 5px;
+  border: none;
+  width: 30%;
+  margin-left: 0;
+}
+
+.small-ls {
+  letter-spacing: -0.022em;
+}
+
+.tag {
+  border: 3px solid #8bbcc7;
+  box-sizing: border-box;
+  border-radius: 25px;
+  padding: 0px 28px;
+  width: fit-content;
+  cursor: pointer;
 }
