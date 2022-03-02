@@ -1,0 +1,43 @@
+#article-page {
+  padding: 70px 0px;
+}
+
+#article-header {
+  display: grid;
+  align-items: flex-start;
+  justify-content: space-between;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 20px;
+}
+
+#article-header > div {
+  position: relative;
+}
+
+#article-header-text {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+
+#article-header-text > div:first-child > p {
+  margin-top: 38px;
+}
+
+#article-logo {
+  width: 325px;
+}
+
+/* Choice */
+#article-tag {
+  margin-top: 40px;
+  gap: 60px;
+}
+
+#article-list {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 80px;
+}

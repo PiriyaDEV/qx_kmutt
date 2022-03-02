@@ -1,0 +1,51 @@
+#member-page {
+  padding: 70px 0px;
+}
+
+/* Choice */
+#member-choice-section {
+  margin-top: 38px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#member-choice-section > div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.member-choice {
+  border-radius: 25px;
+  padding: 1px 20px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.red-choice {
+  background-color: #f16f63;
+}
+
+.blue-choice {
+  background-color: #8bbcc7;
+}
+
+.grey-choice {
+  background-color: #c8c8c8;
+}
+
+.member-grey-hr {
+  width: 100%;
+  margin-top: 25px;
+}
+
+/* List */
+#member-long-list {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 23px;
+  row-gap: 38px;
+  justify-content: space-between;
+}

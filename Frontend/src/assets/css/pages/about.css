@@ -1,0 +1,41 @@
+#about-page {
+  padding: 70px 0px;
+}
+
+#about-logo {
+  width: 350px;
+}
+
+/* Header */
+#about-header {
+  margin-top: 30px;
+}
+
+#about-header > p {
+  margin-top: 38px;
+}
+
+/* Collab */
+#about-collab {
+  margin-top: 100px;
+}
+#about-collab > div > hr {
+  width: 80%;
+  margin-left: auto;
+  margin-bottom: 22px;
+}
+
+#about-collab-list {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 123px;
+  row-gap: 23px;
+}
+
+.about-collab-temp {
+  background-color: #c8c8c8;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+}

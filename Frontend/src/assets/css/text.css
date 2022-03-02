@@ -120,7 +120,7 @@ option {
   border-radius: 10px;
   height: 5px;
   border: none;
-  width: 80%;
+  width: 500px;
   margin-left: 0;
 }
 
@@ -141,7 +141,11 @@ option {
   border: 3px solid #8bbcc7;
   box-sizing: border-box;
   border-radius: 25px;
-  padding: 0px 28px;
+  padding: 1px 28px;
   width: fit-content;
+  cursor: pointer;
+}
+
+.pointer{
   cursor: pointer;
 }
