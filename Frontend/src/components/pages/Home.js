@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
@@ -45,21 +45,15 @@ export default function Home() {
 
   const article = [];
 
-  const addArticle = () => {
-    for (let i = 0; i < 10; i += 1) {
-      article.push(
-        <SwiperSlide key={`home-slide-${i}`} tag="li">
-          <div>
-            <ArticleFlex />
-          </div>
-        </SwiperSlide>
-      );
-    }
-  };
-
-  useEffect(() => {
-    addArticle();
-  });
+  for (let i = 0; i < 10; i += 1) {
+    article.push(
+      <SwiperSlide key={`home-slide-${i}`} tag="li">
+        <div>
+          <ArticleFlex />
+        </div>
+      </SwiperSlide>
+    );
+  }
 
   return (
     <div>
