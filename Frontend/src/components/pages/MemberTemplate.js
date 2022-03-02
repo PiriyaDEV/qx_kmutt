@@ -24,8 +24,8 @@ export default function MemberTemplate() {
             <h1 className="w700 vbg-text small-ls">Member & Staff</h1>
             <hr className="small-blue-hr" />
             <div id="member-name">
-              <h1 className="w700 bg-text small-ls">ชื่อ นามสกุล</h1>
-              <p className="w500 sm-text small-ls member-choice red-choice white-text">
+              <h1 className="w700 bg-text small-ls sarabun">ชื่อ นามสกุล</h1>
+              <p className="w500 sm-text small-ls member-choice red-choice white-text sarabun">
                 นักวิจัย
               </p>
             </div>
@@ -33,7 +33,7 @@ export default function MemberTemplate() {
             <hr className="small-blue-hr" />
 
             <div id="member-info-contact">
-              <p className="w500 vsm-text small-ls">ตำแหน่ง</p>
+              <p className="w500 vsm-text small-ls sarabun">ตำแหน่ง</p>
               <p className="w500 vsm-text small-ls blue-text">
                 contact@qx.kmutt.ac.th
               </p>

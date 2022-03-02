@@ -20,7 +20,7 @@ export default function PostTemplate(props) {
         {/* Header */}
         <div id="post-header">
           <p
-            className="vsm-text w700 blue-text small-ls pointer"
+            className="vsm-text w700 blue-text small-ls pointer sarabun"
             onClick={() => linkPath(props.type)}
           >
             {props.type === "article" && "รวมบทความ"}
@@ -28,7 +28,7 @@ export default function PostTemplate(props) {
             {props.type === "project" && "รวม Project"}
           </p>
           <img className="post-arrow" src={postArrow} alt="" />
-          <p className="vsm-text w700 blue-text small-ls">
+          <p className="vsm-text w700 blue-text small-ls sarabun">
             ชื่อ บทความ จะแสดงตรงนี้ ความยาวของชื่อ ไม่ควรเกิน 1 - 2 บรรทัด
             เพราะมันจะยาวไป
           </p>
@@ -36,7 +36,7 @@ export default function PostTemplate(props) {
 
         {/* Title */}
         <div id="post-title">
-          <h1 className="bg-text w700">
+          <h1 className="bg-text w700 sarabun">
             ชื่อบทความจะแสดงตรงนี้ ความยาวของชื่อ ไม่ควรเกิน 1 - 2 บรรทัด
             เพราะมันจะยาวไป
           </h1>
@@ -72,7 +72,7 @@ export default function PostTemplate(props) {
 
         {props.type === "research" && (
           <div>
-            <p className="writer sm-text w500 small-ls">
+            <p className="writer sm-text w500 small-ls sarabun">
               Link : <span className="blue-text">ไปยังฐานข้อมูลวิจัย</span>
             </p>
 
@@ -80,7 +80,7 @@ export default function PostTemplate(props) {
           </div>
         )}
 
-        <p className="writer sm-text w500 small-ls">
+        <p className="writer sm-text w500 small-ls sarabun">
           ผู้เขียน : ชื่อสมาชิก/Admin
         </p>
 
@@ -91,7 +91,7 @@ export default function PostTemplate(props) {
         {/* List */}
         {props.type === "article" && (
           <div id="article-post-list" className="post-list">
-            <p className="writer sm-text w700 small-ls">
+            <p className="writer sm-text w700 small-ls sarabun">
               บทความอื่นที่ใกล้เคียงกัน
             </p>
             <div>
@@ -104,7 +104,7 @@ export default function PostTemplate(props) {
 
         {props.type === "project" && (
           <div id="project-post-list" className="post-list">
-            <p className="writer sm-text w700 small-ls">
+            <p className="writer sm-text w700 small-ls sarabun">
               บทความอื่นที่ใกล้เคียงกัน
             </p>
             <div>

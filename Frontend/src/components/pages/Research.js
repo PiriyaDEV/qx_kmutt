@@ -20,8 +20,8 @@ export default function Research() {
               <div>
                 <h1 className="vbg-text w700">Research</h1>
                 <hr className="small-blue-hr" />
-                <p className="sm-text w500 small-ls inter">
-                  รวมโครงการและกิจกรรม ที่จัดทำขึ้นโดยทีม QX KMUTT{" "}
+                <p className="sm-text w500 small-ls sarabun">
+                  งานวิจัยเกี่ยวกับ Quantum Computing โดยทีมวิจัย QX KMUTT
                 </p>
               </div>
 
@@ -32,9 +32,11 @@ export default function Research() {
 
             {/* Choice */}
             <div id="research-tag" className="section">
-              <h1 className="sm-text w500 tag blue-text">Journal</h1>
-              <h1 className="sm-text w500 tag blue-text">Proceeding</h1>
-              <h1 className="sm-text w500 tag blue-text">Senior Projects</h1>
+              <h1 className="sm-text w500 tag blue-text sarabun">Journal</h1>
+              <h1 className="sm-text w500 tag blue-text sarabun">Proceeding</h1>
+              <h1 className="sm-text w500 tag blue-text sarabun">
+                Senior Projects
+              </h1>
             </div>
           </div>
         </div>

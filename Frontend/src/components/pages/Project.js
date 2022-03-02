@@ -26,7 +26,7 @@ export default function Project() {
                 <div>
                   <h1 className="vbg-text w700">Project</h1>
                   <hr className="small-blue-hr" />
-                  <p className="sm-text w500 small-ls inter">
+                  <p className="sm-text w500 small-ls sarabun">
                     รวมโครงการและกิจกรรม ที่จัดทำขึ้นโดยทีม QX KMUTT{" "}
                   </p>
                 </div>
@@ -39,8 +39,8 @@ export default function Project() {
 
             {/* Choice */}
             <div id="project-tag" className="section">
-              <h1 className="sm-text w500 tag blue-text">กิจกรรม</h1>
-              <h1 className="sm-text w500 tag blue-text">โครงการ</h1>
+              <h1 className="sm-text w500 tag blue-text sarabun">กิจกรรม</h1>
+              <h1 className="sm-text w500 tag blue-text sarabun">โครงการ</h1>
             </div>
           </div>
         </div>

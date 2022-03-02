@@ -16,9 +16,9 @@ export default function About() {
 
         {/* Header */}
         <div id="about-header">
-          <h1 className="vbg-text w700">เกี่ยวกับเรา</h1>
+          <h1 className="vbg-text w700 sarabun">เกี่ยวกับเรา</h1>
           <hr className="small-blue-hr" />
-          <p className="xm-text w500">
+          <p className="xm-text w500 sarabun">
             ตัวอักษร Q มาจากตัวอักษรตัวแรกของคำว่า Quantum
             โดยตัวอักษรนี้จะสร้างให้เสมอว่าเกิดจากเส้นเดียวกันแต่มีการพลิก
             และถูกดัดโค้งให้กลายเป็นตัว Q ในที่สุด เพื่อสื่อถึงความต่อเนื่อง

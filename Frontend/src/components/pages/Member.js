@@ -24,18 +24,18 @@ export default function Member() {
             {/* Choice */}
             <div id="member-choice-section">
               <div>
-                <p className="sm-text w500 small-ls">
+                <p className="sm-text w500 small-ls sarabun">
                   สมาชิกของศูนย์วิจัย QX KMUTT{" "}
                 </p>
               </div>
               <div>
-                <h1 className="sm-text w500 member-choice red-choice white-text">
+                <h1 className="sm-text w500 member-choice red-choice white-text sarabun">
                   นักวิจัย
                 </h1>
-                <h1 className="sm-text w500 member-choice blue-choice white-text">
+                <h1 className="sm-text w500 member-choice blue-choice white-text sarabun">
                   สมาชิกปัจจุบัน
                 </h1>
-                <h1 className="sm-text w500 member-choice grey-choice white-text">
+                <h1 className="sm-text w500 member-choice grey-choice white-text sarabun">
                   สมาชิกเก่า
                 </h1>
               </div>

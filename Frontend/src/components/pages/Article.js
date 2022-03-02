@@ -26,9 +26,9 @@ export default function Article() {
               </div>
               <div id="article-header-text">
                 <div>
-                  <h1 className="vbg-text w700">บทความที่น่าสนใจ</h1>
+                  <h1 className="vbg-text w700 sarabun">บทความที่น่าสนใจ</h1>
                   <hr className="small-blue-hr" />
-                  <p className="sm-text w500 small-ls inter">
+                  <p className="sm-text w500 small-ls sarabun">
                     รวมบทความเกี่ยวกับ Quantum Computing ซึ่งเขียน หรือ
                     แปลโดยทีม QX KMUTT
                   </p>
@@ -42,12 +42,12 @@ export default function Article() {
 
             {/* Choice */}
             <div id="article-tag" className="section">
-              <h1 className="sm-text w500 blue-text pointer">
+              <h1 className="sm-text w500 blue-text pointer sarabun">
                 #QuantumComputing
               </h1>
-              <h1 className="sm-text w500 blue-text pointer">#Quantum101</h1>
-              <h1 className="sm-text w500 blue-text pointer">#QuantumXX</h1>
-              <h1 className="sm-text w500 blue-text pointer">#QXEvent</h1>
+              <h1 className="sm-text w500 blue-text pointer sarabun">#Quantum101</h1>
+              <h1 className="sm-text w500 blue-text pointer sarabun">#QuantumXX</h1>
+              <h1 className="sm-text w500 blue-text pointer sarabun">#QXEvent</h1>
             </div>
           </div>
         </div>

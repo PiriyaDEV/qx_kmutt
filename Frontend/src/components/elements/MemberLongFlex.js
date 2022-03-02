@@ -19,9 +19,9 @@ export default function MemberLongFlex(props) {
             props.color === "grey" && "mb-long-grey-tag"
           }`}
         />
-        <h1 className="vsm-text w500">ชื่อ-นามสกุล</h1>
-        <h1 className="vsm-text w500">ตำแหน่ง</h1>
-        <h1 className="vsm-text w500">Email ติดต่อ</h1>
+        <h1 className="vsm-text w500 sarabun">ชื่อ-นามสกุล</h1>
+        <h1 className="vsm-text w500 sarabun">ตำแหน่ง</h1>
+        <h1 className="vsm-text w500 sarabun">Email ติดต่อ</h1>
       </div>
     </div>
   );

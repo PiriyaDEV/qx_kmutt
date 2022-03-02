@@ -76,7 +76,7 @@ export default function Home() {
               <h1 className="nm-text w700">About</h1>
               <img className="orange-tri" src={orangeTriangle} alt="" />
             </div>
-            <p className="inter xm-text w500">
+            <p className="inter xm-text w500 sarabun">
               ตัวอักษร Q มาจากตัวอักษรตัวแรกของคำว่า Quantum
               โดยตัวอักษรนี้จะสร้างให้เสมอว่าเกิดจากเส้นเดียวกันแต่มีการพลิก
               และถูกดัดโค้งให้กลายเป็นตัว Q ในที่สุด เพื่อสื่อถึงความต่อเนื่อง
@@ -114,7 +114,7 @@ export default function Home() {
           >
             {article}
           </Swiper>
-          <h1 className="vsm-text white-text w700">
+          <h1 className="vsm-text white-text w700 sarabun">
             &lt;&lt; แสดงทั้งหมด &gt;&gt;
           </h1>
           <img className="prev-article-arrow" src={leftArrow} alt="" />
@@ -130,10 +130,10 @@ export default function Home() {
             <div className="project-grid">
               <div id="project-info">
                 <hr className="blue-hr" />
-                <p className="vsm-text w500">
+                <p className="vsm-text w500 sarabun">
                   โครงการที่น่าสนใจของ QX <br /> ทั้งในอดีต ตลอดจนปัจจุบัน
                 </p>
-                <p className="vsm-text w500 blue-text">แสดงทั้งหมด &gt;&gt;</p>
+                <p className="vsm-text w500 blue-text sarabun">แสดงทั้งหมด &gt;&gt;</p>
               </div>
               <div className="temp-project" />
             </div>
@@ -155,7 +155,7 @@ export default function Home() {
               <img className="orange-tri" src={orangeTriangle} alt="" />
               <h1 className="nm-text w700">Member</h1>
               <img className="orange-tri" src={orangeTriangle} alt="" />
-              <p className="vsm-text w500 blue-text">
+              <p className="vsm-text w500 blue-text sarabun">
                 รายละเอียดทั้งหมด &gt;&gt;
               </p>
             </div>
