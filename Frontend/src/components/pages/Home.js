@@ -105,25 +105,28 @@ export default function Home() {
       >
         <div id="article-container" className="page-container">
           <h1 className="nm-text white-text w700">Articles</h1>
-          <Swiper
-            id="home-swiper"
-            tag="section"
-            wrapperTag="ul"
-            spaceBetween={80}
-            navigation={{
-              prevEl: ".prev-article-arrow",
-              nextEl: ".next-article-arrow",
-            }}
-            slidesPerView={3}
-            loop
-            loopAdditionalSlides={100}
-            centeredSlides={false}
-            autoplay={{
-              delay: 2500,
-            }}
-          >
-            {article}
-          </Swiper>
+          {article && (
+            <Swiper
+              id="home-swiper"
+              tag="section"
+              wrapperTag="ul"
+              spaceBetween={80}
+              navigation={{
+                prevEl: ".prev-article-arrow",
+                nextEl: ".next-article-arrow",
+              }}
+              slidesPerView={3}
+              loop
+              loopAdditionalSlides={100}
+              centeredSlides={false}
+              autoplay={{
+                delay: 2500,
+              }}
+            >
+              {article}
+            </Swiper>
+          )}
+
           <h1
             className="vsm-text white-text w700 sarabun pointer"
             onClick={() => linkPath("/article")}
