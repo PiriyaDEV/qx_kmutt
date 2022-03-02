@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -10,6 +10,21 @@ export default function Research() {
   const linkPath = (path) => {
     window.location.href = path;
   };
+
+  const [researchFilter, setResearchFilter] = useState([false, false, false]);
+
+  const selectFilter = (type) => {
+    let temp = [...researchFilter];
+    if (type === "journal") {
+      temp[0] = !temp[0];
+    } else if (type === "proceeding") {
+      temp[1] = !temp[1];
+    } else {
+      temp[2] = !temp[2];
+    }
+    setResearchFilter(temp);
+  };
+
   return (
     <div id="research" className="section">
       <div>
@@ -32,9 +47,28 @@ export default function Research() {
 
             {/* Choice */}
             <div id="research-tag" className="section">
-              <h1 className="sm-text w500 tag blue-text sarabun">Journal</h1>
-              <h1 className="sm-text w500 tag blue-text sarabun">Proceeding</h1>
-              <h1 className="sm-text w500 tag blue-text sarabun">
+              <h1
+                onClick={() => selectFilter("journal")}
+                className={`sm-text w500 tag blue-text sarabun ${
+                  researchFilter[0] ? "active-tag" : null
+                }`}
+              >
+                Journal
+              </h1>
+              <h1
+                onClick={() => selectFilter("proceeding")}
+                className={`sm-text w500 tag blue-text sarabun ${
+                  researchFilter[1] ? "active-tag" : null
+                }`}
+              >
+                Proceeding
+              </h1>
+              <h1
+                onClick={() => selectFilter("sn-project")}
+                className={`sm-text w500 tag blue-text sarabun ${
+                  researchFilter[2] ? "active-tag" : null
+                }`}
+              >
                 Senior Projects
               </h1>
             </div>

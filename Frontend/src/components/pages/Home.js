@@ -173,7 +173,10 @@ export default function Home() {
               <img className="orange-tri" src={orangeTriangle} alt="" />
               <h1 className="nm-text w700">Member</h1>
               <img className="orange-tri" src={orangeTriangle} alt="" />
-              <p className="vsm-text w500 blue-text sarabun pointer" onClick={() => linkPath("/member")}>
+              <p
+                className="vsm-text w500 blue-text sarabun pointer"
+                onClick={() => linkPath("/member")}
+              >
                 รายละเอียดทั้งหมด &gt;&gt;
               </p>
             </div>

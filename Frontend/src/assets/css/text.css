@@ -146,6 +146,11 @@ option {
   cursor: pointer;
 }
 
+.active-tag{
+  background-color: #8bbcc7;
+  color: #ffffff !important;
+}
+
 .pointer{
   cursor: pointer;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -7,6 +7,18 @@ import "../../assets/css/pages/project.css";
 import ArticleLongFlex from "../elements/ArticleLongFlex";
 
 export default function Project() {
+  const [projectFilter, setProjectFilter] = useState([false, false]);
+
+  const selectFilter = (type) => {
+    let temp = [...projectFilter];
+    if (type === "activity") {
+      temp[0] = !temp[0];
+    } else {
+      temp[1] = !temp[1];
+    }
+    setProjectFilter(temp);
+  };
+
   const linkPath = (path) => {
     window.location.href = path;
   };
@@ -39,8 +51,22 @@ export default function Project() {
 
             {/* Choice */}
             <div id="project-tag" className="section">
-              <h1 className="sm-text w500 tag blue-text sarabun">กิจกรรม</h1>
-              <h1 className="sm-text w500 tag blue-text sarabun">โครงการ</h1>
+              <h1
+                onClick={() => selectFilter("activity")}
+                className={`sm-text w500 tag blue-text sarabun ${
+                  projectFilter[0] ? "active-tag" : null
+                }`}
+              >
+                กิจกรรม
+              </h1>
+              <h1
+                onClick={() => selectFilter("project")}
+                className={`sm-text w500 tag blue-text sarabun ${
+                  projectFilter[1] ? "active-tag" : null
+                }`}
+              >
+                โครงการ
+              </h1>
             </div>
           </div>
         </div>
