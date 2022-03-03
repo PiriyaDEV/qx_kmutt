@@ -54,7 +54,12 @@
   margin-top: 60px;
   margin-bottom: 20px;
   width: 100%;
+  /* max-width: 204px !important; */
 }
+
+/* .article-flex-box{
+  width: 100%;
+} */
 
 .swiper-wrapper {
   padding-left: 0px;

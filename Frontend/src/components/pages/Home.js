@@ -48,7 +48,7 @@ export default function Home() {
   for (let i = 0; i < 10; i += 1) {
     article.push(
       <SwiperSlide key={`home-slide-${i}`} tag="li">
-        <div>
+        <div className="section">
           <ArticleFlex />
         </div>
       </SwiperSlide>
@@ -104,19 +104,18 @@ export default function Home() {
               id="home-swiper"
               tag="section"
               wrapperTag="ul"
-              spaceBetween={80}
+              // spaceBetween={80}
               navigation={{
                 prevEl: ".prev-article-arrow",
                 nextEl: ".next-article-arrow",
               }}
-              
               slidesPerView={3}
               loop
               loopAdditionalSlides={100}
               centeredSlides={false}
-              autoplay={{
-                delay: 2500,
-              }}
+              // autoplay={{
+              //   delay: 2500,
+              // }}
               breakpoints={{
                 500: {
                   slidesPerView: 3,
