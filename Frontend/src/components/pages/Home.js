@@ -109,12 +109,24 @@ export default function Home() {
                 prevEl: ".prev-article-arrow",
                 nextEl: ".next-article-arrow",
               }}
+              
               slidesPerView={3}
               loop
               loopAdditionalSlides={100}
               centeredSlides={false}
               autoplay={{
                 delay: 2500,
+              }}
+              breakpoints={{
+                500: {
+                  slidesPerView: 3,
+                },
+                700: {
+                  slidesPerView: 3,
+                },
+                1020: {
+                  slidesPerView: 3,
+                },
               }}
             >
               {article}
