@@ -13,24 +13,27 @@
   "pluginOptions": {},
   "attributes": {
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "required": true,
+      "minLength": 3,
+      "targetField": "title"
     },
     "cover": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
+        "videos"
       ]
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "content": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "category": {
       "type": "enumeration",
@@ -38,13 +41,25 @@
         "journal",
         "proceeding",
         "senior_projects"
-      ]
+      ],
+      "required": true
     },
-    "written_date": {
-      "type": "date"
+    "published_date": {
+      "type": "date",
+      "required": true
     },
-    "research_db_url": {
+    "research_database_url": {
       "type": "string"
+    },
+    "writer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::member.member"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
     }
   }
 }

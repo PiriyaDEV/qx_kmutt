@@ -4,7 +4,7 @@
   "info": {
     "singularName": "member",
     "pluralName": "members",
-    "displayName": "member",
+    "displayName": "Member",
     "description": ""
   },
   "options": {
@@ -13,19 +13,26 @@
   "pluginOptions": {},
   "attributes": {
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "required": true,
+      "minLength": 3,
+      "targetField": "firstname"
     },
     "firstname": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "lastname": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "email": {
-      "type": "email"
+      "type": "email",
+      "required": true
     },
     "position": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "role": {
       "type": "enumeration",
@@ -33,17 +40,16 @@
         "researcher",
         "current_member",
         "old_member"
-      ]
+      ],
+      "required": true
     },
     "profile_picture": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
+        "videos"
       ]
     },
     "description": {
