@@ -111,7 +111,7 @@ export default function Home() {
               }}
               slidesPerView={3}
               loop
-              loopAdditionalSlides={100}
+              loopAdditionalSlides={10}
               centeredSlides={false}
               // autoplay={{
               //   delay: 2500,

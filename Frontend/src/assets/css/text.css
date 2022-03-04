@@ -28,6 +28,22 @@ option {
   background-color: transparent;
 }
 
+blockquote {
+  background: #f9f9f9;
+  border-left: 5px solid #378798;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #378798;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
 .inter {
   font-family: "Inter", sans-serif !important;
 }

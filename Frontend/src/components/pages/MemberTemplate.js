@@ -57,7 +57,7 @@ export default function MemberTemplate() {
 
         {/* Research */}
         <div className="member-info-work">
-          <h1 className="w700 nm-text small-ls">Research</h1>
+          <h1 className="w700 nm-text small-ls sarabun">บทความที่น่าสนใจ</h1>
           <div id="mb-info-flex" onClick={() => linkPath("/article-post")}>
             <ArticleFlex />
             <ArticleFlex />
