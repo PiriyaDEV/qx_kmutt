@@ -22,6 +22,9 @@ export default function Project() {
   const linkPath = (path) => {
     window.location.href = path;
   };
+
+
+
   return (
     <div id="project" className="section">
       <div>

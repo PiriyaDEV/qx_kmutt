@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from 'react-redux'
 
 import ArticleFlex from "../elements/ArticleFlex";
 
@@ -9,6 +10,8 @@ import "../../assets/css/pages/article.css";
 import qxArticleLogo from "../../assets/images/home/image 15.png";
 
 export default function Article() {
+  const articles = useSelector(state => state.articles.articles)
+
   const linkPath = (path) => {
     window.location.href = path;
   };
@@ -45,32 +48,26 @@ export default function Article() {
               <h1 className="sm-text w500 blue-text pointer sarabun">
                 #QuantumComputing
               </h1>
-              <h1 className="sm-text w500 blue-text pointer sarabun">#Quantum101</h1>
-              <h1 className="sm-text w500 blue-text pointer sarabun">#QuantumXX</h1>
-              <h1 className="sm-text w500 blue-text pointer sarabun">#QXEvent</h1>
+              <h1 className="sm-text w500 blue-text pointer sarabun">
+                #Quantum101
+              </h1>
+              <h1 className="sm-text w500 blue-text pointer sarabun">
+                #QuantumXX
+              </h1>
+              <h1 className="sm-text w500 blue-text pointer sarabun">
+                #QXEvent
+              </h1>
             </div>
           </div>
         </div>
         <div className="post-container">
           <div id="article-list">
-            <div onClick={() => linkPath("/article-post")}>
-              <ArticleFlex />
-            </div>
-            <div onClick={() => linkPath("/article-post")}>
-              <ArticleFlex />
-            </div>
-            <div onClick={() => linkPath("/article-post")}>
-              <ArticleFlex />
-            </div>
-            <div onClick={() => linkPath("/article-post")}>
-              <ArticleFlex />
-            </div>
-            <div onClick={() => linkPath("/article-post")}>
-              <ArticleFlex />
-            </div>
-            <div onClick={() => linkPath("/article-post")}>
-              <ArticleFlex />
-            </div>
+            {articles &&
+              articles.map((article, index) => (
+                <div onClick={() => linkPath("/article-post/" + article.attributes.slug)} key={index}>
+                  <ArticleFlex data={article} />
+                </div>
+              ))}
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import Home from "./components/pages/Home";
 import Navbar from "./components/elements/Navbar";
@@ -12,7 +13,15 @@ import About from "./components/pages/About";
 import PostTemplate from "./components/pages/PostTemplate";
 import MemberTemplate from "./components/pages/MemberTemplate";
 
+import { fetchArticle } from "./redux";
+
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchArticle());
+  }, [dispatch]);
+
   return (
     <div>
       <Switch>
@@ -48,7 +57,7 @@ function App() {
         </Route>
 
         {/* Post */}
-        <Route path="/article-post" id="app-article-post">
+        <Route path="/article-post/:slug" id="app-article-post">
           <Navbar path={"article-post"} />
           <PostTemplate type={"article"} />
           <Footer />
