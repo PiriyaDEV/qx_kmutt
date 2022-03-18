@@ -1,6 +1,6 @@
 {
   "kind": "collectionType",
-  "collectionName": "all_research",
+  "collectionName": "researches",
   "info": {
     "singularName": "research",
     "pluralName": "researches",
