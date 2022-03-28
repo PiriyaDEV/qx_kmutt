@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect , useState } from "react";
 import { useSelector } from 'react-redux'
 
 import ArticleFlex from "../elements/ArticleFlex";
+import TagService from "../../services/tag";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -11,6 +12,13 @@ import qxArticleLogo from "../../assets/images/home/image 15.png";
 
 export default function Article() {
   const articles = useSelector(state => state.articles.articles)
+  const [tags, setTag] = useState([])
+
+  useEffect(()=> {
+    TagService.getTags().then((response) => {
+      setTag(response)
+    });
+  },[])
 
   const linkPath = (path) => {
     window.location.href = path;
@@ -45,18 +53,11 @@ export default function Article() {
 
             {/* Choice */}
             <div id="article-tag" className="section">
-              <h1 className="sm-text w500 blue-text pointer sarabun">
-                #QuantumComputing
+            {tags && tags.map((tag,index) => (
+              <h1 className="sm-text w500 blue-text pointer sarabun" key={index}>
+                #{tag.attributes.tag_name}
               </h1>
-              <h1 className="sm-text w500 blue-text pointer sarabun">
-                #Quantum101
-              </h1>
-              <h1 className="sm-text w500 blue-text pointer sarabun">
-                #QuantumXX
-              </h1>
-              <h1 className="sm-text w500 blue-text pointer sarabun">
-                #QXEvent
-              </h1>
+            ))}  
             </div>
           </div>
         </div>

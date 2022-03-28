@@ -1,7 +1,8 @@
-import { FETCH_ARTICLES } from "./type";
+import { FETCH_ARTICLES , FETCH_ARTICLESBYID } from "./type";
 
 const initialState = {
   articles: [],
+  articlesById: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         articles: action.payload,
+      };
+    case FETCH_ARTICLESBYID: 
+      return {
+        ...state,
+        articlesById: action.payload,
       };
     default:
       return state;

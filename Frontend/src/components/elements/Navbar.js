@@ -23,19 +23,19 @@ export default function Navbar(props) {
           />
         )}
 
-        <h1 className="vsm-text w500" onClick={() => linkPath("project")}>
+        <h1 className="vsm-text w500" onClick={() => linkPath("/project")}>
           Projects
         </h1>
-        <h1 className="vsm-text w500" onClick={() => linkPath("research")}>
+        <h1 className="vsm-text w500" onClick={() => linkPath("/research")}>
           Research
         </h1>
-        <h1 className="vsm-text w500" onClick={() => linkPath("article")}>
+        <h1 className="vsm-text w500" onClick={() => linkPath("/article")}>
           Articles
         </h1>
-        <h1 className="vsm-text w500" onClick={() => linkPath("member")}>
+        <h1 className="vsm-text w500" onClick={() => linkPath("/member")}>
           Member
         </h1>
-        <h1 className="vsm-text w500" onClick={() => linkPath("about")}>
+        <h1 className="vsm-text w500" onClick={() => linkPath("/about")}>
           About
         </h1>
       </div>

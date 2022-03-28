@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router";
-// import { useSelector } from "react-redux";
+import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -10,28 +10,30 @@ import postArrow from "../../assets/images/icon/Vector 1.png";
 
 import ArticleLongFlex from "../elements/ArticleLongFlex";
 import ArticleFlex from "../elements/ArticleFlex";
+import ImageService from "../../services/image";
 
 export default function PostTemplate(props) {
-  // const { slug } = useParams();
-  // const articles = useSelector((state) => state.articles.articles);
-  // const [article, setArticle] = useState();
+  const { slug } = useParams();
+  const articles = useSelector((state) => state.articles.articles);
+  const [post, setPost] = useState();
 
-  // useEffect(() => {
-  //   props.type === "article"
-  //     ? setArticle(articles.find((article) => article.attributes.slug === slug))
-  //     : setArticle({});
-  // }, []);
+  useEffect(() => {
+    props.type === "article"
+      ? setPost(articles.find((article) => article.attributes.slug === slug))
+      : setPost({});
+  }, [articles, props.type, slug]);
 
-  // useEffect(() => {
-  //   if (articles) {
-  //     let result = articles.find((article) => article.attributes.slug === slug);
+  useEffect(() => {
+    if (articles) {
+      let result = articles.find((article) => article.attributes.slug === slug);
 
-  //     if (result) {
-  //       setArticle(result);
-  //       console.log(result.attributes.title);
-  //     }
-  //   }
-  // }, [articles, article, slug]);
+      if (result) {
+        setPost(result);
+      }
+    }
+  }, [articles, post, slug]);
+
+  console.log(post);
 
   const linkPath = (value) => {
     let path = "/" + value;
@@ -52,46 +54,57 @@ export default function PostTemplate(props) {
             {props.type === "project" && "รวม Project"}
           </p>
           <img className="post-arrow" src={postArrow} alt="" />
-          {/* {article && (
+          {post && (
             <p className="vsm-text w700 blue-text small-ls sarabun">
-              {article.attributes.title}
+              {post.attributes.title}
             </p>
-          )} */}
+          )}
         </div>
         {/* Title */}
         <div id="post-title">
-          {/* {article && (
-            <h1 className="bg-text w700 sarabun">{article.attributes.title}</h1>
-          )} */}
+          {post && (
+            <h1 className="bg-text w700 sarabun">{post.attributes.title}</h1>
+          )}
           <hr className="small-blue-hr" />
         </div>
 
         {/* Image */}
-        {props.type === "article" ? (
+
+        {post && props.type === "article" && (
           <div>
-            <div className="article-img" />
+            <img
+              src={ImageService.getCover(post)}
+              alt=""
+              className="article-img"
+            />
           </div>
-        ) : (
+        )}
+
+        {post && props.type === "research" && (
           <div>
             <div className="research-img" />
           </div>
         )}
 
         {/* Strapi */}
-        <div className="xm2-text" dangerouslySetInnerHTML={{ __html: "" }} />
+        {post && (
+          <div
+            className="xm2-text"
+            dangerouslySetInnerHTML={{ __html: post.attributes.content }}
+          />
+        )}
 
         {/* Tag */}
         <div id="post-tag">
-          <h1 className="vsm-text w500 small-ls blue-text pointer">
-            #QuantumComputing
-          </h1>
-          <h1 className="vsm-text w500 small-ls blue-text pointer">
-            #QuantumXX
-          </h1>
-          <h1 className="vsm-text w500 small-ls blue-text pointer">
-            #Quantum101
-          </h1>
-          <h1 className="vsm-text w500 small-ls blue-text pointer">#QXEvent</h1>
+          {post &&
+            post.attributes.tags.data.map((postTag, index) => (
+              <h1
+                className="vsm-text w500 small-ls blue-text pointer"
+                key={index}
+              >
+                #{postTag.attributes.tag_name}
+              </h1>
+            ))}
         </div>
 
         {props.type === "research" && (
@@ -104,9 +117,11 @@ export default function PostTemplate(props) {
           </div>
         )}
 
-        <p className="writer sm-text w500 small-ls sarabun">
-          ผู้เขียน : ชื่อสมาชิก/Admin
-        </p>
+        {post && post.attributes.writer.data && (
+          <p className="writer sm-text w500 small-ls sarabun">
+            ผู้เขียน : {post.attributes.writer.data.attributes.firstname} {post.attributes.writer.data.attributes.lastname}
+          </p>
+        )}
 
         {props.type !== "research" && (
           <hr className="post-grey-hr small-grey-hr" />
