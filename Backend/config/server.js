@@ -4,5 +4,5 @@ module.exports = ({ env }) => ({
   app: {
     keys: env.array("APP_KEYS"),
   },
-  //url: env("API_URL", "http://localhost:1337/strapi"),
+  //url: env("API_URL", ""),
 });
