@@ -6,8 +6,13 @@ import "../../assets/css/elements/articleFlex.css"
 import ImageService from "../../services/image";
 
 export default function ArticleFlex(props) {
+
+  const linkPath = (path) => {
+    window.location.href = path;
+  };
+
   return (
-    <div className="article-flex">
+    <div className="article-flex" onClick={() => linkPath("/article-post/" + props.data.attributes.slug)}>
         {
           props.data ? (
             <img src={ImageService.getCover(props.data)} alt=""/>

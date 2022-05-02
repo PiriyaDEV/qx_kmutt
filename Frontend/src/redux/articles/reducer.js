@@ -1,8 +1,23 @@
-import { FETCH_ARTICLES , FETCH_ARTICLESBYID } from "./type";
+import { FETCH_ARTICLES , FETCH_ARTICLES_BY_SLUG } from "./type";
 
 const initialState = {
   articles: [],
-  articlesById: [],
+  article: {
+    attributes: {
+      slug: "",
+      title: "",
+      content: "",
+      published_date: "",
+      cover: {
+        data: {
+          attributes: {
+            url: ""
+          }
+        }
+      }
+    },
+    id: 0
+  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,10 +27,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         articles: action.payload,
       };
-    case FETCH_ARTICLESBYID: 
+    case FETCH_ARTICLES_BY_SLUG:
       return {
         ...state,
-        articlesById: action.payload,
+        article: action.payload,
       };
     default:
       return state;

@@ -1,10 +1,10 @@
-import { FETCH_ARTICLES , FETCH_ARTICLESBYID } from "./type";
+import { FETCH_ARTICLES , FETCH_ARTICLES_BY_SLUG } from "./type";
 
 import ArticleService from "../../services/article.js";
 
-export const fetchArticle = () => {
+export const fetchArticle = (pageSize = 25) => {
   return (dispatch) => {
-    ArticleService.getArticles().then((response) => {
+    ArticleService.getArticles(pageSize).then((response) => {
       if (response.length) {
         dispatch(fetchArticleSuccess(response));
       }
@@ -12,12 +12,11 @@ export const fetchArticle = () => {
   };
 };
 
-export const fetchArticleById = (id) => { 
+export const fetchArticleBySlug = (slug) => { 
   return (dispatch) => {
-      ArticleService.getArticleById(id).then((response) => {
+      ArticleService.getArticleBySlug(slug).then((response) => {
           if (response.length) {
-            console.log(response)
-              dispatch(fetchArticleByIdSuccess(response));
+              dispatch(fetchArticleBySlugSuccess(response[0]));
             }
         });
   };
@@ -30,9 +29,9 @@ export const fetchArticleSuccess = (articles) => {
   };
 };
 
-export const fetchArticleByIdSuccess = (articles) => {
+export const fetchArticleBySlugSuccess = (article) => {
   return {
-    type: FETCH_ARTICLESBYID,
-    payload: articles,
+    type: FETCH_ARTICLES_BY_SLUG,
+    payload: article,
   };
 };

@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector} from "react-redux";
+import { fetchArticle } from "../../redux";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
@@ -34,6 +36,12 @@ SwiperCore.use([Navigation, Pagination, Controller, Thumbs, Autoplay]);
 
 export default function Home() {
   const [refresh, setRefresh] = useState(false);
+  const articles = useSelector(state => state.articles.articles)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchArticle(9));
+  }, [dispatch]);
 
   const refreshMember = () => {
     setRefresh(!refresh);
@@ -45,11 +53,11 @@ export default function Home() {
 
   const article = [];
 
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < articles.length; i += 1) {
     article.push(
       <SwiperSlide key={`home-slide-${i}`} tag="li">
         <div className="section">
-          <ArticleFlex />
+          <ArticleFlex data={articles[i]} />
         </div>
       </SwiperSlide>
     );

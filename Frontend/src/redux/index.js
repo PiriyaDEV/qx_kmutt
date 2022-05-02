@@ -1,1 +1,1 @@
-export { fetchArticle, fetchArticleById } from "./articles/actions";
+export { fetchArticle, fetchArticleBySlug } from "./articles/actions";

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState , useEffect } from "react";
 import { useParams } from "react-router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -12,28 +12,34 @@ import ArticleLongFlex from "../elements/ArticleLongFlex";
 import ArticleFlex from "../elements/ArticleFlex";
 import ImageService from "../../services/image";
 
+import { fetchArticleBySlug } from "../../redux";
+
 export default function PostTemplate(props) {
+  const article = useSelector(state => state.articles.article);
+  const dispatch = useDispatch();
   const { slug } = useParams();
-  const articles = useSelector((state) => state.articles.articles);
-  const [post, setPost] = useState();
+  const [post, setPost] = useState(0);
 
   useEffect(() => {
-    props.type === "article"
-      ? setPost(articles.find((article) => article.attributes.slug === slug))
-      : setPost({});
-  }, [articles, props.type, slug]);
+    dispatch(fetchArticleBySlug(slug));
+  }, [dispatch,slug]);
+
 
   useEffect(() => {
-    if (articles) {
-      let result = articles.find((article) => article.attributes.slug === slug);
-
-      if (result) {
-        setPost(result);
-      }
+    if(article) {
+      setPost(article)
     }
-  }, [articles, post, slug]);
+  }, [article]);
 
-  console.log(post);
+  // useEffect(() => {
+  //   if (articles) {
+
+  //     if (result) {
+  //       setPost(result);
+  //     }
+  //   }
+  // }, [article, post, slug]);
+
 
   const linkPath = (value) => {
     let path = "/" + value;
@@ -95,7 +101,7 @@ export default function PostTemplate(props) {
         )}
 
         {/* Tag */}
-        <div id="post-tag">
+        {/* <div id="post-tag">
           {post &&
             post.attributes.tags.data.map((postTag, index) => (
               <h1
@@ -105,7 +111,7 @@ export default function PostTemplate(props) {
                 #{postTag.attributes.tag_name}
               </h1>
             ))}
-        </div>
+        </div> */}
 
         {props.type === "research" && (
           <div>
@@ -117,11 +123,11 @@ export default function PostTemplate(props) {
           </div>
         )}
 
-        {post && post.attributes.writer.data && (
+        {/* {post && post.attributes.writer.data && (
           <p className="writer sm-text w500 small-ls sarabun">
             ผู้เขียน : {post.attributes.writer.data.attributes.firstname} {post.attributes.writer.data.attributes.lastname}
           </p>
-        )}
+        )} */}
 
         {props.type !== "research" && (
           <hr className="post-grey-hr small-grey-hr" />

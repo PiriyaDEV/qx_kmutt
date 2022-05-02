@@ -20,9 +20,9 @@ export default function Article() {
     });
   },[])
 
-  const linkPath = (path) => {
-    window.location.href = path;
-  };
+  // const linkPath = (path) => {
+  //   window.location.href = path;
+  // };
 
   return (
     <div id="article-page" className="section">
@@ -65,7 +65,7 @@ export default function Article() {
           <div id="article-list">
             {articles &&
               articles.map((article, index) => (
-                <div onClick={() => linkPath("/article-post/" + article.attributes.slug)} key={index}>
+                <div key={index}>
                   <ArticleFlex data={article} />
                 </div>
               ))}
