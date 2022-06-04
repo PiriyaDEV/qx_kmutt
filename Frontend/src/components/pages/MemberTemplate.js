@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -8,6 +9,8 @@ import ArticleFlex from "../elements/ArticleFlex";
 import ArticleLongFlex from "../elements/ArticleLongFlex";
 
 export default function MemberTemplate() {
+  const { t } = useTranslation();
+
   const linkPath = (path) => {
     window.location.href = path;
   };
@@ -21,7 +24,7 @@ export default function MemberTemplate() {
             <div id="member-info-img" />
           </div>
           <div>
-            <h1 className="w700 vbg-text small-ls">Member & Staff</h1>
+            <h1 className="w700 vbg-text small-ls">{t('MemberTemplate.MemberTitle')}</h1>
             <hr className="small-blue-hr" />
             <div id="member-name">
               <h1 className="w700 bg-text small-ls sarabun">ชื่อ นามสกุล</h1>
@@ -48,7 +51,7 @@ export default function MemberTemplate() {
 
         {/* Research */}
         <div className="member-info-work">
-          <h1 className="w700 nm-text small-ls">Research</h1>
+          <h1 className="w700 nm-text small-ls">{t('MemberTemplate.Research')}</h1>
           <div id="mb-info-long-flex" onClick={() => linkPath("/research-post")}>
             <ArticleLongFlex />
             <ArticleLongFlex />
@@ -57,7 +60,7 @@ export default function MemberTemplate() {
 
         {/* Research */}
         <div className="member-info-work">
-          <h1 className="w700 nm-text small-ls sarabun">บทความที่น่าสนใจ</h1>
+          <h1 className="w700 nm-text small-ls sarabun">{t('MemberTemplate.Article')}</h1>
           <div id="mb-info-flex" onClick={() => linkPath("/article-post")}>
             <ArticleFlex />
             <ArticleFlex />

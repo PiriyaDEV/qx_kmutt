@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -7,6 +8,7 @@ import "../../assets/css/pages/research.css";
 import ArticleLongFlex from "../elements/ArticleLongFlex";
 
 export default function Research() {
+  const { t } = useTranslation();
   const linkPath = (path) => {
     window.location.href = path;
   };
@@ -33,10 +35,10 @@ export default function Research() {
             {/* Header */}
             <div id="research-header">
               <div>
-                <h1 className="vbg-text w700">Research</h1>
+                <h1 className="vbg-text w700">{t('Research.Research')}</h1>
                 <hr className="small-blue-hr" />
                 <p className="sm-text w500 small-ls sarabun">
-                  งานวิจัยเกี่ยวกับ Quantum Computing โดยทีมวิจัย QX KMUTT
+                  {t('Research.ResearchDescription')}
                 </p>
               </div>
 
@@ -53,7 +55,7 @@ export default function Research() {
                   researchFilter[0] ? "active-tag" : null
                 }`}
               >
-                Journal
+                {t('Research.Journal')}
               </h1>
               <h1
                 onClick={() => selectFilter("proceeding")}
@@ -61,7 +63,7 @@ export default function Research() {
                   researchFilter[1] ? "active-tag" : null
                 }`}
               >
-                Proceeding
+                {t('Research.Proceeding')}
               </h1>
               <h1
                 onClick={() => selectFilter("sn-project")}
@@ -69,7 +71,7 @@ export default function Research() {
                   researchFilter[2] ? "active-tag" : null
                 }`}
               >
-                Senior Projects
+                {t('Research.SeniorP')}
               </h1>
             </div>
           </div>

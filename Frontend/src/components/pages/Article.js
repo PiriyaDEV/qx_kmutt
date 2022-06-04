@@ -1,5 +1,6 @@
 import React, { useEffect , useState } from "react";
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+import { useTranslation } from "react-i18next";
 
 import ArticleFlex from "../elements/ArticleFlex";
 import TagService from "../../services/tag";
@@ -13,6 +14,7 @@ import qxArticleLogo from "../../assets/images/home/image 15.png";
 export default function Article() {
   const articles = useSelector(state => state.articles.articles)
   const [tags, setTag] = useState([])
+  const { t } = useTranslation();
 
   useEffect(()=> {
     TagService.getTags().then((response) => {
@@ -37,11 +39,10 @@ export default function Article() {
               </div>
               <div id="article-header-text">
                 <div>
-                  <h1 className="vbg-text w700 sarabun">บทความที่น่าสนใจ</h1>
+                  <h1 className="vbg-text w700 sarabun">{t('Article.Articles')}</h1>
                   <hr className="small-blue-hr" />
                   <p className="sm-text w500 small-ls sarabun">
-                    รวมบทความเกี่ยวกับ Quantum Computing ซึ่งเขียน หรือ
-                    แปลโดยทีม QX KMUTT
+                  {t('Article.ArticleDescription')}
                   </p>
                 </div>
 

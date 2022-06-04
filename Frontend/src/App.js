@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Home from "./components/pages/Home";
@@ -13,8 +13,15 @@ import PostTemplate from "./components/pages/PostTemplate";
 import MemberTemplate from "./components/pages/MemberTemplate";
 
 function App() {
+
+  const Loader = () => (
+    <div className="App">
+      <div>loading...</div>
+    </div>
+  );
   
   return (
+    <Suspense fallback={<Loader />}>
     <div>
       <Switch>
         <Route exact path="/" id="app-home">
@@ -78,6 +85,7 @@ function App() {
         </Route> */}
       </Switch>
     </div>
+    </Suspense>
   );
 }
 

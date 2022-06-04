@@ -1,6 +1,7 @@
 import React, { useState , useEffect } from "react";
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -19,6 +20,7 @@ export default function PostTemplate(props) {
   const dispatch = useDispatch();
   const { slug } = useParams();
   const [post, setPost] = useState(0);
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(fetchArticleBySlug(slug));
@@ -55,9 +57,9 @@ export default function PostTemplate(props) {
             className="vsm-text w700 blue-text small-ls pointer sarabun"
             onClick={() => linkPath(props.type)}
           >
-            {props.type === "article" && "รวมบทความ"}
-            {props.type === "research" && "รวมงานวิจัย"}
-            {props.type === "project" && "รวม Project"}
+            {props.type === "article" && t('PostTemplate.PostTitle.article')}
+            {props.type === "research" && t('PostTemplate.PostTitle.research')}
+            {props.type === "project" && t('PostTemplate.PostTitle.project')}
           </p>
           <img className="post-arrow" src={postArrow} alt="" />
           {post && (
@@ -116,7 +118,7 @@ export default function PostTemplate(props) {
         {props.type === "research" && (
           <div>
             <p className="writer sm-text w500 small-ls sarabun">
-              Link : <span className="blue-text">ไปยังฐานข้อมูลวิจัย</span>
+            {t('PostTemplate.Link')} : <span className="blue-text">{t('PostTemplate.Backto')}</span>
             </p>
 
             <hr className="post-grey-hr small-grey-hr" />
@@ -137,7 +139,7 @@ export default function PostTemplate(props) {
         {props.type === "article" && (
           <div id="article-post-list" className="post-list">
             <p className="writer sm-text w700 small-ls sarabun">
-              บทความอื่นที่ใกล้เคียงกัน
+              {t('PostTemplate.Article')}
             </p>
             <div>
               <ArticleFlex />
@@ -150,7 +152,7 @@ export default function PostTemplate(props) {
         {props.type === "project" && (
           <div id="project-post-list" className="post-list">
             <p className="writer sm-text w700 small-ls sarabun">
-              บทความอื่นที่ใกล้เคียงกัน
+              {t('PostTemplate.Article')}
             </p>
             <div>
               <ArticleLongFlex type={"post"} />

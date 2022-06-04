@@ -15,7 +15,8 @@
     "tag_name": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": true,
+      "pluginOptions": {}
     }
   }
 }

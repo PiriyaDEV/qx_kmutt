@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { fetchArticle } from "../../redux";
+import { useTranslation } from "react-i18next";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
@@ -38,6 +39,7 @@ export default function Home() {
   const [refresh, setRefresh] = useState(false);
   const articles = useSelector(state => state.articles.articles)
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(fetchArticle(9));
@@ -73,10 +75,10 @@ export default function Home() {
               <img id="qx-logo" src={qxLogo} alt="" />
             </div>
             <div>
-              <h1 className="bg-home-text w400">QX KMUTT</h1>
+              <h1 className="bg-home-text w400">{t('Home.Qx')}</h1>
               <p className="nm-text w400">
-                Quantum Computing and <br />
-                Information Research Centre
+              {t('Home.QxDescription.1')} <br />
+              {t('Home.QxDescription.2')}
               </p>
             </div>
           </div>
@@ -85,16 +87,11 @@ export default function Home() {
           <div id="home-about">
             <div className="section">
               <img className="orange-tri" src={orangeTriangle} alt="" />
-              <h1 className="nm-text w700">About</h1>
+              <h1 className="nm-text w700">{t('Home.About')}</h1>
               <img className="orange-tri" src={orangeTriangle} alt="" />
             </div>
             <p className="inter xm-text w500 sarabun">
-              ตัวอักษร Q มาจากตัวอักษรตัวแรกของคำว่า Quantum
-              โดยตัวอักษรนี้จะสร้างให้เสมอว่าเกิดจากเส้นเดียวกันแต่มีการพลิก
-              และถูกดัดโค้งให้กลายเป็นตัว Q ในที่สุด เพื่อสื่อถึงความต่อเนื่อง
-              และความเป็นหนึ่งเดียวกัน หูของแมว
-              มาจากการสร้างเอกลักษณ์และเพิ่มความหมายของตราสัญลักษณ์ให้สามารถสื่อถึงแมวจาก
-              Schrodinger's Cat ซึ่งเป็นหนึ่งใน concept ในการอธิบาย Quantum
+              {t('Home.AboutDescription')}
             </p>
           </div>
         </div>
@@ -106,7 +103,7 @@ export default function Home() {
         style={{ backgroundImage: `url(${bg1})` }}
       >
         <div id="article-container" className="page-container">
-          <h1 className="nm-text white-text w700">Articles</h1>
+          <h1 className="nm-text white-text w700">{t('Home.Articles')}</h1>
           {article && (
             <Swiper
               id="home-swiper"
@@ -144,7 +141,7 @@ export default function Home() {
             className="vsm-text white-text w700 sarabun pointer"
             onClick={() => linkPath("/article")}
           >
-            &lt;&lt; แสดงทั้งหมด &gt;&gt;
+            &lt;&lt; {t('Home.ShowAll')} &gt;&gt;
           </h1>
           <img className="prev-article-arrow" src={leftArrow} alt="" />
           <img className="next-article-arrow" src={rightArrow} alt="" />
@@ -155,18 +152,18 @@ export default function Home() {
       <div id="home-project" className="section">
         <div className="page-container">
           <div id="project-box">
-            <h1 className="nm-text w700">Project</h1>
+            <h1 className="nm-text w700">{t('Home.Project')}</h1>
             <div className="project-grid">
               <div id="project-info">
                 <hr className="blue-hr" />
                 <p className="vsm-text w500 sarabun">
-                  โครงการที่น่าสนใจของ QX <br /> ทั้งในอดีต ตลอดจนปัจจุบัน
+                {t('Home.ProjectDescription.1')} <br /> {t('Home.ProjectDescription.2')}
                 </p>
                 <p
                   className="vsm-text w500 blue-text sarabun pointer"
                   onClick={() => linkPath("/project")}
                 >
-                  แสดงทั้งหมด &gt;&gt;
+                  {t('Home.ShowAll')} &gt;&gt;
                 </p>
               </div>
               <div className="temp-project" />
@@ -187,13 +184,13 @@ export default function Home() {
           <div className="page-container">
             <div className="home-header">
               <img className="orange-tri" src={orangeTriangle} alt="" />
-              <h1 className="nm-text w700">Member</h1>
+              <h1 className="nm-text w700">{t('Home.Member')}</h1>
               <img className="orange-tri" src={orangeTriangle} alt="" />
               <p
                 className="vsm-text w500 blue-text sarabun pointer"
                 onClick={() => linkPath("/member")}
               >
-                รายละเอียดทั้งหมด &gt;&gt;
+                {t('Home.DetailAll')} &gt;&gt;
               </p>
             </div>
           </div>
@@ -230,7 +227,7 @@ export default function Home() {
         <div className="page-container">
           <div className="home-header">
             <img className="orange-tri" src={blueTriangle} alt="" />
-            <h1 className="nm-text w700">Collaboration</h1>
+            <h1 className="nm-text w700">{t('Home.Collaboration')}</h1>
             <img className="orange-tri" src={blueTriangle} alt="" />
           </div>
 

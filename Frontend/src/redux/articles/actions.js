@@ -2,7 +2,7 @@ import { FETCH_ARTICLES , FETCH_ARTICLES_BY_SLUG } from "./type";
 
 import ArticleService from "../../services/article.js";
 
-export const fetchArticle = (pageSize = 25) => {
+export const fetchArticle = (pageSize) => {
   return (dispatch) => {
     ArticleService.getArticles(pageSize).then((response) => {
       if (response.length) {

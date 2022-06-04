@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -8,6 +9,7 @@ import ArticleLongFlex from "../elements/ArticleLongFlex";
 
 export default function Project() {
   const [projectFilter, setProjectFilter] = useState([false, false]);
+  const { t } = useTranslation();
 
   const selectFilter = (type) => {
     let temp = [...projectFilter];
@@ -39,10 +41,10 @@ export default function Project() {
               </div>
               <div id="project-header-text">
                 <div>
-                  <h1 className="vbg-text w700">Project</h1>
+                  <h1 className="vbg-text w700">{t('Project.Project')}</h1>
                   <hr className="small-blue-hr" />
                   <p className="sm-text w500 small-ls sarabun">
-                    รวมโครงการและกิจกรรม ที่จัดทำขึ้นโดยทีม QX KMUTT{" "}
+                  {t('Project.ProjectDescription')}{" "}
                   </p>
                 </div>
 
@@ -60,7 +62,7 @@ export default function Project() {
                   projectFilter[0] ? "active-tag" : null
                 }`}
               >
-                กิจกรรม
+                {t('Project.Activity')}
               </h1>
               <h1
                 onClick={() => selectFilter("project")}
@@ -68,7 +70,7 @@ export default function Project() {
                   projectFilter[1] ? "active-tag" : null
                 }`}
               >
-                โครงการ
+                {t('Project.ProjectTH')}
               </h1>
             </div>
           </div>

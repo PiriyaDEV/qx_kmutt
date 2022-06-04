@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -7,6 +8,8 @@ import "../../assets/css/pages/about.css";
 import qxArticleLogo from "../../assets/images/home/image 15.png";
 
 export default function About() {
+  const { t } = useTranslation();
+
   return (
     <div id="about-page" className="section">
       <div className="post-container">
@@ -16,15 +19,10 @@ export default function About() {
 
         {/* Header */}
         <div id="about-header">
-          <h1 className="vbg-text w700 sarabun">เกี่ยวกับเรา</h1>
+          <h1 className="vbg-text w700 sarabun">{t('About.AboutTitle')}</h1>
           <hr className="small-blue-hr" />
           <p className="xm-text w500 sarabun">
-            ตัวอักษร Q มาจากตัวอักษรตัวแรกของคำว่า Quantum
-            โดยตัวอักษรนี้จะสร้างให้เสมอว่าเกิดจากเส้นเดียวกันแต่มีการพลิก
-            และถูกดัดโค้งให้กลายเป็นตัว Q ในที่สุด เพื่อสื่อถึงความต่อเนื่อง
-            และความเป็นหนึ่งเดียวกัน หูของแมว
-            มาจากการสร้างเอกลักษณ์และเพิ่มความหมายของตราสัญลักษณ์ให้สามารถสื่อถึงแมวจาก
-            Schrodinger's Cat ซึ่งเป็นหนึ่งใน concept ในการอธิบาย Quantum
+            {t('About.AboutDescription')}
           </p>
         </div>
 
@@ -32,7 +30,7 @@ export default function About() {
         <div id="about-collab" className="section">
           <div>
             <hr className="small-grey-hr" />
-            <h1 className="nm-text w700">Collaboration</h1>
+            <h1 className="nm-text w700">{t('About.Collaboration')}</h1>
           </div>
         </div>
 
