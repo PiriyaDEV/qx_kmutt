@@ -5,7 +5,7 @@ import i18n from "i18next";
 // Research APIs
 export default new (class ResearchService {
   // Get all researches
-  async getResearches(pageSize = 25) {
+  async getResearches(pageSize) {
     const query = qs.stringify(
       {
         sort: ["published_date:desc"],

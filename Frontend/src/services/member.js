@@ -5,10 +5,9 @@ import i18n from "i18next";
 // Member APIs
 export default new (class MemberService {
   // Get all members
-  async getMembers(pageSize = 25) {
+  async getMembers(pageSize) {
     const query = qs.stringify(
       {
-        sort: ["published_date:desc"],
         fields: ["slug", "firstname", "lastname", "position", "email", "role"],
         populate: {
           profile_picture: {

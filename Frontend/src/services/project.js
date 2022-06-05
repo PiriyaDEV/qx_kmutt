@@ -5,7 +5,7 @@ import i18n from "i18next";
 // Project APIs
 export default new (class ProjectService {
   // Get all projects
-  async getProjects(pageSize = 25) {
+  async getProjects(pageSize) {
     const query = qs.stringify(
       {
         sort: ["published_date:desc"],

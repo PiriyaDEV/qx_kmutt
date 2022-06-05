@@ -5,7 +5,7 @@ import i18n from "i18next";
 // Article APIs
 export default new (class ArticleService {
   // Get all articles
-  async getArticles(pageSize = 25) {
+  async getArticles(pageSize) {
     const query = qs.stringify(
       {
         sort: ["published_date:desc"],

@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchResearch } from "../../redux";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -9,6 +11,13 @@ import ArticleLongFlex from "../elements/ArticleLongFlex";
 
 export default function Research() {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const researchs = useSelector((state) => state.researchs.researchs);
+
+  useEffect(() => {
+    dispatch(fetchResearch(3));
+  }, [dispatch]);
+
   const linkPath = (path) => {
     window.location.href = path;
   };
@@ -35,10 +44,10 @@ export default function Research() {
             {/* Header */}
             <div id="research-header">
               <div>
-                <h1 className="vbg-text w700">{t('Research.Research')}</h1>
+                <h1 className="vbg-text w700">{t("Research.Research")}</h1>
                 <hr className="small-blue-hr" />
                 <p className="sm-text w500 small-ls sarabun">
-                  {t('Research.ResearchDescription')}
+                  {t("Research.ResearchDescription")}
                 </p>
               </div>
 
@@ -55,7 +64,7 @@ export default function Research() {
                   researchFilter[0] ? "active-tag" : null
                 }`}
               >
-                {t('Research.Journal')}
+                {t("Research.Journal")}
               </h1>
               <h1
                 onClick={() => selectFilter("proceeding")}
@@ -63,7 +72,7 @@ export default function Research() {
                   researchFilter[1] ? "active-tag" : null
                 }`}
               >
-                {t('Research.Proceeding')}
+                {t("Research.Proceeding")}
               </h1>
               <h1
                 onClick={() => selectFilter("sn-project")}
@@ -71,7 +80,7 @@ export default function Research() {
                   researchFilter[2] ? "active-tag" : null
                 }`}
               >
-                {t('Research.SeniorP')}
+                {t("Research.SeniorP")}
               </h1>
             </div>
           </div>
@@ -79,7 +88,17 @@ export default function Research() {
         <div className="post-container">
           {/* List */}
           <div id="research-list">
-            <div onClick={() => linkPath("/research-post")}>
+            {researchs.map((research, index) => (
+              <div
+                key={index}
+                onClick={() =>
+                  linkPath("/research-post/" + research.attributes.slug)
+                }
+              >
+                <ArticleLongFlex data={research} />
+              </div>
+            ))}
+            {/* <div onClick={() => linkPath("/research-post")}>
               <ArticleLongFlex />
             </div>
             <div onClick={() => linkPath("/research-post")}>
@@ -90,7 +109,7 @@ export default function Research() {
             </div>
             <div onClick={() => linkPath("/research-post")}>
               <ArticleLongFlex />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -16,7 +16,6 @@ function App() {
 
   const Loader = () => (
     <div className="App">
-      <div>loading...</div>
     </div>
   );
   
@@ -62,19 +61,19 @@ function App() {
           <Footer />
         </Route>
 
-        <Route path="/project-post" id="app-project-post">
+        <Route path="/project-post/:slug" id="app-project-post">
           <Navbar path={"project-post"} />
           <PostTemplate type={"project"} />
           <Footer />
         </Route>
 
-        <Route path="/research-post" id="app-research-post">
+        <Route path="/research-post/:slug" id="app-research-post">
           <Navbar path={"research-post"} />
           <PostTemplate type={"research"} />
           <Footer />
         </Route>
 
-        <Route path="/member-info" id="app-member-info">
+        <Route path="/member-info/:slug" id="app-member-info">
           <Navbar path={"member-info"} />
           <MemberTemplate />
           <Footer />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector} from "react-redux";
-import { fetchArticle } from "../../redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchArticle, fetchProject, fetchMember } from "../../redux";
 import { useTranslation } from "react-i18next";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -37,12 +37,16 @@ SwiperCore.use([Navigation, Pagination, Controller, Thumbs, Autoplay]);
 
 export default function Home() {
   const [refresh, setRefresh] = useState(false);
-  const articles = useSelector(state => state.articles.articles)
+  const articles = useSelector((state) => state.articles.articles);
+  const projects = useSelector((state) => state.projects.projects);
+  const members = useSelector((state) => state.members.members);
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(fetchArticle(9));
+    dispatch(fetchProject(3));
+    dispatch(fetchMember(6));
   }, [dispatch]);
 
   const refreshMember = () => {
@@ -65,6 +69,7 @@ export default function Home() {
     );
   }
 
+
   return (
     <div>
       <div id="home" className="section">
@@ -75,10 +80,10 @@ export default function Home() {
               <img id="qx-logo" src={qxLogo} alt="" />
             </div>
             <div>
-              <h1 className="bg-home-text w400">{t('Home.Qx')}</h1>
+              <h1 className="bg-home-text w400">{t("Home.Qx")}</h1>
               <p className="nm-text w400">
-              {t('Home.QxDescription.1')} <br />
-              {t('Home.QxDescription.2')}
+                {t("Home.QxDescription.1")} <br />
+                {t("Home.QxDescription.2")}
               </p>
             </div>
           </div>
@@ -87,11 +92,11 @@ export default function Home() {
           <div id="home-about">
             <div className="section">
               <img className="orange-tri" src={orangeTriangle} alt="" />
-              <h1 className="nm-text w700">{t('Home.About')}</h1>
+              <h1 className="nm-text w700">{t("Home.About")}</h1>
               <img className="orange-tri" src={orangeTriangle} alt="" />
             </div>
             <p className="inter xm-text w500 sarabun">
-              {t('Home.AboutDescription')}
+              {t("Home.AboutDescription")}
             </p>
           </div>
         </div>
@@ -103,7 +108,7 @@ export default function Home() {
         style={{ backgroundImage: `url(${bg1})` }}
       >
         <div id="article-container" className="page-container">
-          <h1 className="nm-text white-text w700">{t('Home.Articles')}</h1>
+          <h1 className="nm-text white-text w700">{t("Home.Articles")}</h1>
           {article && (
             <Swiper
               id="home-swiper"
@@ -115,8 +120,8 @@ export default function Home() {
                 nextEl: ".next-article-arrow",
               }}
               slidesPerView={3}
-              loop
-              loopAdditionalSlides={10}
+              loop={false}
+              // loopAdditionalSlides={10}
               centeredSlides={false}
               // autoplay={{
               //   delay: 2500,
@@ -141,7 +146,7 @@ export default function Home() {
             className="vsm-text white-text w700 sarabun pointer"
             onClick={() => linkPath("/article")}
           >
-            &lt;&lt; {t('Home.ShowAll')} &gt;&gt;
+            &lt;&lt; {t("Home.ShowAll")} &gt;&gt;
           </h1>
           <img className="prev-article-arrow" src={leftArrow} alt="" />
           <img className="next-article-arrow" src={rightArrow} alt="" />
@@ -152,26 +157,30 @@ export default function Home() {
       <div id="home-project" className="section">
         <div className="page-container">
           <div id="project-box">
-            <h1 className="nm-text w700">{t('Home.Project')}</h1>
+            <h1 className="nm-text w700">{t("Home.Project")}</h1>
             <div className="project-grid">
               <div id="project-info">
                 <hr className="blue-hr" />
                 <p className="vsm-text w500 sarabun">
-                {t('Home.ProjectDescription.1')} <br /> {t('Home.ProjectDescription.2')}
+                  {t("Home.ProjectDescription.1")} <br />{" "}
+                  {t("Home.ProjectDescription.2")}
                 </p>
                 <p
                   className="vsm-text w500 blue-text sarabun pointer"
                   onClick={() => linkPath("/project")}
                 >
-                  {t('Home.ShowAll')} &gt;&gt;
+                  {t("Home.ShowAll")} &gt;&gt;
                 </p>
               </div>
-              <div className="temp-project" />
+              {/* <div className="temp-project"/> */}
+              {projects.map((project, index) => (
+                <div key={index} onClick={() => linkPath("/project-post/" + project.attributes.slug)} className="temp-project">{project.attributes.title}</div>
+              ))}
             </div>
 
             <div className="project-grid">
-              <div className="temp-project" />
-              <div className="temp-project" />
+              {/* <div className="temp-project" />
+              <div className="temp-project" /> */}
             </div>
           </div>
         </div>
@@ -184,13 +193,13 @@ export default function Home() {
           <div className="page-container">
             <div className="home-header">
               <img className="orange-tri" src={orangeTriangle} alt="" />
-              <h1 className="nm-text w700">{t('Home.Member')}</h1>
+              <h1 className="nm-text w700">{t("Home.Member")}</h1>
               <img className="orange-tri" src={orangeTriangle} alt="" />
               <p
                 className="vsm-text w500 blue-text sarabun pointer"
                 onClick={() => linkPath("/member")}
               >
-                {t('Home.DetailAll')} &gt;&gt;
+                {t("Home.DetailAll")} &gt;&gt;
               </p>
             </div>
           </div>
@@ -209,14 +218,19 @@ export default function Home() {
               className={`${refresh ? "rotate" : "rotate rotate-down"}`}
             />
             <div className="member-flex-container">
-              <MemberFlex color="red" />
-              <MemberFlex color="blue" />
-              <MemberFlex color="red" />
+              {
+                members.map((member,index) => 
+                <MemberFlex key={index} data={member} color="red" />
+                )
+              }
+              {/* <MemberFlex  color="red" />
+              <MemberFlex  color="blue" />
+              <MemberFlex  color="red" /> */}
             </div>
             <div className="member-flex-container">
-              <MemberFlex color="red" />
-              <MemberFlex color="blue" />
-              <MemberFlex color="red" />
+              {/* <MemberFlex color="red" />
+              <MemberFlex  color="blue" />
+              <MemberFlex color="red" /> */}
             </div>
           </div>
         </div>
@@ -227,7 +241,7 @@ export default function Home() {
         <div className="page-container">
           <div className="home-header">
             <img className="orange-tri" src={blueTriangle} alt="" />
-            <h1 className="nm-text w700">{t('Home.Collaboration')}</h1>
+            <h1 className="nm-text w700">{t("Home.Collaboration")}</h1>
             <img className="orange-tri" src={blueTriangle} alt="" />
           </div>
 

@@ -4,7 +4,7 @@ import qs from "qs";
 // Tag APIs
 export default new (class TagService {
   // Get all tags
-  async getTags(pageSize = 5) {
+  async getTags(pageSize) {
     const query = qs.stringify(
       {
         fields: ["tag_name"],

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector , useDispatch } from 'react-redux';
 import { useTranslation } from "react-i18next";
+import { fetchMember } from "../../redux";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -8,7 +10,14 @@ import "../../assets/css/pages/member.css";
 import MemberLongFlex from "../elements/MemberLongFlex";
 
 export default function Member() {
+  const members = useSelector(state => state.members.members);
+  const dispatch = useDispatch();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    dispatch(fetchMember(10));
+  }, [dispatch]);
+
 
   const linkPath = (path) => {
     window.location.href = path;
@@ -49,7 +58,14 @@ export default function Member() {
         </div>
         <div className="post-container">
           <div id="member-long-list">
-            <div onClick={() => linkPath("/member-info")}>
+            {
+              members.map((member,index)=> 
+              <div onClick={() => linkPath("/member-info/" + member.attributes.slug)}>
+              <MemberLongFlex data={member} color="red" />
+            </div>
+              )
+            }
+            {/* <div onClick={() => linkPath("/member-info")}>
               <MemberLongFlex color="red" />
             </div>
             <div onClick={() => linkPath("/member-info")}>
@@ -66,7 +82,7 @@ export default function Member() {
             </div>
             <div onClick={() => linkPath("/member-info")}>
               <MemberLongFlex color="grey" />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

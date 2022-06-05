@@ -1,9 +1,9 @@
-import React, { useEffect , useState } from "react";
-import { useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+import { useSelector , useDispatch } from 'react-redux';
 import { useTranslation } from "react-i18next";
+import { fetchArticle , fetchTag } from "../../redux";
 
 import ArticleFlex from "../elements/ArticleFlex";
-import TagService from "../../services/tag";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -12,19 +12,15 @@ import "../../assets/css/pages/article.css";
 import qxArticleLogo from "../../assets/images/home/image 15.png";
 
 export default function Article() {
-  const articles = useSelector(state => state.articles.articles)
-  const [tags, setTag] = useState([])
+  const articles = useSelector(state => state.articles.articles);
+  const tags = useSelector(state => state.tags.tags);
+  const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  useEffect(()=> {
-    TagService.getTags().then((response) => {
-      setTag(response)
-    });
-  },[])
-
-  // const linkPath = (path) => {
-  //   window.location.href = path;
-  // };
+  useEffect(() => {
+    dispatch(fetchArticle(9));
+    dispatch(fetchTag());
+  }, [dispatch]);
 
   return (
     <div id="article-page" className="section">

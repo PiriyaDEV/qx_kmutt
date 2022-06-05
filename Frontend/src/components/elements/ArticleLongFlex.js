@@ -8,7 +8,8 @@ export default function ArticleLongFlex(props) {
   return (
     <div className="article-long-flex">
       <div className={`${props.type === "post" ? "posttp-long-flex" : null}`} />
-      <div />
+      <div><h1>{props.data.attributes.title}</h1></div>
+      <div/>
     </div>
   );
 }
