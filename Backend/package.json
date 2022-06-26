@@ -1,7 +1,7 @@
 {
   "name": "qx-kmutt",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Strapi application for QX KMUTT website",
   "scripts": {
     "dev": "strapi develop",
@@ -11,9 +11,9 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/plugin-i18n": "4.1.1",
-    "@strapi/plugin-users-permissions": "4.1.1",
-    "@strapi/strapi": "4.1.1",
+    "@strapi/plugin-i18n": "4.2.0",
+    "@strapi/plugin-users-permissions": "4.2.0",
+    "@strapi/strapi": "4.2.0",
     "mysql": "2.18.1",
     "strapi-plugin-ckeditor5": "^2.0.0-rc.2"
   },

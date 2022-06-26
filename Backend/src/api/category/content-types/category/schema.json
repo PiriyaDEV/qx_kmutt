@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "tags",
+  "collectionName": "categories",
   "info": {
-    "singularName": "tag",
-    "pluralName": "tags",
-    "displayName": "Tag",
-    "description": ""
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "Category"
   },
   "options": {
     "draftAndPublish": true
@@ -14,9 +13,9 @@
   "attributes": {
     "name": {
       "type": "string",
-      "unique": true,
       "required": true,
-      "maxLength": 32
+      "maxLength": 32,
+      "unique": true
     }
   }
 }
