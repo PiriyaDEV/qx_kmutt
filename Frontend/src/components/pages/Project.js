@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProject } from "../../redux";
+import { fetchActivity } from "../../redux";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -10,23 +10,23 @@ import "../../assets/css/pages/project.css";
 import ArticleLongFlex from "../elements/ArticleLongFlex";
 
 export default function Project() {
-  const [projectFilter, setProjectFilter] = useState([false, false]);
+  // const [activityFilter, setActivityFilter] = useState([false, false]);
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const projects = useSelector((state) => state.projects.projects);
+  const activities = useSelector((state) => state.activities.activities);
 
-  const selectFilter = (type) => {
-    let temp = [...projectFilter];
-    if (type === "activity") {
-      temp[0] = !temp[0];
-    } else {
-      temp[1] = !temp[1];
-    }
-    setProjectFilter(temp);
-  };
+  // const selectFilter = (type) => {
+  //   let temp = [...activityFilter];
+  //   if (type === "project") {
+  //     temp[0] = !temp[0];
+  //   } else {
+  //     temp[1] = !temp[1];
+  //   }
+  //   setActivityFilter(temp);
+  // };
 
   useEffect(() => {
-    dispatch(fetchProject(3));
+    dispatch(fetchActivity(3));
   }, [dispatch]);
 
   const linkPath = (path) => {
@@ -61,7 +61,7 @@ export default function Project() {
             </div>
 
             {/* Choice */}
-            <div id="project-tag" className="section">
+            {/* <div id="project-tag" className="section">
               <h1
                 onClick={() => selectFilter("activity")}
                 className={`sm-text w500 tag blue-text sarabun ${
@@ -78,21 +78,21 @@ export default function Project() {
               >
                 {t("Project.ProjectTH")}
               </h1>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="post-container">
           {/* List */}
           <div id="project-list">
-            {projects &&
-              projects.map((project, index) => (
+            {activities &&
+              activities.map((activity, index) => (
                 <div
                   key={index}
                   onClick={() =>
-                    linkPath("/project-post/" + project.attributes.slug)
+                    linkPath("/activity-post/" + activity.attributes.slug)
                   }
                 >
-                  <ArticleLongFlex data={project} />
+                  <ArticleLongFlex data={activity} />
                 </div>
               ))}
             {/* <div onClick={() => linkPath("/project-post")}>

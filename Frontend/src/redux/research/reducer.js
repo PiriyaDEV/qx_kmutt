@@ -1,7 +1,7 @@
 import { FETCH_RESEARCH, FETCH_RESEARCH_BY_SLUG } from "./type";
 
 const initialState = {
-  researchs:[],
+  researches:[],
   research: {
     attributes: {
       slug: "",
@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_RESEARCH:
       return {
         ...state,
-        researchs: action.payload,
+        researches: action.payload,
       };
       case FETCH_RESEARCH_BY_SLUG:
         return {

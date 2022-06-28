@@ -1,8 +1,8 @@
-import { FETCH_PROJECT, FETCH_PROJECT_BY_SLUG } from "./type";
+import { FETCH_ACTIVITY, FETCH_ACTIVITY_BY_SLUG } from "./type";
 
 const initialState = {
-  projects:[],
-  project: {
+  activities: [],
+  activity: {
     attributes: {
       slug: "",
       title: "",
@@ -12,27 +12,27 @@ const initialState = {
       cover: {
         data: {
           attributes: {
-            url: ""
-          }
-        }
-      }
+            url: "",
+          },
+        },
+      },
     },
-    id: 0
+    id: 0,
   },
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_PROJECT:
+    case FETCH_ACTIVITY:
       return {
         ...state,
-        projects: action.payload,
+        activities: action.payload,
       };
-      case FETCH_PROJECT_BY_SLUG:
-        return {
-          ...state,
-          project: action.payload,
-        };
+    case FETCH_ACTIVITY_BY_SLUG:
+      return {
+        ...state,
+        activity: action.payload,
+      };
     default:
       return state;
   }

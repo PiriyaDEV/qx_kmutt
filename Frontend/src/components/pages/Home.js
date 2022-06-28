@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchArticle, fetchProject, fetchMember } from "../../redux";
+import { fetchResearch, fetchActivity, fetchMember } from "../../redux";
 import { useTranslation } from "react-i18next";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -37,15 +37,15 @@ SwiperCore.use([Navigation, Pagination, Controller, Thumbs, Autoplay]);
 
 export default function Home() {
   const [refresh, setRefresh] = useState(false);
-  const articles = useSelector((state) => state.articles.articles);
-  const projects = useSelector((state) => state.projects.projects);
+  const researches = useSelector((state) => state.researches.researches);
+  const activities = useSelector((state) => state.activities.activities);
   const members = useSelector((state) => state.members.members);
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
   useEffect(() => {
-    dispatch(fetchArticle(9));
-    dispatch(fetchProject(3));
+    dispatch(fetchResearch(9));
+    dispatch(fetchActivity(3));
     dispatch(fetchMember(6));
   }, [dispatch]);
 
@@ -57,13 +57,13 @@ export default function Home() {
     window.location.href = path;
   };
 
-  const article = [];
+  const research = [];
 
-  for (let i = 0; i < articles.length; i += 1) {
-    article.push(
+  for (let i = 0; i < researches.length; i += 1) {
+    research.push(
       <SwiperSlide key={`home-slide-${i}`} tag="li">
         <div className="section">
-          <ArticleFlex data={articles[i]} />
+          <ArticleFlex data={researches[i]} />
         </div>
       </SwiperSlide>
     );
@@ -113,7 +113,7 @@ export default function Home() {
             <div className="sm-text w600 white-text">QuantumProgramming</div>
             <div className="sm-text w600 white-text">Benmark</div>
           </div>
-          {article && (
+          {research && (
             <Swiper
               id="home-swiper"
               tag="section"
@@ -143,13 +143,13 @@ export default function Home() {
                 },
               }}
             >
-              {article}
+              {research}
             </Swiper>
           )}
 
           <h1
             className="vsm-text white-text w700 pointer"
-            onClick={() => linkPath("/article")}
+            onClick={() => linkPath("/research")}
           >
             &lt;&lt; {t("Home.ShowAll")} &gt;&gt;
           </h1>
@@ -158,7 +158,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Project */}
+      {/* Activity */}
       <div id="home-project" className="section">
         <div className="page-container">
           <div id="project-box">
@@ -172,20 +172,28 @@ export default function Home() {
                 </p>
                 <p
                   className="vsm-text w500 blue-text sarabun pointer"
-                  onClick={() => linkPath("/project")}
+                  onClick={() => linkPath("/activity")}
                 >
                   {t("Home.ShowAll")} &gt;&gt;
                 </p>
               </div>
-              <div className="temp-project"/>
-              {projects.map((project, index) => (
-                <div key={index} onClick={() => linkPath("/project-post/" + project.attributes.slug)} className="temp-project">{project.attributes.title}</div>
+              {/* <div className="temp-project" /> */}
+              {activities.map((activity, index) => (
+                <div
+                  key={index}
+                  onClick={() =>
+                    linkPath("/activity-post/" + activity.attributes.slug)
+                  }
+                  className="temp-project"
+                >
+                  {activity.attributes.title}
+                </div>
               ))}
             </div>
 
             <div className="project-grid">
-              <div className="temp-project" />
-              <div className="temp-project" />
+              {/* <div className="temp-project" />
+              <div className="temp-project" /> */}
             </div>
           </div>
         </div>
@@ -223,11 +231,9 @@ export default function Home() {
               className={`${refresh ? "rotate" : "rotate rotate-down"}`}
             />
             <div className="member-flex-container">
-              {
-                members.map((member,index) => 
+              {members.map((member, index) => (
                 <MemberFlex key={index} data={member} color="red" />
-                )
-              }
+              ))}
               {/* <MemberFlex  color="red" />
               <MemberFlex  color="blue" />
               <MemberFlex  color="red" /> */}

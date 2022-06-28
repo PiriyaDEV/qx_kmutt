@@ -13,77 +13,73 @@ import PostTemplate from "./components/pages/PostTemplate";
 import MemberTemplate from "./components/pages/MemberTemplate";
 
 function App() {
+  const Loader = () => <div className="App"></div>;
 
-  const Loader = () => (
-    <div className="App">
-    </div>
-  );
-  
   return (
     <Suspense fallback={<Loader />}>
-    <div>
-      <Switch>
-        <Route exact path="/" id="app-home">
-          <Navbar path={"home"} />
-          <Home />
-          <Footer />
-        </Route>
-        <Route path="/project" id="app-project">
-          <Navbar path={"project"} />
-          <Project />
-          <Footer />
-        </Route>
-        <Route path="/research" id="app-research">
-          <Navbar path={"research"} />
-          <Research />
-          <Footer />
-        </Route>
-        <Route path="/article" id="app-article">
-          <Navbar path={"article"} />
-          <Article />
-          <Footer />
-        </Route>
-        <Route path="/member" id="app-member">
-          <Navbar path={"member"} />
-          <Member />
-          <Footer />
-        </Route>
-        <Route path="/about" id="app-about">
-          <Navbar path={"about"} />
-          <About />
-          <Footer />
-        </Route>
+      <div>
+        <Switch>
+          <Route exact path="/" id="app-home">
+            <Navbar path={"home"} />
+            <Home />
+            <Footer />
+          </Route>
+          <Route path="/activity" id="app-project">
+            <Navbar path={"project"} />
+            <Project />
+            <Footer />
+          </Route>
+          <Route path="/research" id="app-research">
+            <Navbar path={"research"} />
+            <Research />
+            <Footer />
+          </Route>
+          <Route path="/article" id="app-article">
+            <Navbar path={"article"} />
+            <Article />
+            <Footer />
+          </Route>
+          <Route path="/member" id="app-member">
+            <Navbar path={"member"} />
+            <Member />
+            <Footer />
+          </Route>
+          <Route path="/about" id="app-about">
+            <Navbar path={"about"} />
+            <About />
+            <Footer />
+          </Route>
 
-        {/* Post */}
-        <Route path="/article-post/:slug" id="app-article-post">
-          <Navbar path={"article-post"} />
-          <PostTemplate type={"article"} />
-          <Footer />
-        </Route>
+          {/* Post */}
+          <Route path="/article-post/:slug" id="app-article-post">
+            <Navbar path={"article-post"} />
+            <PostTemplate type={"article"} />
+            <Footer />
+          </Route>
 
-        <Route path="/project-post/:slug" id="app-project-post">
-          <Navbar path={"project-post"} />
-          <PostTemplate type={"project"} />
-          <Footer />
-        </Route>
+          <Route path="/activity-post/:slug" id="app-project-post">
+            <Navbar path={"activity-post"} />
+            <PostTemplate type={"project"} />
+            <Footer />
+          </Route>
 
-        <Route path="/research-post/:slug" id="app-research-post">
-          <Navbar path={"research-post"} />
-          <PostTemplate type={"research"} />
-          <Footer />
-        </Route>
+          <Route path="/research-post/:slug" id="app-research-post">
+            <Navbar path={"research-post"} />
+            <PostTemplate type={"research"} />
+            <Footer />
+          </Route>
 
-        <Route path="/member-info/:slug" id="app-member-info">
-          <Navbar path={"member-info"} />
-          <MemberTemplate />
-          <Footer />
-        </Route>
+          <Route path="/member-info/:slug" id="app-member-info">
+            <Navbar path={"member-info"} />
+            <MemberTemplate />
+            <Footer />
+          </Route>
 
-        {/* <Route path="/:id">
+          {/* <Route path="/:id">
           <p>ไม่มี pathนี้</p>
         </Route> */}
-      </Switch>
-    </div>
+        </Switch>
+      </div>
     </Suspense>
   );
 }

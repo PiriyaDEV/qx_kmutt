@@ -12,7 +12,7 @@ import ArticleLongFlex from "../elements/ArticleLongFlex";
 export default function Research() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const researchs = useSelector((state) => state.researchs.researchs);
+  const researches = useSelector((state) => state.researches.researches);
 
   useEffect(() => {
     dispatch(fetchResearch(3));
@@ -88,7 +88,7 @@ export default function Research() {
         <div className="post-container">
           {/* List */}
           <div id="research-list">
-            {researchs.map((research, index) => (
+            {researches.map((research, index) => (
               <div
                 key={index}
                 onClick={() =>

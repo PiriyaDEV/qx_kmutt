@@ -1,8 +1,8 @@
-import { FETCH_TAG, FETCH_TAG_BY_ID } from "./type";
+import { FETCH_CATEGORY, FETCH_CATEGORY_BY_ID } from "./type";
 
 const initialState = {
-  tags: [],
-  tag: {
+  categories: [],
+  category: {
     attributes: {
       name: "",
     },
@@ -12,15 +12,15 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_TAG:
+    case FETCH_CATEGORY:
       return {
         ...state,
-        tags: action.payload,
+        categories: action.payload,
       };
-    case FETCH_TAG_BY_ID:
+    case FETCH_CATEGORY_BY_ID:
       return {
         ...state,
-        tag: action.payload,
+        category: action.payload,
       };
     default:
       return state;

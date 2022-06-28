@@ -3,8 +3,6 @@ import React from "react";
 import "../../assets/css/elements/memberFlex.css";
 
 export default function MemberFlex(props) {
-  console.log(props.data)
-
   const linkPath = (path) => {
     window.location.href = path;
   };

@@ -13,12 +13,12 @@ import ArticleLongFlex from "../elements/ArticleLongFlex";
 import ArticleFlex from "../elements/ArticleFlex";
 import ImageService from "../../services/image";
 
-import { fetchArticleBySlug , fetchProjectBySlug , fetchResearchBySlug } from "../../redux";
+import { fetchArticleBySlug , fetchActivityBySlug , fetchResearchBySlug } from "../../redux";
 
 export default function PostTemplate(props) {
   const article = useSelector(state => state.articles.article);
-  const project = useSelector(state => state.projects.project);
-  const research = useSelector(state => state.researchs.research);
+  const activity = useSelector(state => state.activities.activity);
+  const research = useSelector(state => state.researches.research);
   const dispatch = useDispatch();
   const { slug } = useParams();
   const [post, setPost] = useState(0);
@@ -28,7 +28,7 @@ export default function PostTemplate(props) {
     if(props.type === "article") {
       dispatch(fetchArticleBySlug(slug));
     } else if(props.type === "project") {
-      dispatch(fetchProjectBySlug(slug));
+      dispatch(fetchActivityBySlug(slug));
     } else {
       dispatch(fetchResearchBySlug(slug));
     }
@@ -43,10 +43,10 @@ export default function PostTemplate(props) {
   }, [article]);
 
   useEffect(() => {
-    if(project) {
-      setPost(project)
+    if(activity) {
+      setPost(activity)
     }
-  },[project])
+  },[activity])
 
   useEffect(() => {
     if(research) {
@@ -176,8 +176,8 @@ export default function PostTemplate(props) {
               {t('PostTemplate.Article')}
             </p>
             <div>
-              <ArticleLongFlex data={project} type={"post"} />
-              <ArticleLongFlex data={project} type={"post"} />
+              <ArticleLongFlex data={activity} type={"post"} />
+              <ArticleLongFlex data={activity} type={"post"} />
             </div>
           </div>
         )}

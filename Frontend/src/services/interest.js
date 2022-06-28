@@ -1,111 +1,135 @@
 import http from "./http-common";
 import qs from "qs";
 
-// Tag APIs
-export default new (class TagService {
-  // Get all tags
-  async getTags(pageSize) {
+// Interest APIs
+export default new (class InterestService {
+  // Get all interests
+  async getInterests(pageSize) {
     return [
       {
         id: 1,
         attributes: {
-          name: "QuantumComputing",
+          name: "Quantum Programming",
         },
       },
       {
         id: 2,
         attributes: {
-          name: "QuantumProgramming",
+          name: "Benchmark",
         },
       },
       {
         id: 3,
         attributes: {
-          name: "QuantumXX",
+          name: "QML",
         },
       },
       {
         id: 4,
         attributes: {
-          name: "SeniorProject",
+          name: "Quantum Computing",
         },
       },
       {
         id: 5,
         attributes: {
-          name: "Quantum101",
+          name: "Quantum Encryption",
         },
       },
       {
         id: 6,
         attributes: {
-          name: "Quantum102",
+          name: "Quantum Teleportation",
         },
       },
       {
         id: 7,
         attributes: {
-          name: "QXEvent",
+          name: "Quantum Inequalities",
         },
       },
       {
         id: 8,
         attributes: {
-          name: "QML",
+          name: "Quantum Sensing",
         },
       },
       {
         id: 9,
         attributes: {
-          name: "TangibleLearningMaterial",
+          name: "Quantum Communication",
         },
       },
       {
         id: 10,
         attributes: {
-          name: "LearningQuantum",
+          name: "Quantum Materials",
         },
       },
       {
         id: 11,
         attributes: {
-          name: "QuantumCircuitEditor",
+          name: "Quantum Cryptography",
         },
       },
       {
         id: 12,
         attributes: {
-          name: "Qiskit",
+          name: "Quantum Optics",
         },
       },
       {
         id: 13,
         attributes: {
-          name: "QuantumIDE",
+          name: "Nanomechanics",
         },
       },
       {
         id: 14,
         attributes: {
-          name: "EducationalProgram",
+          name: "Topological Physics",
         },
       },
       {
         id: 15,
         attributes: {
-          name: "LearningAndTeachingProgram",
+          name: "Device Physics",
         },
       },
       {
         id: 16,
         attributes: {
-          name: "InteractiveLearning",
+          name: "High Energy & Particle Physics",
         },
       },
       {
         id: 17,
         attributes: {
-          name: "QuantumLearning",
+          name: "Optical Physics",
+        },
+      },
+      {
+        id: 18,
+        attributes: {
+          name: "Condensed Matter Physics",
+        },
+      },
+      {
+        id: 19,
+        attributes: {
+          name: "Molecular Physics",
+        },
+      },
+      {
+        id: 20,
+        attributes: {
+          name: "Atomic Physics",
+        },
+      },
+      {
+        id: 21,
+        attributes: {
+          name: "Quantum Chemistry",
         },
       },
     ];
@@ -123,7 +147,7 @@ export default new (class TagService {
     // );
 
     // return await http
-    //   .get("/tags?" + query)
+    //   .get("/interests?" + query)
     //   .then((response) => {
     //     return response.data.data;
     //   })
@@ -132,19 +156,19 @@ export default new (class TagService {
     //   });
   }
 
-  // Get tag by id
-  async getTagById(id) {
+  // Get interest by id
+  async getInterestById(id) {
     return {
-      "id": 1,
-      "attributes": {
-        "name": "QuantumComputing",
-        "createdAt": "2022-06-26T12:42:17.161Z",
-        "updatedAt": "2022-06-26T12:42:17.786Z",
-        "publishedAt": "2022-06-26T12:42:17.784Z"
-      }
-    }
+      id: 1,
+      attributes: {
+        name: "Quantum Programming",
+        createdAt: "2022-06-26T12:25:23.827Z",
+        updatedAt: "2022-06-26T12:25:29.876Z",
+        publishedAt: "2022-06-26T12:25:29.873Z",
+      },
+    };
     // return await http
-    //   .get("/tags/" + id)
+    //   .get("/interests/" + id)
     //   .then((response) => {
     //     return response.data.data;
     //   })
