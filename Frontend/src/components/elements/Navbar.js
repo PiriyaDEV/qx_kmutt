@@ -6,6 +6,7 @@ import "../../assets/css/pages.css";
 import "../../assets/css/elements/navbar.css";
 
 import qxLogo from "../../assets/images/home/QX-logo.png";
+import world from "../../assets/images/navbar/Icon.svg"
 
 export default function Navbar(props) {
   // const [lg, setLg] = useState("en");
@@ -47,8 +48,13 @@ export default function Navbar(props) {
         <h1 className="vsm-text w500" onClick={() => linkPath("/about")}>
           {t("Navbar.About")}
         </h1>
-        <h1 onClick={() => changeLanguage("en")}>EN</h1>
-        <h1 onClick={() => changeLanguage("th")}>TH</h1>
+        <div id="lang-box">
+          <img src={world} alt=""/>
+          <div>
+            <h1 className="vsm-text w500" onClick={() => changeLanguage("en")}>EN</h1>
+            <h1 className="vsm-text w500" onClick={() => changeLanguage("th")}>TH</h1>
+          </div>
+        </div>
       </div>
     </div>
   );

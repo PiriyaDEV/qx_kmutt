@@ -18,3 +18,14 @@
   left: -100px;
   cursor: pointer;
 }
+
+#lang-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#lang-box > div > h1{
+  cursor: pointer;
+}

@@ -26,14 +26,16 @@ export default new (class ArticleService {
       }
     );
 
-    return await http
-      .get("/articles?" + query)
-      .then((response) => {
-        return response.data.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    
+
+    // return await http
+    //   .get("/articles?" + query)
+    //   .then((response) => {
+    //     return response.data.data;
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   }
 
   // Get article by slug
