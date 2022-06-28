@@ -21,9 +21,10 @@ export default function ArticleFlex(props) {
           )
         }
        
-        <div> {
+        <div> 
+          {
           props.data && 
-          <h1 style={{cursor:'pointer'}}>{props.data.attributes.title}</h1> 
+          <h1 class="w700 xm2-text pointer">{props.data.attributes.title}</h1> 
           }
         </div>
     </div>

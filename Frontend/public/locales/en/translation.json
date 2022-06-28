@@ -1,6 +1,6 @@
 {
     "Navbar": {
-        "Projects": "Projects",
+        "Projects": "Activity",
         "Research": "Research",
         "Articles": "Articles",
         "Member": "Member",
@@ -14,9 +14,9 @@
         },
         "About": "About",
         "AboutDescription": "ตัวอักษร Q มาจากตัวอักษรตัวแรกของคำว่า Quantum โดยตัวอักษรนี้จะสร้างให้เสมอว่าเกิดจากเส้นเดียวกันแต่มีการพลิก และถูกดัดโค้งให้กลายเป็นตัว Q ในที่สุด เพื่อสื่อถึงความต่อเนื่อง และความเป็นหนึ่งเดียวกัน หูของแมว มาจากการสร้างเอกลักษณ์และเพิ่มความหมายของตราสัญลักษณ์ให้สามารถสื่อถึงแมวจาก Schrodinger's Cat ซึ่งเป็นหนึ่งใน concept ในการอธิบาย Quantum",
-        "Articles": "Articles",
+        "Articles": "Research",
         "ShowAll": "แสดงทั้งหมด",
-        "Project": "Project",
+        "Project": "Activity",
         "ProjectDescription": {
             "1": "โครงการที่น่าสนใจของ QX",
             "2": "ทั้งในอดีต ตลอดจนปัจจุบัน"
@@ -26,7 +26,7 @@
         "Collaboration": "Collaboration"
     },
     "Project": {
-        "Project": "Project",
+        "Project": "Activity",
         "ProjectDescription": "รวมโครงการและกิจกรรม ที่จัดทำขึ้นโดยทีม QX KMUTT",
         "Activity": "กิจกรรม",
         "ProjectTH": "โครงการ"

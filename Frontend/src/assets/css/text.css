@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Quicksand:wght@400;500;700&family=Sarabun:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Quicksand:wght@400;500;700&family=Sarabun:wght@400;500;600;700&display=swap");
 
 /* ตั้งค่าหน้า */
 body,
@@ -68,6 +68,12 @@ blockquote:before {
   font-size: 2.5em;
 }
 
+/* Font 22px */
+.xm2-text {
+  margin: 0;
+  font-size: 2.75em;
+}
+
 /* Font 24px */
 .vsm-text {
   margin: 0;
@@ -112,6 +118,11 @@ blockquote:before {
 /* Font Weight 500 */
 .w500 {
   font-weight: 500;
+}
+
+/* Font Weight 600 */
+.w600 {
+  font-weight: 600;
 }
 
 /* Font Weight 700 */

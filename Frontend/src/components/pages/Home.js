@@ -29,7 +29,7 @@ import bg2 from "../../assets/images/home/bg2.png";
 import leftArrow from "../../assets/images/home/Polygon 9.png";
 import rightArrow from "../../assets/images/home/Polygon 8.png";
 
-import logoFrame from "../../assets/images/home/image 14.png";
+import logoFrame from "../../assets/images/home/image 14.svg";
 
 import refreshIcon from "../../assets/images/home/refresh.png";
 
@@ -68,7 +68,6 @@ export default function Home() {
       </SwiperSlide>
     );
   }
-
 
   return (
     <div>
@@ -109,6 +108,11 @@ export default function Home() {
       >
         <div id="article-container" className="page-container">
           <h1 className="nm-text white-text w700">{t("Home.Articles")}</h1>
+          <div id="research-tags">
+            <div className="sm-text w600 white-text">QML</div>
+            <div className="sm-text w600 white-text">QuantumProgramming</div>
+            <div className="sm-text w600 white-text">Benmark</div>
+          </div>
           {article && (
             <Swiper
               id="home-swiper"
@@ -119,6 +123,7 @@ export default function Home() {
                 prevEl: ".prev-article-arrow",
                 nextEl: ".next-article-arrow",
               }}
+              pagination={{ clickable: true }}
               slidesPerView={3}
               loop={false}
               // loopAdditionalSlides={10}
@@ -143,7 +148,7 @@ export default function Home() {
           )}
 
           <h1
-            className="vsm-text white-text w700 sarabun pointer"
+            className="vsm-text white-text w700 pointer"
             onClick={() => linkPath("/article")}
           >
             &lt;&lt; {t("Home.ShowAll")} &gt;&gt;
@@ -172,15 +177,15 @@ export default function Home() {
                   {t("Home.ShowAll")} &gt;&gt;
                 </p>
               </div>
-              {/* <div className="temp-project"/> */}
+              <div className="temp-project"/>
               {projects.map((project, index) => (
                 <div key={index} onClick={() => linkPath("/project-post/" + project.attributes.slug)} className="temp-project">{project.attributes.title}</div>
               ))}
             </div>
 
             <div className="project-grid">
-              {/* <div className="temp-project" />
-              <div className="temp-project" /> */}
+              <div className="temp-project" />
+              <div className="temp-project" />
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
   width: 288px;
+  background-color: #ffffff;
 }
 
 .article-flex > img {
@@ -28,6 +29,7 @@
 .article-flex > div {
   background-color: #ffffff;
   height: 100px;
+  padding: 15px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
