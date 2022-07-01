@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchResearch, fetchActivity, fetchMember } from "../../redux";
+import { fetchResearch, fetchActivity, fetchMember, fetchArticle } from "../../redux";
 import { useTranslation } from "react-i18next";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,6 +14,8 @@ import SwiperCore, {
 import "swiper/swiper-bundle.css";
 
 import ArticleFlex from "../elements/ArticleFlex";
+import ArticleLongFlex from "../elements/ArticleLongFlex";
+import ActivityFlex from "../elements/ActivityFlex";
 import MemberFlex from "../elements/MemberFlex";
 
 import "../../assets/css/text.css";
@@ -40,13 +42,17 @@ export default function Home() {
   const researches = useSelector((state) => state.researches.researches);
   const activities = useSelector((state) => state.activities.activities);
   const members = useSelector((state) => state.members.members);
+  const articles = useSelector((state) => state.articles.articles);
   const dispatch = useDispatch();
   const { t } = useTranslation();
+
+  // console.log(articles)
 
   useEffect(() => {
     dispatch(fetchResearch(9));
     dispatch(fetchActivity(3));
     dispatch(fetchMember(6));
+    dispatch(fetchArticle(2));
   }, [dispatch]);
 
   const refreshMember = () => {
@@ -178,22 +184,15 @@ export default function Home() {
                 </p>
               </div>
               {/* <div className="temp-project" /> */}
-              {activities.map((activity, index) => (
+              {activities.slice(0, 3).map((activity, index) => (
                 <div
                   key={index}
                   onClick={() =>
                     linkPath("/activity-post/" + activity.attributes.slug)
-                  }
-                  className="temp-project"
-                >
-                  {activity.attributes.title}
+                  }>
+                  <ActivityFlex data={activity.attributes}/>
                 </div>
               ))}
-            </div>
-
-            <div className="project-grid">
-              {/* <div className="temp-project" />
-              <div className="temp-project" /> */}
             </div>
           </div>
         </div>
@@ -245,6 +244,30 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div id="home-article">
+        <div className="section">
+          <div className="page-container">
+            <div className="home-header">
+              <img className="orange-tri" src={orangeTriangle} alt="" />
+              <h1 className="nm-text w700">Article</h1>
+              <img className="orange-tri" src={orangeTriangle} alt="" />
+              <p
+                className="vsm-text w500 blue-text sarabun pointer"
+                onClick={() => linkPath("/article")}
+              >
+                {t("Home.DetailAll")} &gt;&gt;
+              </p>
+            </div>
+          </div>
+        </div>
+          <div className="section">
+            <div id="home-article-container" className="page-container"> 
+              <ArticleLongFlex data={articles[articles.length - 2]} type={"post"}/>
+              <ArticleLongFlex data={articles[articles.length - 1]} type={"post"}/>
+            </div>
+          </div>
       </div>
 
       {/* Collaboration */}

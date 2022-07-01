@@ -1,22 +1,51 @@
-.member-flex > div:first-child > div {
-  width: 210px;
-  height: 210px;
+.member-clr{
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
+
+  object-fit: cover;
+  border: 3px solid;
 }
 
 .red-flex {
-  background-color: #f16f64;
+  border-color: #f16f64 !important;
 }
 
 .blue-flex {
-  background-color: #86bac5;
+  border-color: #86bac5 !important;
 }
 
-.member-flex > div:nth-child(2) {
+.member-flex-tags{
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 3px 7px;
+}
+
+.member-flex-info{
   background: #ffffff;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  padding: 30px 20px;
   border-radius: 20px;
-  height: 164px;
-  width: 100%;
-  margin-top: -60px;
+  min-height: 164px;
+
+  text-align: center;
+
+  justify-content: end;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: -100px;
+}
+
+.member-flex-tags-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* flex-wrap: wrap; */
+  margin-top: 10px;
+}
+
+.member-flex-info > h1{
+  text-align: center;
 }

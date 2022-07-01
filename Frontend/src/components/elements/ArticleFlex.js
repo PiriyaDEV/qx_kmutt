@@ -21,10 +21,14 @@ export default function ArticleFlex(props) {
           )
         }
        
-        <div> 
+        <div className='article-flex-info'> 
           {
           props.data && 
-          <h1 class="w700 xm2-text pointer">{props.data.attributes.title}</h1> 
+          <h1 className="w700 xm2-text pointer clamp-2">{props.data.attributes.title}</h1> 
+          }
+          {
+            props.data &&
+            (<h1 className="w400 xm3-text pointer clamp-2">{props.data.attributes.description}</h1>)
           }
         </div>
     </div>

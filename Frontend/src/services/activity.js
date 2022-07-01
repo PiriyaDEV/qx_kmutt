@@ -49,6 +49,48 @@ export default new (class ActivityService {
           },
         },
       },
+      {
+        id: 3,
+        attributes: {
+          slug: "quantarium-event-th",
+          title: "นิทรรศการควอนเทอเรียม 999",
+          description:
+            "โซลูชันที่สร้างสรรค์แต่สามารถอธิบายได้ของ Quantarium สร้างขึ้นจากพื้นฐานของ AI จริง ช่วยให้ตัดสินใจได้แม่นยำยิ่งขึ้น ครอบคลุมการประเมินมูลค่า การวิเคราะห์ โมเดลแนวโน้ม และการปรับพอร์ตให้เหมาะสม",
+          location_name: "เซ็นทรัลบางมด",
+          location_url:
+            "https://www.google.com/maps?q=kmutt&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiHnOvhncv4AhWfzTgGHaf3AZ4Q_AUoAnoECAIQBA",
+          start_date: "2022-06-26",
+          cover: {
+            data: {
+              id: 15,
+              attributes: {
+                url: "/uploads/1656251837876_c3be14047e.jpg",
+              },
+            },
+          },
+        },
+      },
+      {
+        id: 4,
+        attributes: {
+          slug: "quantarium-event-th",
+          title: "นิทรรศการควอนเทอเรียม 999",
+          description:
+            "โซลูชันที่สร้างสรรค์แต่สามารถอธิบายได้ของ Quantarium สร้างขึ้นจากพื้นฐานของ AI จริง ช่วยให้ตัดสินใจได้แม่นยำยิ่งขึ้น ครอบคลุมการประเมินมูลค่า การวิเคราะห์ โมเดลแนวโน้ม และการปรับพอร์ตให้เหมาะสม",
+          location_name: "เซ็นทรัลบางมด",
+          location_url:
+            "https://www.google.com/maps?q=kmutt&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiHnOvhncv4AhWfzTgGHaf3AZ4Q_AUoAnoECAIQBA",
+          start_date: "2022-06-26",
+          cover: {
+            data: {
+              id: 15,
+              attributes: {
+                url: "/uploads/1656251837876_c3be14047e.jpg",
+              },
+            },
+          },
+        },
+      },
     ];
     // const query = qs.stringify(
     //   {

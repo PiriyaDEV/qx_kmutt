@@ -56,6 +56,12 @@ blockquote:before {
   font-family: "Sarabun", sans-serif !important;
 }
 
+/* Font 16px */
+.xm3-text {
+  margin: 0;
+  font-size: 2em;
+}
+
 /* Font 18px */
 .xm2-text {
   margin: 0;
@@ -128,6 +134,30 @@ blockquote:before {
 /* Font Weight 700 */
 .w700 {
   font-weight: 700;
+}
+
+.clamp-1{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.clamp-2{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.clamp-3{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .white-text {

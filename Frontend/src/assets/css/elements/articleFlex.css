@@ -29,7 +29,11 @@
 .article-flex > div {
   background-color: #ffffff;
   height: 100px;
-  padding: 15px;
+  padding: 15px 15px 30px 15px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
+}
+
+.article-flex-info > h1:first-child{
+  margin-bottom: 5px;
 }

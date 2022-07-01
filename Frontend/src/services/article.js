@@ -65,6 +65,238 @@ export default new (class ArticleService {
           },
         },
       },
+      {
+        id: 1,
+        attributes: {
+          slug: "ezq",
+          title:
+            "EZQ: เว็บแอปพลิเคชันเพื่อการเรียนการสอนควอนตัมคอมพิวเตอร์สำหรับผู้สอนและผู้เรียน",
+          description:
+            "EZQ คือเว็บแอปพลิเคชันที่ถูกสร้างขึ้นโดยมีจุดมุ่งหมายเพื่อยกระดับประสบการณ์การเรียนรู้ด้านควอนตัมคอมพิวเตอร์สำหรับผู้เริ่มศึกษา ภายในเว็บแอปพลิเคชันประกอบด้วยฟีเจอร์ Code Playground ซึ่งทั้งผู้เรียนและผู้สอน",
+          cover: {
+            data: {
+              id: 17,
+              attributes: {
+                url: "/uploads/1656253109941_be7230fd75.jpg",
+              },
+            },
+          },
+          tags: {
+            data: [
+              {
+                id: 2,
+                attributes: {
+                  name: "QuantumProgramming",
+                },
+              },
+              {
+                id: 13,
+                attributes: {
+                  name: "QuantumIDE",
+                },
+              },
+              {
+                id: 14,
+                attributes: {
+                  name: "EducationalProgram",
+                },
+              },
+              {
+                id: 15,
+                attributes: {
+                  name: "LearningAndTeachingProgram",
+                },
+              },
+              {
+                id: 17,
+                attributes: {
+                  name: "QuantumLearning",
+                },
+              },
+              {
+                id: 16,
+                attributes: {
+                  name: "InteractiveLearning",
+                },
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: 2,
+        attributes: {
+          slug: "ezq",
+          title:
+            "EZQ: เว็บแอปพลิเคชันเพื่อการเรียนการสอนควอนตัมคอมพิวเตอร์สำหรับผู้สอนและผู้เรียน",
+          description:
+            "EZQ คือเว็บแอปพลิเคชันที่ถูกสร้างขึ้นโดยมีจุดมุ่งหมายเพื่อยกระดับประสบการณ์การเรียนรู้ด้านควอนตัมคอมพิวเตอร์สำหรับผู้เริ่มศึกษา ภายในเว็บแอปพลิเคชันประกอบด้วยฟีเจอร์ Code Playground ซึ่งทั้งผู้เรียนและผู้สอน",
+          cover: {
+            data: {
+              id: 17,
+              attributes: {
+                url: "/uploads/1656253109941_be7230fd75.jpg",
+              },
+            },
+          },
+          tags: {
+            data: [
+              {
+                id: 2,
+                attributes: {
+                  name: "QuantumProgramming",
+                },
+              },
+              {
+                id: 13,
+                attributes: {
+                  name: "QuantumIDE",
+                },
+              },
+              {
+                id: 14,
+                attributes: {
+                  name: "EducationalProgram",
+                },
+              },
+              {
+                id: 15,
+                attributes: {
+                  name: "LearningAndTeachingProgram",
+                },
+              },
+              {
+                id: 17,
+                attributes: {
+                  name: "QuantumLearning",
+                },
+              },
+              {
+                id: 16,
+                attributes: {
+                  name: "InteractiveLearning",
+                },
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: 3,
+        attributes: {
+          slug: "ezq",
+          title:
+            "EZQ: เว็บแอปพลิเคชันเพื่อการเรียนการสอนควอนตัมคอมพิวเตอร์สำหรับผู้สอนและผู้เรียน",
+          description:
+            "EZQ คือเว็บแอปพลิเคชันที่ถูกสร้างขึ้นโดยมีจุดมุ่งหมายเพื่อยกระดับประสบการณ์การเรียนรู้ด้านควอนตัมคอมพิวเตอร์สำหรับผู้เริ่มศึกษา ภายในเว็บแอปพลิเคชันประกอบด้วยฟีเจอร์ Code Playground ซึ่งทั้งผู้เรียนและผู้สอน",
+          cover: {
+            data: {
+              id: 17,
+              attributes: {
+                url: "/uploads/1656253109941_be7230fd75.jpg",
+              },
+            },
+          },
+          tags: {
+            data: [
+              {
+                id: 2,
+                attributes: {
+                  name: "QuantumProgramming",
+                },
+              },
+              {
+                id: 13,
+                attributes: {
+                  name: "QuantumIDE",
+                },
+              },
+              {
+                id: 14,
+                attributes: {
+                  name: "EducationalProgram",
+                },
+              },
+              {
+                id: 15,
+                attributes: {
+                  name: "LearningAndTeachingProgram",
+                },
+              },
+              {
+                id: 17,
+                attributes: {
+                  name: "QuantumLearning",
+                },
+              },
+              {
+                id: 16,
+                attributes: {
+                  name: "InteractiveLearning",
+                },
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: 4,
+        attributes: {
+          slug: "ezq",
+          title:
+            "EZQ: เว็บแอปพลิเคชันเพื่อการเรียนการสอนควอนตัมคอมพิวเตอร์สำหรับผู้สอนและผู้เรียน",
+          description:
+            "EZQ คือเว็บแอปพลิเคชันที่ถูกสร้างขึ้นโดยมีจุดมุ่งหมายเพื่อยกระดับประสบการณ์การเรียนรู้ด้านควอนตัมคอมพิวเตอร์สำหรับผู้เริ่มศึกษา ภายในเว็บแอปพลิเคชันประกอบด้วยฟีเจอร์ Code Playground ซึ่งทั้งผู้เรียนและผู้สอน",
+          cover: {
+            data: {
+              id: 17,
+              attributes: {
+                url: "/uploads/1656253109941_be7230fd75.jpg",
+              },
+            },
+          },
+          tags: {
+            data: [
+              {
+                id: 2,
+                attributes: {
+                  name: "QuantumProgramming",
+                },
+              },
+              {
+                id: 13,
+                attributes: {
+                  name: "QuantumIDE",
+                },
+              },
+              {
+                id: 14,
+                attributes: {
+                  name: "EducationalProgram",
+                },
+              },
+              {
+                id: 15,
+                attributes: {
+                  name: "LearningAndTeachingProgram",
+                },
+              },
+              {
+                id: 17,
+                attributes: {
+                  name: "QuantumLearning",
+                },
+              },
+              {
+                id: 16,
+                attributes: {
+                  name: "InteractiveLearning",
+                },
+              },
+            ],
+          },
+        },
+      },
     ];
     // const query = qs.stringify(
     //   {

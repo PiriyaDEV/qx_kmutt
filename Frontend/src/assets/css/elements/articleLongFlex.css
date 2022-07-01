@@ -7,12 +7,21 @@
   border-radius: 25px;
 }
 
-.article-long-flex > div:first-child {
+.article-long-flex > img {
   height: 244px;
   background-color: #e5e5e5;
   width: 346px;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
+
+  object-fit: cover;
+}
+
+.article-long-flex-info{
+  padding: 15px 50px 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .posttp-long-flex {

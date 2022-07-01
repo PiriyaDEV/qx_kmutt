@@ -51,7 +51,7 @@ export default function Navbar(props) {
         <div id="lang-box">
           <img src={world} alt=""/>
           <div>
-            <h1 className="vsm-text w500" onClick={() => changeLanguage("en")}>EN</h1>
+            {/* <h1 className="vsm-text w500" onClick={() => changeLanguage("en")}>EN</h1> */}
             <h1 className="vsm-text w500" onClick={() => changeLanguage("th")}>TH</h1>
           </div>
         </div>

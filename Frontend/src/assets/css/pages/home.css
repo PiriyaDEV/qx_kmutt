@@ -163,14 +163,6 @@ cursor: pointer;
   margin-bottom: 40px;
 }
 
-.temp-project {
-  background: #e5e5e5;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 25px;
-  width: 100%;
-  height: 206px;
-}
-
 /* Member */
 .home-header {
   display: flex;
@@ -224,6 +216,15 @@ cursor: pointer;
   transform:rotate(-360deg);
 }
 
+/* Article */
+#home-article-container{
+  display: flex;
+  gap: 74px;
+  align-items: center;
+
+  margin: 50px 0px;
+}
+
 /* Collab */
 #collab-list {
   display: flex;
@@ -238,6 +239,8 @@ cursor: pointer;
   background-color: #86bac5;
   border-radius: 50%;
 }
+
+
 
 @media screen and (min-width: 1440px) {
   #project-box{

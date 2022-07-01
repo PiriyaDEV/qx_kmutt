@@ -35,6 +35,118 @@ export default new (class ResearchService {
           },
         },
       },
+      {
+        id: 2,
+        attributes: {
+          slug: "quantographer-ibmq",
+          title:
+            "Quantographer: ซอฟต์แวร์แก้ไขวงจรควอนตัมสำหรับสถาปัตยกรรมคอมพิวเตอร์ควอนตัมของ IBMQ",
+          description:
+            "ผู้พัฒนามีเป้าหมายที่จะพัฒนาซอฟต์แวร์แก้ไขวงจรควอนตัมที่ผู้ใช้สามารถสร้าง วิเคราะห์ ปรับปรุงวงจรควอนตัม และเลือกสถาปัตยกรรมคอมพิวเตอร์ควอนตัมสำหรับวงจรนั้นได้",
+          cover: {
+            data: {
+              id: 16,
+              attributes: {
+                url: "/uploads/1656252653335_1a3a0a4190.jpg",
+              },
+            },
+          },
+          categories: {
+            data: [
+              {
+                id: 4,
+                attributes: {
+                  name: "QuantumCircuitEditor",
+                },
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: 3,
+        attributes: {
+          slug: "quantographer-ibmq",
+          title:
+            "Quantographer: ซอฟต์แวร์แก้ไขวงจรควอนตัมสำหรับสถาปัตยกรรมคอมพิวเตอร์ควอนตัมของ IBMQ",
+          description:
+            "ผู้พัฒนามีเป้าหมายที่จะพัฒนาซอฟต์แวร์แก้ไขวงจรควอนตัมที่ผู้ใช้สามารถสร้าง วิเคราะห์ ปรับปรุงวงจรควอนตัม และเลือกสถาปัตยกรรมคอมพิวเตอร์ควอนตัมสำหรับวงจรนั้นได้",
+          cover: {
+            data: {
+              id: 16,
+              attributes: {
+                url: "/uploads/1656252653335_1a3a0a4190.jpg",
+              },
+            },
+          },
+          categories: {
+            data: [
+              {
+                id: 4,
+                attributes: {
+                  name: "QuantumCircuitEditor",
+                },
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: 4,
+        attributes: {
+          slug: "quantographer-ibmq",
+          title:
+            "Quantographer: ซอฟต์แวร์แก้ไขวงจรควอนตัมสำหรับสถาปัตยกรรมคอมพิวเตอร์ควอนตัมของ IBMQ",
+          description:
+            "ผู้พัฒนามีเป้าหมายที่จะพัฒนาซอฟต์แวร์แก้ไขวงจรควอนตัมที่ผู้ใช้สามารถสร้าง วิเคราะห์ ปรับปรุงวงจรควอนตัม และเลือกสถาปัตยกรรมคอมพิวเตอร์ควอนตัมสำหรับวงจรนั้นได้",
+          cover: {
+            data: {
+              id: 16,
+              attributes: {
+                url: "/uploads/1656252653335_1a3a0a4190.jpg",
+              },
+            },
+          },
+          categories: {
+            data: [
+              {
+                id: 4,
+                attributes: {
+                  name: "QuantumCircuitEditor",
+                },
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: 5,
+        attributes: {
+          slug: "quantographer-ibmq",
+          title:
+            "Quantographer: ซอฟต์แวร์แก้ไขวงจรควอนตัมสำหรับสถาปัตยกรรมคอมพิวเตอร์ควอนตัมของ IBMQ",
+          description:
+            "ผู้พัฒนามีเป้าหมายที่จะพัฒนาซอฟต์แวร์แก้ไขวงจรควอนตัมที่ผู้ใช้สามารถสร้าง วิเคราะห์ ปรับปรุงวงจรควอนตัม และเลือกสถาปัตยกรรมคอมพิวเตอร์ควอนตัมสำหรับวงจรนั้นได้",
+          cover: {
+            data: {
+              id: 16,
+              attributes: {
+                url: "/uploads/1656252653335_1a3a0a4190.jpg",
+              },
+            },
+          },
+          categories: {
+            data: [
+              {
+                id: 4,
+                attributes: {
+                  name: "QuantumCircuitEditor",
+                },
+              },
+            ],
+          },
+        },
+      },
     ];
     // const query = qs.stringify(
     //   {
