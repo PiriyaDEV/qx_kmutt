@@ -7,11 +7,11 @@
 }
 
 /* Header */
-#about-header {
+.about-header {
   margin-top: 30px;
 }
 
-#about-header > p {
+.about-header > p {
   margin-top: 38px;
 }
 
@@ -38,4 +38,24 @@
   width: 280px;
   height: 280px;
   border-radius: 50%;
+}
+
+.about-fb{
+  margin-top: 70px;
+}
+
+.about-fb-info{
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 38px;
+}
+
+.about-fb-info > h1{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.about-fb-info > img{
+  width: 52px;
 }

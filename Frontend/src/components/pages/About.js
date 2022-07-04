@@ -6,6 +6,7 @@ import "../../assets/css/pages.css";
 import "../../assets/css/pages/about.css";
 
 import qxArticleLogo from "../../assets/images/home/image 15.png";
+import fb from "../../assets/images/aboutus/FBicon.svg"
 
 export default function About() {
   const { t } = useTranslation();
@@ -18,8 +19,8 @@ export default function About() {
         </div>
 
         {/* Header */}
-        <div id="about-header">
-          <h1 className="vbg-text w700 sarabun">{t('About.AboutTitle')}</h1>
+        <div class="about-header">
+          <h1 className="vbg-text w700 quicksand">{t('About.AboutTitle')}</h1>
           <hr className="small-blue-hr" />
           <p className="xm-text w500 sarabun">
             {t('About.AboutDescription')}
@@ -53,6 +54,16 @@ export default function About() {
           </div>
           <div className="section">
             <div className="about-collab-temp" />
+          </div>
+        </div>
+
+        {/* Header */}
+        <div class="about-header about-fb">
+          <h1 className="vbg-text w700 quicksand">ติดตามเราได้ที่</h1>
+          <hr className="small-blue-hr" />
+          <div className="about-fb-info">
+            <img src={fb} alt=""/>
+            <h1 className="w700 quicksand nm-text">QX-KMUTT</h1>
           </div>
         </div>
       </div>

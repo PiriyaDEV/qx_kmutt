@@ -1,6 +1,6 @@
 .mb-long-flex {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 18px;
 }
 
@@ -20,6 +20,7 @@
   position: relative;
   padding: 28px;
   width: 100%;
+  max-width: 400px;
   background-color: #ffffff;
 }
 
@@ -28,12 +29,16 @@
 }
 
 .mb-long-tag {
-  width: 20%;
+  width: auto;
   height: 26px;
   border-radius: 20px;
   position: absolute;
   right: 20px;
   top: 20px;
+
+  min-width: 110px;
+
+  padding: 0px 10px;
 }
 
 .mb-long-red-tag {
@@ -46,4 +51,43 @@
 
 .mb-long-grey-tag {
   background-color: #c4c4c4;
+}
+
+.member-long-clr{
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid;
+}
+
+.red-flex {
+  border-color: #f16f64 !important;
+}
+
+.blue-flex {
+  border-color: #86bac5 !important;
+}
+
+.member-icon{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.member-icon > img{
+  width: 20px;
+}
+
+.member-icon > p{
+  white-space:normal;
+  word-break: break-word;
+  display: inline;
+}
+
+.member-icon-div{
+  margin-top: 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }

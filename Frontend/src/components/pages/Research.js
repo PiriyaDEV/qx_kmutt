@@ -95,7 +95,7 @@ export default function Research() {
                   linkPath("/research-post/" + research.attributes.slug)
                 }
               >
-                <ArticleLongFlex data={research} />
+                <ArticleLongFlex data={research} page="research"/>
               </div>
             ))}
             {/* <div onClick={() => linkPath("/research-post")}>
@@ -112,6 +112,7 @@ export default function Research() {
             </div> */}
           </div>
         </div>
+        <div className="showmore blue-text sm-text w500 pointer">แสดงเพิ่ม ...</div>
       </div>
     </div>
   );

@@ -211,3 +211,8 @@ blockquote:before {
 .pointer{
   cursor: pointer;
 }
+
+.showmore{
+  margin-top: 110px;
+  text-align: center;
+}

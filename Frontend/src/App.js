@@ -10,7 +10,7 @@ import Article from "./components/pages/Article";
 import Member from "./components/pages/Member";
 import About from "./components/pages/About";
 import PostTemplate from "./components/pages/PostTemplate";
-import MemberTemplate from "./components/pages/MemberTemplate";
+// import MemberTemplate from "./components/pages/MemberTemplate";
 
 function App() {
   const Loader = () => <div className="App"></div>;
@@ -69,11 +69,11 @@ function App() {
             <Footer />
           </Route>
 
-          <Route path="/member-info/:slug" id="app-member-info">
+          {/* <Route path="/member-info/:slug" id="app-member-info">
             <Navbar path={"member-info"} />
             <MemberTemplate />
             <Footer />
-          </Route>
+          </Route> */}
 
           {/* <Route path="/:id">
           <p>ไม่มี pathนี้</p>

@@ -92,7 +92,7 @@ export default function Project() {
                     linkPath("/activity-post/" + activity.attributes.slug)
                   }
                 >
-                  <ArticleLongFlex data={activity} />
+                  <ArticleLongFlex data={activity} page="activity" />
                 </div>
               ))}
             {/* <div onClick={() => linkPath("/project-post")}>
@@ -106,6 +106,8 @@ export default function Project() {
             </div> */}
           </div>
         </div>
+
+        <div className="showmore blue-text sm-text w500 pointer">แสดงเพิ่ม ...</div>
       </div>
     </div>
   );

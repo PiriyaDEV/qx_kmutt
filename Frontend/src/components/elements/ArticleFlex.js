@@ -5,6 +5,8 @@ import "../../assets/css/pages.css";
 import "../../assets/css/elements/articleFlex.css"
 import ImageService from "../../services/image";
 
+import nextArrow from "../../assets/images/icon/arrow.svg"
+
 export default function ArticleFlex(props) {
 
   const linkPath = (path) => {
@@ -30,6 +32,9 @@ export default function ArticleFlex(props) {
             props.data &&
             (<h1 className="w400 xm3-text pointer clamp-2">{props.data.attributes.description}</h1>)
           }
+          <div className="article-flex-info-arrow">
+            <img src={nextArrow} alt=""/>
+          </div>
         </div>
     </div>
   )

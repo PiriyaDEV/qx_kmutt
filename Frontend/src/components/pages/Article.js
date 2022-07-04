@@ -68,6 +68,7 @@ export default function Article() {
               ))}
           </div>
         </div>
+        <div className="showmore blue-text sm-text w500 pointer">แสดงเพิ่ม ...</div>
       </div>
     </div>
   );

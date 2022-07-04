@@ -131,9 +131,8 @@ export default function Home() {
               }}
               pagination={{ clickable: true }}
               slidesPerView={3}
-              loop={false}
-              // loopAdditionalSlides={10}
-              centeredSlides={false}
+              loop={true}
+              // centeredSlides={true}
               // autoplay={{
               //   delay: 2500,
               // }}
