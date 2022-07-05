@@ -6,7 +6,7 @@ import "../../assets/css/pages.css";
 import "../../assets/css/elements/navbar.css";
 
 import qxLogo from "../../assets/images/home/QX-logo.png";
-import world from "../../assets/images/navbar/Icon.svg"
+import world from "../../assets/images/navbar/Icon.svg";
 
 export default function Navbar(props) {
   // const [lg, setLg] = useState("en");
@@ -24,14 +24,21 @@ export default function Navbar(props) {
   return (
     <div id="navbar" className="section">
       <div id="navbar-box" className="navbar-container">
-        {props.path !== "home" && (
+        {/* {props.path !== "home" && (
           <img
             id="nav-logo"
             src={qxLogo}
             alt=""
             onClick={() => linkPath("/")}
           />
-        )}
+        )} */}
+          <img
+            id="nav-logo"
+            className={`${props.path === "home" ? "nav-logo-hide" : null}`}
+            src={qxLogo}
+            alt=""
+            onClick={() => linkPath("/")}
+          />
 
         <h1 className="vsm-text w500" onClick={() => linkPath("/activity")}>
           {t("Navbar.Projects")}

@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchResearch, fetchActivity, fetchMember, fetchArticle } from "../../redux";
+import {
+  fetchResearch,
+  fetchActivity,
+  fetchMember,
+  fetchArticle,
+} from "../../redux";
 import { useTranslation } from "react-i18next";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -84,7 +89,7 @@ export default function Home() {
             <div>
               <img id="qx-logo" src={qxLogo} alt="" />
             </div>
-            <div>
+            <div id="home-landing-info">
               <h1 className="bg-home-text w400">{t("Home.Qx")}</h1>
               <p className="nm-text w400">
                 {t("Home.QxDescription.1")} <br />
@@ -130,20 +135,17 @@ export default function Home() {
                 nextEl: ".next-article-arrow",
               }}
               pagination={{ clickable: true }}
-              slidesPerView={3}
+              slidesPerView={1}
               loop={true}
               // centeredSlides={true}
               // autoplay={{
               //   delay: 2500,
               // }}
               breakpoints={{
-                500: {
-                  slidesPerView: 3,
+                960: {
+                  slidesPerView: 2,
                 },
-                700: {
-                  slidesPerView: 3,
-                },
-                1020: {
+                1280: {
                   slidesPerView: 3,
                 },
               }}
@@ -188,8 +190,9 @@ export default function Home() {
                   key={index}
                   onClick={() =>
                     linkPath("/activity-post/" + activity.attributes.slug)
-                  }>
-                  <ActivityFlex data={activity.attributes}/>
+                  }
+                >
+                  <ActivityFlex data={activity.attributes} />
                 </div>
               ))}
             </div>
@@ -203,9 +206,11 @@ export default function Home() {
         <div className="section">
           <div className="page-container">
             <div className="home-header">
-              <img className="orange-tri" src={orangeTriangle} alt="" />
-              <h1 className="nm-text w700">{t("Home.Member")}</h1>
-              <img className="orange-tri" src={orangeTriangle} alt="" />
+              <div>
+                <img className="orange-tri" src={orangeTriangle} alt="" />
+                <h1 className="nm-text w700">{t("Home.Member")}</h1>
+                <img className="orange-tri" src={orangeTriangle} alt="" />
+              </div>
               <p
                 className="vsm-text w500 blue-text sarabun pointer"
                 onClick={() => linkPath("/member")}
@@ -249,9 +254,12 @@ export default function Home() {
         <div className="section">
           <div className="page-container">
             <div className="home-header">
-              <img className="orange-tri" src={orangeTriangle} alt="" />
-              <h1 className="nm-text w700">Article</h1>
-              <img className="orange-tri" src={orangeTriangle} alt="" />
+              <div>
+                <img className="orange-tri" src={orangeTriangle} alt="" />
+                <h1 className="nm-text w700">Article</h1>
+                <img className="orange-tri" src={orangeTriangle} alt="" />
+              </div>
+
               <p
                 className="vsm-text w500 blue-text sarabun pointer"
                 onClick={() => linkPath("/article")}
@@ -261,21 +269,29 @@ export default function Home() {
             </div>
           </div>
         </div>
-          <div className="section">
-            <div id="home-article-container" className="page-container"> 
-              <ArticleLongFlex data={articles[articles.length - 2]} type={"post"}/>
-              <ArticleLongFlex data={articles[articles.length - 1]} type={"post"}/>
-            </div>
+        <div className="section">
+          <div id="home-article-container" className="page-container">
+            <ArticleLongFlex
+              data={articles[articles.length - 2]}
+              type={"post"}
+            />
+            <ArticleLongFlex
+              data={articles[articles.length - 1]}
+              type={"post"}
+            />
           </div>
+        </div>
       </div>
 
       {/* Collaboration */}
       <div id="collab" className="section">
         <div className="page-container">
           <div className="home-header">
-            <img className="orange-tri" src={blueTriangle} alt="" />
-            <h1 className="nm-text w700">{t("Home.Collaboration")}</h1>
-            <img className="orange-tri" src={blueTriangle} alt="" />
+            <div>
+              <img className="orange-tri" src={blueTriangle} alt="" />
+              <h1 className="nm-text w700">{t("Home.Collaboration")}</h1>
+              <img className="orange-tri" src={blueTriangle} alt="" />
+            </div>
           </div>
 
           <div id="collab-list">

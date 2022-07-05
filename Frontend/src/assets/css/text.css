@@ -216,3 +216,159 @@ blockquote:before {
   margin-top: 110px;
   text-align: center;
 }
+
+@media screen and (max-width: 1100px) {
+  /* Font 16px */
+.xm3-text {
+  font-size: 1.5em;
+}
+
+/* Font 18px */
+.xm2-text {
+  font-size: 1.75em;
+}
+
+/* Font 20px */
+.xm-text {
+  font-size: 2em;
+}
+
+/* Font 22px */
+.xm2-text {
+  font-size: 2.25em;
+}
+
+/* Font 24px */
+.vsm-text {
+  font-size: 2.5em;
+}
+
+/* Font 28px */
+.sm-text {
+  font-size: 3em;
+}
+
+/* Font 36px */
+.nm-text {
+  font-size: 4em;
+}
+
+/* Font 48px */
+.bg-text {
+  font-size: 5.5em;
+}
+
+/* Font 64px */
+.vbg-text {
+  font-size: 7.5em;
+}
+
+/* Font 120px */
+.bg-home-text {
+  font-size: 13em;
+}
+}
+
+@media screen and (max-width: 767px) {
+    /* Font 16px */
+.xm3-text {
+  font-size: 1.25em;
+}
+
+/* Font 18px */
+.xm2-text {
+  font-size: 1.5em;
+}
+
+/* Font 20px */
+.xm-text {
+  font-size: 1.75em;
+}
+
+/* Font 22px */
+.xm2-text {
+  font-size: 2em;
+}
+
+/* Font 24px */
+.vsm-text {
+  font-size: 2.25em;
+}
+
+/* Font 28px */
+.sm-text {
+  font-size: 2.75em;
+}
+
+/* Font 36px */
+.nm-text {
+  font-size: 3.75em;
+}
+
+/* Font 48px */
+.bg-text {
+  font-size: 5.25em;
+}
+
+/* Font 64px */
+.vbg-text {
+  font-size: 7.25em;
+}
+
+/* Font 120px */
+.bg-home-text {
+  font-size: 10em;
+}
+}
+
+@media screen and (max-width: 490px) {
+      /* Font 16px */
+.xm3-text {
+  font-size: 1.5em;
+}
+
+/* Font 18px */
+.xm2-text {
+  font-size: 1.5em;
+}
+
+/* Font 20px */
+.xm-text {
+  font-size: 1.65em;
+}
+
+/* Font 22px */
+.xm2-text {
+  font-size: 1.75em;
+}
+
+/* Font 24px */
+.vsm-text {
+  font-size: 2em;
+}
+
+/* Font 28px */
+.sm-text {
+  font-size: 2.5em;
+}
+
+/* Font 36px */
+.nm-text {
+  font-size: 3em;
+}
+
+/* Font 48px */
+.bg-text {
+  font-size: 4em;
+}
+
+/* Font 64px */
+.vbg-text {
+  font-size: 6em;
+}
+
+/* Font 120px */
+.bg-home-text {
+  font-size: 7em;
+}
+}

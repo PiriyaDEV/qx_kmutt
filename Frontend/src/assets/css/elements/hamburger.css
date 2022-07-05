@@ -1,0 +1,78 @@
+#hamburger{
+    z-index: 100000 !important;
+    top: 0 !important;
+}
+
+.bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 25px;
+    right: 36px;
+    top: 30px;
+    z-index: 10000 !important;
+    color: black;
+
+    display: none;
+  }
+
+.bm-burger-bars{
+    background-color: #333333 !important;
+}
+
+.bm-item {
+    display: inline-block;
+  
+    /* Our sidebar item styling */
+    text-decoration: none;
+    /* margin-bottom: 10px; */
+    color: #3D3D3D;
+    transition: color 0.2s;
+  }
+
+  .bm-menu {
+    background: #ffffff;
+    padding-top: 50px;
+    font-size: 1.15em;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 20%);
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+  }
+
+  .hamburger-text {
+    border-top: 1px solid #e5e5e5;
+    padding: 15px 25px;
+  }
+  
+  .hamburger-text > h1{
+    cursor: pointer;
+  }
+  
+  .hamburger-last {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  /* Position and sizing of clickable cross button */
+.bm-cross-button {
+    height: 24px;
+    width: 24px;
+    top: 12px !important;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #3D3D3D;
+  }
+
+  @media screen and (max-width: 780px) {
+    .bm-burger-button{
+        display: block;
+    }
+  }

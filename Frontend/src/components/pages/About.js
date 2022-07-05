@@ -19,7 +19,7 @@ export default function About() {
         </div>
 
         {/* Header */}
-        <div class="about-header">
+        <div className="about-header">
           <h1 className="vbg-text w700 quicksand">{t('About.AboutTitle')}</h1>
           <hr className="small-blue-hr" />
           <p className="xm-text w500 sarabun">
@@ -58,7 +58,7 @@ export default function About() {
         </div>
 
         {/* Header */}
-        <div class="about-header about-fb">
+        <div className="about-header about-fb">
           <h1 className="vbg-text w700 quicksand">ติดตามเราได้ที่</h1>
           <hr className="small-blue-hr" />
           <div className="about-fb-info">

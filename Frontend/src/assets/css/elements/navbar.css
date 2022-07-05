@@ -1,7 +1,8 @@
 #navbar-box {
   justify-content: space-around;
-  padding: 20px 0px;
+  padding: 10px 0px;
   position: relative;
+  z-index: 1;
 }
 
 #navbar {
@@ -14,9 +15,13 @@
 
 #nav-logo{
   width: 58px;
-  position: absolute;
-  left: -100px;
+  /* position: absolute; */
+  /* left: -50px; */
   cursor: pointer;
+}
+
+.nav-logo-hide{
+  visibility: hidden;
 }
 
 #lang-box{
@@ -28,4 +33,36 @@
 
 #lang-box > div > h1{
   cursor: pointer;
+}
+
+@media screen and (max-width: 780px) {
+  #navbar-box > h1{
+    display: none;
+  }
+
+  #navbar{
+    position: fixed;
+    width: 100%;
+    background-color: #ffffff;
+  }
+
+  #navbar-box{
+    min-height: 60px;
+  }
+
+  #nav-logo{
+    top: 7px;
+    left: 25px;
+    position: absolute;
+    visibility: visible;
+  }
+
+  #lang-box{
+    display: none;
+  }
+
+  .nav-logo-hide{
+    visibility: visible;
+    position: absolute;
+  }
 }

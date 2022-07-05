@@ -123,6 +123,7 @@ cursor: pointer;
 #home-project {
   position: relative;
   padding: 90px 0px;
+  z-index: 1;
 }
 
 #home-project > div{
@@ -164,7 +165,7 @@ cursor: pointer;
 }
 
 /* Member */
-.home-header {
+.home-header, .home-header > div {
   display: flex;
   align-items: center;
   gap: 30px;
@@ -240,6 +241,193 @@ cursor: pointer;
   border-radius: 50%;
 }
 
+@media screen and (max-width: 1600px) {
+  .prev-article-arrow {
+    left: -60px;
+  }
+  
+  .next-article-arrow {
+    right: -60px;
+  }
+
+  #refresh-logo {
+    right: -60px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+.prev-article-arrow {
+    left: -80px;
+    z-index: 9;
+  }
+  
+  .next-article-arrow {
+    right: -80px;
+    z-index: 9;
+  }
+
+  #refresh-logo {
+    right: -80px;
+    z-index: 9;
+  }
+
+  .logoframe{
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .logoframe{
+    width: 350px;
+    opacity: 0.3;
+  }
+
+  #qx-logo{
+    width: 250px;
+  }
+
+  .prev-article-arrow {
+    left: 50px;
+  }
+  
+  .next-article-arrow {
+    right: 50px;
+  }
+
+  .prev-article-arrow, .next-article-arrow {
+    width: 42px;
+    }
+
+  #refresh-logo {
+    right: 20px;
+  }
+
+  #project-box{
+    margin-left: 0px;
+  }
+
+  .member-flex-container{
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    width: 85%;
+  }
+
+  #home-swiper{
+    width: 80%;
+  }
+
+  #article{
+    overflow-x: hidden;
+  }
+
+  #home-article-container{
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  #home-swiper{
+    width: 320px;
+  }
+
+  #research-tags{
+    flex-wrap: wrap;
+  }
+
+  #home-about {
+    padding: 25px 30px;
+  }
+
+  #qx-logo{
+    width: 170px;
+  }
+
+  .temp-collab{
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  #landing-section{
+    flex-direction: column;
+    padding: 80px 0px;
+    gap: 30px;
+  }
+
+  .logoframe{
+    display: none;
+  }
+
+  .project-grid{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #home-landing-info{
+    text-align: center;
+  }
+
+  #home{
+    padding-top: 60px;
+  }
+
+  #refresh-logo{
+    width: 50px;
+    top: 30px;
+  }
+
+  .member-flex-container{
+    width: 100% !important;
+    gap: 25px;
+  }
+
+  #member-section > div > .member-flex-container:nth-child(2){
+    margin-top: 110px;
+  }
+
+  #member-section{
+    margin: 80px 0px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .prev-article-arrow, .next-article-arrow {
+    display: none;
+    }
+
+    /* #home-article, #member{
+      display: none;
+    } */
+
+    #research-tags{
+      gap: 20px;
+    }
+
+    #research-tags > div{
+    padding: 1px 10px;
+    }
+
+    #home-about {
+      padding: 10px 15px;
+  }
+
+  .member-flex-container{
+    grid-template-columns: 1fr;
+  }
+
+  .home-header{
+    flex-direction: column;
+  }
+
+  #collab-list{
+    gap: 20px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 
 
 @media screen and (min-width: 1440px) {

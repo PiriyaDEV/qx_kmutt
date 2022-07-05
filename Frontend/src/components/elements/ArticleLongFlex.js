@@ -15,15 +15,15 @@ export default function ArticleLongFlex(props) {
       <div className="article-long-flex-info">
         <div>
         {
-          props.data && (<h1 className="w600 vsm-text clamp-2">{props.data.attributes.title}</h1>)
+          props.data && (<p className="w600 vsm-text clamp-2">{props.data.attributes.title}</p>)
         }
         {
-          props.data && (<h1 className="w400 xm3-text clamp-3 article-long-descp">{props.data.attributes.description}</h1>)
+          props.data && (<p className="w400 xm3-text clamp-3 article-long-descp">{props.data.attributes.description}</p>)
         }
         </div>
         {
           props.data && props.page === "activity" && (
-            <div class="article-activity-info-bottom">
+            <div className="article-activity-info-bottom">
               <div>
                 <img src={location} alt="" />
                 <h1 className="blue-text xm2-text w600">{props.data.attributes.location_name}</h1>

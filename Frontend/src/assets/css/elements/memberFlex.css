@@ -49,3 +49,14 @@
 .member-flex-info > h1{
   text-align: center;
 }
+
+@media screen and (max-width: 780px) {
+  .member-clr{
+    height: 120px;
+    width: 120px;
+  }
+
+  .member-flex-info{
+    padding: 15px 20px;
+  }
+}

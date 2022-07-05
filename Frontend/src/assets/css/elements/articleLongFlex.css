@@ -76,3 +76,16 @@
 .article-long-right{
   width: 17px;
 }
+
+@media screen and (max-width: 1280px) {
+  .posttp-long-flex {
+    height: 140px !important;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .posttp-long-flex {
+    height: 142px !important;
+    width: 118px !important;
+  }
+}
