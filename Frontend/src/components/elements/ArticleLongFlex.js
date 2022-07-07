@@ -15,7 +15,7 @@ export default function ArticleLongFlex(props) {
       <div className="article-long-flex-info">
         <div>
         {
-          props.data && (<p className="w600 vsm-text clamp-2">{props.data.attributes.title}</p>)
+          props.data && (<p className="w600 vsm-text clamp-2 break-word">{props.data.attributes.title}</p>)
         }
         {
           props.data && (<p className="w400 xm3-text clamp-3 article-long-descp">{props.data.attributes.description}</p>)
@@ -25,16 +25,16 @@ export default function ArticleLongFlex(props) {
           props.data && props.page === "activity" && (
             <div className="article-activity-info-bottom">
               <div>
-                <img src={location} alt="" />
+                <img className="article-long-icon" src={location} alt="" />
                 <h1 className="blue-text xm2-text w600">{props.data.attributes.location_name}</h1>
               </div>
               <div>
-                <img src={calendar} alt="" />
+                <img className="article-long-icon" src={calendar} alt="" />
                 <h1 className="blue-text xm2-text w600">{props.data.attributes.start_date}</h1>
               </div>
               <div>
                 <h1 className="blue-text xm-text w500">สนใจเข้าร่วม</h1>
-                <img src={right} alt="" />
+                <img className="article-long-right" src={right} alt="" />
               </div>
             </div>
           )
@@ -52,7 +52,7 @@ export default function ArticleLongFlex(props) {
               </div>
               <div>
                 <h1 className="blue-text xm-text w500">อ่านต่อ...</h1>
-                <img src={right} alt="" />
+                <img className="article-long-right" src={right} alt="" />
               </div>
             </div>
           )

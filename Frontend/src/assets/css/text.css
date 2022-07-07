@@ -160,6 +160,10 @@ blockquote:before {
   -webkit-box-orient: vertical;
 }
 
+.break-word{
+  word-wrap: break-word;
+}
+
 .white-text {
   color: #ffffff;
 }
@@ -217,6 +221,10 @@ blockquote:before {
   text-align: center;
 }
 
+.text-center{
+  text-align: center;
+}
+
 @media screen and (max-width: 1100px) {
   /* Font 16px */
 .xm3-text {
@@ -270,6 +278,14 @@ blockquote:before {
 }
 
 @media screen and (max-width: 767px) {
+.showmore{
+  margin-top: 50px;
+}
+
+.small-blue-hr{
+  width: 100%;
+}
+
     /* Font 16px */
 .xm3-text {
   font-size: 1.25em;

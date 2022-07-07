@@ -38,54 +38,51 @@ export default function Research() {
 
   return (
     <div id="research" className="section">
-      <div>
-        <div className="section">
-          <div className="page-container">
-            {/* Header */}
-            <div id="research-header">
-              <div>
-                <h1 className="vbg-text w700">{t("Research.Research")}</h1>
-                <hr className="small-blue-hr" />
-                <p className="sm-text w500 small-ls sarabun">
-                  {t("Research.ResearchDescription")}
-                </p>
-              </div>
-
-              <div>
-                <hr className="small-grey-hr" />
-              </div>
+        <div className="page-container">
+          {/* Header */}
+          <div id="research-header">
+            <div>
+              <h1 className="vbg-text w700">{t("Research.Research")}</h1>
+              <hr className="small-blue-hr" />
+              <p className="sm-text w500 small-ls sarabun">
+                {t("Research.ResearchDescription")}
+              </p>
             </div>
 
-            {/* Choice */}
-            <div id="research-tag" className="section">
-              <h1
-                onClick={() => selectFilter("journal")}
-                className={`sm-text w500 tag blue-text sarabun ${
-                  researchFilter[0] ? "active-tag" : null
-                }`}
-              >
-                {t("Research.Journal")}
-              </h1>
-              <h1
-                onClick={() => selectFilter("proceeding")}
-                className={`sm-text w500 tag blue-text sarabun ${
-                  researchFilter[1] ? "active-tag" : null
-                }`}
-              >
-                {t("Research.Proceeding")}
-              </h1>
-              <h1
-                onClick={() => selectFilter("sn-project")}
-                className={`sm-text w500 tag blue-text sarabun ${
-                  researchFilter[2] ? "active-tag" : null
-                }`}
-              >
-                {t("Research.SeniorP")}
-              </h1>
+            <div>
+              <hr className="small-grey-hr" />
             </div>
           </div>
-        </div>
-        <div className="post-container">
+
+          {/* Choice */}
+          <div id="research-tag" className="section">
+            <h1
+              onClick={() => selectFilter("journal")}
+              className={`sm-text w500 tag blue-text sarabun text-center ${
+                researchFilter[0] ? "active-tag" : null
+              }`}
+            >
+              {t("Research.Journal")}
+            </h1>
+            <h1
+              onClick={() => selectFilter("proceeding")}
+              className={`sm-text w500 tag blue-text sarabun text-center ${
+                researchFilter[1] ? "active-tag" : null
+              }`}
+            >
+              {t("Research.Proceeding")}
+            </h1>
+            <h1
+              onClick={() => selectFilter("sn-project")}
+              className={`sm-text w500 tag blue-text sarabun text-center ${
+                researchFilter[2] ? "active-tag" : null
+              }`}
+            >
+              {t("Research.SeniorP")}
+            </h1>
+          </div>
+
+          <div>
           {/* List */}
           <div id="research-list">
             {researches.map((research, index) => (
@@ -112,8 +109,9 @@ export default function Research() {
             </div> */}
           </div>
         </div>
+
         <div className="showmore blue-text sm-text w500 pointer">แสดงเพิ่ม ...</div>
-      </div>
+        </div>
     </div>
   );
 }

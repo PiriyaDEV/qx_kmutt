@@ -18,10 +18,12 @@
 }
 
 .article-long-flex-info{
-  padding: 15px 50px 15px 20px;
+  padding: 15px 30px 15px 20px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  width: 100%;
+  word-wrap: break-word;
 }
 
 .posttp-long-flex {
@@ -31,6 +33,12 @@
 
 .article-long-descp{
   margin-top: 18px;
+  word-wrap: break-word;
+  /* display: none; */
+}
+
+.article-long-right{
+  width: 17px;
 }
 
 .article-activity-info-bottom > div, .article-research-info-bottom > div{
@@ -45,6 +53,10 @@
   justify-content: space-between;
   grid-template-columns: repeat(3, 200px);
   /* grid-template-columns: 1fr 1fr 1fr; */
+}
+
+.article-long-icon{
+  width: 14px;
 }
 
 .article-research-info-bottom{
@@ -81,11 +93,90 @@
   .posttp-long-flex {
     height: 140px !important;
   }
+
+  .article-activity-info-bottom{
+    grid-template-columns: repeat(3, 150px);
+  }
+
+  .article-long-flex > img {
+    width: 203px;
+    height: 218px;
+  }
+
+}
+
+@media screen and (max-width: 780px) {
+    .article-long-flex > img {
+      width: 156px;
+      height: 184px;
+  }
+
+  .article-long-flex-info{
+    gap: 24px;
+  }
+
+  .article-activity-info-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}
+
+@media screen and (max-width: 620px) {
+  .article-long-flex > img {
+    width: 121px;
+    height: 184px;
+}
+
+.article-long-flex-info {
+  padding: 0px 20px 0px 20px;
+}
+}
+
+@media screen and (max-width: 560px) {
+.article-activity-info-bottom > div:not(:last-child){
+  display: none;
+}
+
+.article-research-cat{
+  display: none !important;
+}
+
+.article-activity-info-bottom, .article-research-info-bottom{
+  justify-content: flex-end !important;
+}
+
+.article-long-flex-info{
+  gap: 15px;
+}
+
+.article-long-flex > img {
+  width: 121px;
+  height: 164px;
+}
 }
 
 @media screen and (max-width: 490px) {
-  .posttp-long-flex {
-    height: 142px !important;
-    width: 118px !important;
-  }
+.article-long-descp{
+  -webkit-line-clamp: 2 !important;
+}
+
+.posttp-long-flex {
+  height: 142px !important;
+  width: 118px !important;
+}
+
+.article-long-flex > img {
+  width: 83px;
+  height: 141px;
+}
+
+.pj-grey-temp, .pj-blue-temp {
+  width: 80%;
+}
+
+.article-long-right{
+  width: 13px;
+}
 }

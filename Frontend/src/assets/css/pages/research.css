@@ -1,5 +1,6 @@
 #research {
   padding: 70px 0px;
+  /* flex-direction: column; */
 }
 
 #research-header > div > p {
@@ -23,4 +24,16 @@
   gap: 39px;
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 780px) {
+  #research{
+    padding-top: 150px;
+  }
+
+#research-tag{
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  gap: 15px;
+}
 }

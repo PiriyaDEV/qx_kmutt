@@ -35,33 +35,30 @@ export default function Project() {
 
   return (
     <div id="project" className="section">
-      <div>
-        <div className="section">
-          <div className="page-container">
-            {/* Header */}
-            <div id="project-header">
-              {/* Temp Pic */}
-              <div>
-                <div className="pj-blue-temp" />
-                <div className="pj-grey-temp" />
-              </div>
-              <div id="project-header-text">
-                <div>
-                  <h1 className="vbg-text w700">{t("Project.Project")}</h1>
-                  <hr className="small-blue-hr" />
-                  <p className="sm-text w500 small-ls sarabun">
-                    {t("Project.ProjectDescription")}{" "}
-                  </p>
-                </div>
-
-                <div>
-                  <hr className="small-grey-hr" />
-                </div>
-              </div>
+      <div className="page-container">
+        {/* Header */}
+        <div id="project-header">
+          {/* Temp Pic */}
+          <div>
+            <div className="pj-blue-temp" />
+            <div className="pj-grey-temp" />
+          </div>
+          <div id="project-header-text">
+            <div>
+              <h1 className="vbg-text w700">{t("Project.Project")}</h1>
+              <hr className="small-blue-hr" />
+              <p className="sm-text w500 small-ls sarabun">
+                {t("Project.ProjectDescription")}{" "}
+              </p>
             </div>
 
-            {/* Choice */}
-            {/* <div id="project-tag" className="section">
+            <div>
+              <hr className="small-grey-hr" />
+            </div>
+          </div>
+        </div>
+        {/* Choice */}
+        {/* <div id="project-tag" className="section">
               <h1
                 onClick={() => selectFilter("activity")}
                 className={`sm-text w500 tag blue-text sarabun ${
@@ -79,9 +76,7 @@ export default function Project() {
                 {t("Project.ProjectTH")}
               </h1>
             </div> */}
-          </div>
-        </div>
-        <div className="post-container">
+        <div>
           {/* List */}
           <div id="project-list">
             {activities &&
@@ -107,7 +102,9 @@ export default function Project() {
           </div>
         </div>
 
-        <div className="showmore blue-text sm-text w500 pointer">แสดงเพิ่ม ...</div>
+        <div className="showmore blue-text sm-text w500 pointer">
+          แสดงเพิ่ม ...
+        </div>
       </div>
     </div>
   );
