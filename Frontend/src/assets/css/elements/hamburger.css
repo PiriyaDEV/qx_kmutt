@@ -76,3 +76,9 @@
         display: block;
     }
   }
+
+  @media screen and (max-width: 490px) {
+  #hamburger{
+    width: 250px !important;
+  }
+  }

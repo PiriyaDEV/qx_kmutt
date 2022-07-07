@@ -7,6 +7,7 @@
 
 #navbar {
   border-bottom: 1px solid #c8c8c8;
+  z-index: 100 !important;
 }
 
 #navbar-box > h1{

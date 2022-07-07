@@ -59,3 +59,51 @@
 .about-fb-info > img{
   width: 52px;
 }
+
+@media screen and (max-width: 1280px) {
+  .about-collab-temp{
+    width: 150px;
+    height: 150px;
+  }
+
+  #about-logo{
+    width: 280px;
+  }
+
+  .about-fb-info > img{
+    width: 40px;
+  }
+
+  #about-collab-list{
+    gap: 20px;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  #about-page {
+    padding-top: 150px;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .about-collab-temp{
+    width: 120px;
+    height: 120px;
+  }
+
+  #about-collab-list{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #about-logo{
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .about-collab-temp{
+    width: 80px;
+    height: 80px;
+  }
+}

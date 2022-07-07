@@ -13,7 +13,7 @@ export default function About() {
 
   return (
     <div id="about-page" className="section">
-      <div className="post-container">
+      <div className="page-container">
         <div className="section">
           <img id="about-logo" src={qxArticleLogo} alt="" />
         </div>

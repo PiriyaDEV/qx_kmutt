@@ -69,7 +69,7 @@ body {
   } */
 }
 
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .page-container,
   .navbar-container,.post-container {
     width: 720px;
@@ -92,7 +92,10 @@ body {
   .post-container {
     width: 474px;
     max-width: 474px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
+  
 }
 @media screen and (max-width: 375px) {
   .page-container,
@@ -109,4 +112,4 @@ body {
     width: 435px;
     max-width: 435px;
   }
-} */
+}

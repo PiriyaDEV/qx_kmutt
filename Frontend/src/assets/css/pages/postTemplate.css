@@ -75,3 +75,13 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+
+@media screen and (max-width: 780px) {
+  #post-template{
+    padding-top: 120px;
+  }
+
+  #article-post-list > div{
+    grid-template-columns: 1fr 1fr;
+  }
+}

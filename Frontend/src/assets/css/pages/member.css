@@ -49,3 +49,30 @@
   row-gap: 60px;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 1100px) {
+  #member-long-list{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  #member-page {
+    padding-top: 150px;
+  }
+
+  #member-choice-section{
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #member-choice-section > div:nth-child(2){
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .mb-long-tag{
+    min-width: inherit !important;
+  }
+}
