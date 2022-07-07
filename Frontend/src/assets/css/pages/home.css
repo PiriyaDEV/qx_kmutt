@@ -347,6 +347,7 @@ cursor: pointer;
     height: 60px;
     width: 60px;
   }
+  
 }
 
 @media screen and (max-width: 780px) {
@@ -354,6 +355,14 @@ cursor: pointer;
     flex-direction: column;
     padding: 80px 0px;
     gap: 30px;
+  }
+
+  .orange-tri {
+    width: 25px;
+  }
+
+  .home-header > div{
+    gap: 20px;
   }
 
   .logoframe{

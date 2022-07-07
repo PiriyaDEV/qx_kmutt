@@ -15,7 +15,7 @@
 }
 
 #nav-logo{
-  width: 58px;
+  width: 49px;
   /* position: absolute; */
   /* left: -50px; */
   cursor: pointer;
@@ -48,7 +48,7 @@
   }
 
   #navbar-box{
-    min-height: 60px;
+    min-height: 50px;
   }
 
   #nav-logo{

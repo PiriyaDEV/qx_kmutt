@@ -60,7 +60,7 @@
 
 @media screen and (max-width: 960px) {
   .article-flex {
-    max-width: 258px;
+    max-width: 258px !important; 
   }
   
   .article-flex > img {
@@ -71,3 +71,4 @@
     margin-top: 10px;
   }
 }
+
