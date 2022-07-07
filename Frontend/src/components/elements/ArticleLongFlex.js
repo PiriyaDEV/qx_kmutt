@@ -11,7 +11,7 @@ import right from "../../assets/images/icon/right.svg"
 export default function ArticleLongFlex(props) {
   return (
     <div className="article-long-flex">
-      <img className={`${props.type === "post" ? "posttp-long-flex" : null}`} src="https://thaipbs-world.s3.ap-southeast-1.amazonaws.com/thaipbsworld/wp-content/uploads/2019/12/29110958/Thailand-Prayut-Chan-ocha-Twitter-900x540.jpg" alt=""/>
+      <img className={`${props.type === "post" ? "posttp-long-flex" : null}`} src="https://www.patterns.dev/img/reactjs/react-logo@3x.svg" alt=""/>
       <div className="article-long-flex-info">
         <div>
         {
