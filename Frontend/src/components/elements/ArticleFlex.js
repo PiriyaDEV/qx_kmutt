@@ -3,7 +3,6 @@ import React from 'react'
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
 import "../../assets/css/elements/articleFlex.css"
-import ImageService from "../../services/image";
 
 import nextArrow from "../../assets/images/icon/arrow.svg"
 
@@ -17,7 +16,7 @@ export default function ArticleFlex(props) {
     <div className="article-flex" onClick={() => linkPath("/article-post/" + props.data.attributes.slug)}>
         {
           props.data ? (
-            <img src={ImageService.getCover(props.data)} alt=""/>
+            <img src={props.data.cover_url} alt=""/>
           ):(
             <div className="temp-img"></div>
           )
@@ -26,11 +25,11 @@ export default function ArticleFlex(props) {
         <div className='article-flex-info'> 
           {
           props.data && 
-          <h1 className="w700 xm2-text pointer clamp-2">{props.data.attributes.title}</h1> 
+          <h1 className="w700 xm2-text pointer clamp-2">{props.data.title}</h1> 
           }
           {
             props.data &&
-            (<h1 className="w400 xm3-text pointer clamp-2">{props.data.attributes.description}</h1>)
+            (<h1 className="w400 xm3-text pointer clamp-2">{props.data.description}</h1>)
           }
           <div className="article-flex-info-arrow">
             <img src={nextArrow} alt=""/>

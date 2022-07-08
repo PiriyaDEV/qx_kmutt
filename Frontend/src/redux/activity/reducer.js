@@ -1,24 +1,9 @@
 import { FETCH_ACTIVITY, FETCH_ACTIVITY_BY_SLUG } from "./type";
+import ActivityModel from "../../models/activity";
 
 const initialState = {
   activities: [],
-  activity: {
-    attributes: {
-      slug: "",
-      title: "",
-      content: "",
-      category: "",
-      published_date: "",
-      cover: {
-        data: {
-          attributes: {
-            url: "",
-          },
-        },
-      },
-    },
-    id: 0,
-  },
+  activity: ActivityModel.getOne({}),
 };
 
 const reducer = (state = initialState, action) => {

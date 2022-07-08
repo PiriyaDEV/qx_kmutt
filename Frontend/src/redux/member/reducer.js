@@ -1,26 +1,9 @@
 import { FETCH_MEMBER, FETCH_MEMBER_BY_SLUG } from "./type";
+import MemberModel from "../../models/member";
 
 const initialState = {
   members: [],
-  member: {
-    attributes: {
-      slug: "",
-      firstname: "",
-      lastname: "",
-      email: "",
-      position: "",
-      role: "",
-      description: "",
-      profile_picture: {
-        data: {
-          attributes: {
-            url: "",
-          },
-        },
-      },
-    },
-    id: 0,
-  },
+  member: MemberModel.getOne({}),
 };
 
 const reducer = (state = initialState, action) => {

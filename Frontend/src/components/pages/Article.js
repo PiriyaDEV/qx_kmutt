@@ -54,7 +54,7 @@ export default function Article() {
                 className="sm-text w500 blue-text pointer sarabun"
                 key={index}
               >
-                #{tag.attributes.tag_name}
+                #{tag.name}
               </h1>
             ))}
         </div>

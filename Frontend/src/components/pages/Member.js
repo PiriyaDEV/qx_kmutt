@@ -56,7 +56,7 @@ export default function Member() {
           <div id="member-long-list">
             {members.map((member, index) => (
               <div>
-                <MemberLongFlex data={member} color="red" />
+                <MemberLongFlex key={index} data={member} />
               </div>
             ))}
             {/* <div onClick={() => linkPath("/member-info")}>

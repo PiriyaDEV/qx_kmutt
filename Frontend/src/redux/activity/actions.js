@@ -4,7 +4,7 @@ import ActivityService from "../../services/activity.js";
 
 export const fetchActivity = (pageSize = 25) => {
   return (dispatch) => {
-    ActivityService.getActivity(pageSize).then((response) => {
+    ActivityService.getActivities(pageSize).then((response) => {
       if (response.length) {
         dispatch(fetchActivitySuccess(response));
       }

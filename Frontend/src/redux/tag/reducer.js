@@ -1,13 +1,9 @@
 import { FETCH_TAG, FETCH_TAG_BY_ID } from "./type";
+import TagModel from "../../models/tag";
 
 const initialState = {
   tags: [],
-  tag: {
-    attributes: {
-      name: "",
-    },
-    id: 0,
-  },
+  tag: TagModel.getOne({}),
 };
 
 const reducer = (state = initialState, action) => {

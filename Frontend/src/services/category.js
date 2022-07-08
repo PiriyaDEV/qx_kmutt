@@ -1,42 +1,11 @@
 import http from "./http-common";
 import qs from "qs";
+import CategoryModel from "../models/category";
 
 // Category APIs
 export default new (class CategoryService {
   // Get all categories
   async getCategories(pageSize) {
-    // return [
-    //   {
-    //     id: 1,
-    //     attributes: {
-    //       name: "QML",
-    //     },
-    //   },
-    //   {
-    //     id: 2,
-    //     attributes: {
-    //       name: "QuantumProgramming",
-    //     },
-    //   },
-    //   {
-    //     id: 3,
-    //     attributes: {
-    //       name: "Benmark",
-    //     },
-    //   },
-    //   {
-    //     id: 4,
-    //     attributes: {
-    //       name: "QuantumCircuitEditor",
-    //     },
-    //   },
-    //   {
-    //     id: 5,
-    //     attributes: {
-    //       name: "Journal",
-    //     },
-    //   },
-    // ];
     const query = qs.stringify(
       {
         fields: ["name"],
@@ -52,8 +21,11 @@ export default new (class CategoryService {
 
     return await http
       .get("/categories?" + query)
-      .then((response) => {
-        return response.data.data;
+      .then(async (response) => {
+        const data = response.data.data;
+        return await Promise.all(
+          data.map((category) => CategoryModel.getOne(category))
+        );
       })
       .catch((error) => {
         console.log(error);
@@ -62,19 +34,11 @@ export default new (class CategoryService {
 
   // Get category by id
   async getCategoryById(id) {
-    // return {
-    //   "id": 1,
-    //   "attributes": {
-    //     "name": "QML",
-    //     "createdAt": "2022-06-26T12:39:18.614Z",
-    //     "updatedAt": "2022-06-26T12:39:19.129Z",
-    //     "publishedAt": "2022-06-26T12:39:19.125Z"
-    //   }
-    // }
     return await http
       .get("/categories/" + id)
-      .then((response) => {
-        return response.data.data;
+      .then(async (response) => {
+        const data = response.data.data[0];
+        return await CategoryModel.getOne(data);
       })
       .catch((error) => {
         console.log(error);

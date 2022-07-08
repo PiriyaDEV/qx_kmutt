@@ -1,25 +1,9 @@
 import { FETCH_RESEARCH, FETCH_RESEARCH_BY_SLUG } from "./type";
+import ResearchModel from "../../models/research";
 
 const initialState = {
   researches:[],
-  research: {
-    attributes: {
-      slug: "",
-      title: "",
-      content: "",
-      research_database_url:"",
-      category: "",
-      published_date: "",
-      cover: {
-        data: {
-          attributes: {
-            url: ""
-          }
-        }
-      }
-    },
-    id: 0
-  },
+  research: ResearchModel.getOne({}),
 };
 
 const reducer = (state = initialState, action) => {

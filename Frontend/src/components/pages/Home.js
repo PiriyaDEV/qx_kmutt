@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  fetchCategory,
   fetchResearch,
   fetchActivity,
   fetchMember,
@@ -44,6 +45,7 @@ SwiperCore.use([Navigation, Pagination, Controller, Thumbs, Autoplay]);
 
 export default function Home() {
   const [refresh, setRefresh] = useState(false);
+  const categories = useSelector((state) => state.categories.categories);
   const researches = useSelector((state) => state.researches.researches);
   const activities = useSelector((state) => state.activities.activities);
   const members = useSelector((state) => state.members.members);
@@ -51,9 +53,8 @@ export default function Home() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  // console.log(articles)
-
   useEffect(() => {
+    dispatch(fetchCategory());
     dispatch(fetchResearch(9));
     dispatch(fetchActivity(3));
     dispatch(fetchMember(6));
@@ -120,9 +121,10 @@ export default function Home() {
         <div id="article-container" className="page-container">
           <h1 className="nm-text white-text w700">{t("Home.Articles")}</h1>
           <div id="research-tags">
-            <div className="sm-text w600 white-text">QML</div>
-            <div className="sm-text w600 white-text">QuantumProgramming</div>
-            <div className="sm-text w600 white-text">Benmark</div>
+            {categories &&
+              categories.map((category,index) => (
+                <div key={index} className="sm-text w600 white-text">{category.name}</div>
+              ))}
           </div>
           {research && (
             <Swiper
@@ -188,11 +190,9 @@ export default function Home() {
               {activities.slice(0, 3).map((activity, index) => (
                 <div
                   key={index}
-                  onClick={() =>
-                    linkPath("/activity-post/" + activity.attributes.slug)
-                  }
+                  onClick={() => linkPath("/activity-post/" + activity.slug)}
                 >
-                  <ActivityFlex data={activity.attributes} />
+                  <ActivityFlex data={activity} />
                 </div>
               ))}
             </div>
@@ -235,7 +235,7 @@ export default function Home() {
             />
             <div className="member-flex-container">
               {members.map((member, index) => (
-                <MemberFlex key={index} data={member} color="red" />
+                <MemberFlex key={index} data={member} />
               ))}
               {/* <MemberFlex  color="red" />
               <MemberFlex  color="blue" />
@@ -271,14 +271,10 @@ export default function Home() {
         </div>
         <div className="section">
           <div id="home-article-container" className="page-container">
-            <ArticleLongFlex
-              data={articles[articles.length - 2]}
-              type={"post"}
-            />
-            <ArticleLongFlex
-              data={articles[articles.length - 1]}
-              type={"post"}
-            />
+            {articles &&
+              articles.map((article,index) => (
+                <ArticleLongFlex key={index} data={article} type={"post"} />
+              ))}
           </div>
         </div>
       </div>

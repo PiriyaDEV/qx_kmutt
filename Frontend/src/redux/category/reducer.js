@@ -1,13 +1,9 @@
 import { FETCH_CATEGORY, FETCH_CATEGORY_BY_ID } from "./type";
+import CategoryModel from "../../models/category";
 
 const initialState = {
   categories: [],
-  category: {
-    attributes: {
-      name: "",
-    },
-    id: 0,
-  },
+  category: CategoryModel.getOne({}),
 };
 
 const reducer = (state = initialState, action) => {

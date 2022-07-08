@@ -8,16 +8,34 @@ export default function MemberFlex(props) {
   };
 
   return (
-    <div onClick={() => linkPath("/member-info/" + props.data.attributes.slug)} className="member-flex">
+    <div
+      onClick={() => linkPath("/member-info/" + props.data.slug)}
+      className="member-flex"
+    >
       <div className="section">
-        <img className={`member-clr ${props.color === "red" ? "red-flex" : "blue-flex"}`} src="https://cpe.kmutt.ac.th/uploadFile/Staff/jaturon.jpg"/>
+        <img
+          className={`member-clr ${
+            props.data.role === "RESEARCHER" ? "red-flex" : "blue-flex"
+          }`}
+          src={props.data.profile_pic}
+        />
       </div>
       <div className="member-flex-info">
-        <h1 className="vsm-text w700">{props.data.attributes.firstname} {props.data.attributes.lastname}</h1>
+        <h1 className="vsm-text w700">
+          {props.data.firstname} {props.data.lastname}
+        </h1>
         <div className="member-flex-tags-container">
-        {props && props.data.attributes.interests.data.slice(0, 2).map((interest, index) => (
-          <div key={index} className={`xm3-text w400 member-flex-tags clamp-1 ${props.color === "red" ? "red-flex" : "blue-flex"}`}>{interest.attributes.name}</div>
-        ))}
+          {props &&
+            props.data.interests.slice(0, 2).map((interest, index) => (
+              <div
+                key={index}
+                className={`xm3-text w400 member-flex-tags clamp-1 ${
+                  props.data.role === "RESEARCHER" ? "red-flex" : "blue-flex"
+                }`}
+              >
+                {interest.name}
+              </div>
+            ))}
         </div>
       </div>
       <div />

@@ -14,13 +14,11 @@ export default function MemberLongFlex(props) {
       <div className="section member-long-clr-container">
         <img
           className={`member-long-clr ${
-            props.data.attributes.role === "RESEARCHER" && "red-flex"
-          } ${
-            props.data.attributes.role === "CURRENT_MEMBER" && "blue-flex"
-          } ${
-            props.data.attributes.role === "OLD_MEMBER" && "black-flex"
+            props.data.role === "RESEARCHER" && "red-flex"
+          } ${props.data.role === "CURRENT_MEMBER" && "blue-flex"} ${
+            props.data.role === "OLD_MEMBER" && "black-flex"
           }`}
-          src="https://cpe.kmutt.ac.th/uploadFile/Staff/jaturon.jpg"
+          src={props.data.profile_pic}
           alt=""
         />
       </div>
@@ -28,39 +26,36 @@ export default function MemberLongFlex(props) {
       <div className="mb-long-flex-box">
         <div
           className={`mb-long-tag section xm3-text white-text w700 ${
-            props.data.attributes.role === "RESEARCHER" && "mb-long-red-tag"
-          } ${props.data.attributes.role === "CURRENT_MEMBER" && "mb-long-blue-tag"} ${
-            props.data.attributes.role === "OLD_MEMBER" && "mb-long-grey-tag"
+            props.data.role === "RESEARCHER" && "mb-long-red-tag"
+          } ${props.data.role === "CURRENT_MEMBER" && "mb-long-blue-tag"} ${
+            props.data.role === "OLD_MEMBER" && "mb-long-grey-tag"
           }`}
         >
-          {props.data.attributes.role === "RESEARCHER" && ("นักวิจัย")}
-          {props.data.attributes.role === "CURRENT_MEMBER" && ("สมาชิกปัจจุบัน")}
-          {props.data.attributes.role === "OLD_MEMBER" && ("สมาชิกเก่า")}
+          {props.data.role === "RESEARCHER" && "นักวิจัย"}
+          {props.data.role === "CURRENT_MEMBER" && "สมาชิกปัจจุบัน"}
+          {props.data.role === "OLD_MEMBER" && "สมาชิกเก่า"}
         </div>
         <h1 className="vsm-text w700 sarabun">
-          {props.data.attributes.firstname} <br />{" "}
-          {props.data.attributes.lastname}
+          {props.data.firstname} <br /> {props.data.lastname}
         </h1>
         <div className="member-icon-div">
           <div className="member-icon">
             <img src={rocket} alt="" />
-            <p className="vsm-text w500 sarabun">
-              {props.data.attributes.email}
-            </p>
+            <p className="vsm-text w500 sarabun">{props.data.email}</p>
           </div>
-
-          <div className="member-icon">
-            <img src={globe} alt="" />
-            <p className="vsm-text w500 sarabun">
-              {props.data.attributes.profile_url}
-            </p>
-          </div>
-
+{/* 
+          {props.data.profile_url && ( */}
+            <div className="member-icon">
+              <img src={globe} alt="" />
+              <p className="vsm-text w500 sarabun">{props.data.profile_url}</p>
+            </div>
+          {/* )} */}
           <div className="member-icon">
             <img src={heart} alt="" />
-            <p className="xm-text w500 sarabun">
-              Benchmark, Quantum Programming, QML, etc.{" "}
-            </p>
+            {props.data &&
+              props.data.interests.map((interest) => (
+                <p className="xm-text w500 sarabun">{interest.name}</p>
+              ))}
           </div>
         </div>
       </div>

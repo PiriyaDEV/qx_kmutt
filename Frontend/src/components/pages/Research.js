@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchResearch } from "../../redux";
+import { fetchCategory, fetchResearch } from "../../redux";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -12,9 +12,11 @@ import ArticleLongFlex from "../elements/ArticleLongFlex";
 export default function Research() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories.categories);
   const researches = useSelector((state) => state.researches.researches);
 
   useEffect(() => {
+    dispatch(fetchCategory());
     dispatch(fetchResearch(3));
   }, [dispatch]);
 
