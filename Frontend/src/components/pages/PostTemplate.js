@@ -11,7 +11,6 @@ import postArrow from "../../assets/images/icon/Vector 1.png";
 
 import ArticleLongFlex from "../elements/ArticleLongFlex";
 import ArticleFlex from "../elements/ArticleFlex";
-import ImageService from "../../services/image";
 
 import { fetchArticleBySlug , fetchActivityBySlug , fetchResearchBySlug } from "../../redux";
 
@@ -85,14 +84,14 @@ export default function PostTemplate(props) {
           <img className="post-arrow" src={postArrow} alt="" />
           {post && (
             <p className="vsm-text w700 blue-text small-ls sarabun">
-              {post.attributes.title}
+              {post.title}
             </p>
           )}
         </div>
         {/* Title */}
         <div id="post-title">
           {post && (
-            <h1 className="bg-text w700 sarabun">{post.attributes.title}</h1>
+            <h1 className="bg-text w700 sarabun">{post.title}</h1>
           )}
           <hr className="small-blue-hr" />
         </div>
@@ -102,7 +101,7 @@ export default function PostTemplate(props) {
         {post && props.type === "article" && (
           <div>
             <img
-              src={ImageService.getCover(post)}
+              src={post.cover_url}
               alt=""
               className="article-img"
             />
@@ -119,7 +118,7 @@ export default function PostTemplate(props) {
         {post && (
           <div
             className="xm2-text"
-            dangerouslySetInnerHTML={{ __html: post.attributes.content }}
+            dangerouslySetInnerHTML={{ __html: post.content }}
           />
         )}
 

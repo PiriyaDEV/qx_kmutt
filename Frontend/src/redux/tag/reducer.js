@@ -3,7 +3,7 @@ import TagModel from "../../models/tag";
 
 const initialState = {
   tags: [],
-  tag: TagModel.getOne({}),
+  tag: {},
 };
 
 const reducer = (state = initialState, action) => {

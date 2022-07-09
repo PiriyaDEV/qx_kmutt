@@ -3,7 +3,7 @@ import CategoryModel from "../../models/category";
 
 const initialState = {
   categories: [],
-  category: CategoryModel.getOne({}),
+  category: {},
 };
 
 const reducer = (state = initialState, action) => {

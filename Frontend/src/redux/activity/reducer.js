@@ -3,7 +3,7 @@ import ActivityModel from "../../models/activity";
 
 const initialState = {
   activities: [],
-  activity: ActivityModel.getOne({}),
+  activity: {},
 };
 
 const reducer = (state = initialState, action) => {

@@ -3,7 +3,7 @@ import MemberModel from "../../models/member";
 
 const initialState = {
   members: [],
-  member: MemberModel.getOne({}),
+  member: {},
 };
 
 const reducer = (state = initialState, action) => {

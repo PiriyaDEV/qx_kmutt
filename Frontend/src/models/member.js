@@ -1,11 +1,7 @@
 import InterestModel from "./interest";
 
 export default new (class MemberModel {
-  static API_URL;
-
-  constructor() {
-    this.API_URL = process.env.REACT_APP_API_URL;
-  }
+  static API_URL = process.env.REACT_APP_API_URL;
 
   async getMany(data) {
     const model = {};
@@ -17,7 +13,8 @@ export default new (class MemberModel {
     model.email = data.attributes.email || "";
     model.profile_url = data.attributes.profile_url || "";
     model.profile_pic =
-      this.API_URL + data.attributes.profile_pic.data.attributes.url || "";
+      MemberModel.API_URL + data.attributes.profile_pic.data.attributes.url ||
+      "";
     model.role = data.attributes.role || "";
     model.is_head_of_research_center =
       !!data.attributes.is_head_of_research_center;
@@ -41,7 +38,8 @@ export default new (class MemberModel {
     model.email = data.attributes.email || "";
     model.profile_url = data.attributes.profile_url || "";
     model.profile_pic =
-      this.API_URL + data.attributes.profile_pic.data.attributes.url || "";
+      MemberModel.API_URL + data.attributes.profile_pic.data.attributes.url ||
+      "";
     model.role = data.attributes.role || "";
     model.is_head_of_research_center =
       !!data.attributes.is_head_of_research_center;

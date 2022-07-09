@@ -13,7 +13,7 @@ export default function ArticleFlex(props) {
   };
 
   return (
-    <div className="article-flex" onClick={() => linkPath("/article-post/" + props.data.attributes.slug)}>
+    <div className="article-flex" onClick={() => linkPath("/article-post/" + props.data.slug)}>
         {
           props.data ? (
             <img src={props.data.cover_url} alt=""/>

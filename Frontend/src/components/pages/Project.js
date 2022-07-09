@@ -84,7 +84,7 @@ export default function Project() {
                 <div
                   key={index}
                   onClick={() =>
-                    linkPath("/activity-post/" + activity.attributes.slug)
+                    linkPath("/activity-post/" + activity.slug)
                   }
                 >
                   <ArticleLongFlex data={activity} page="activity" />

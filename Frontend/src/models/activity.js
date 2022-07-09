@@ -1,12 +1,9 @@
 import TagModel from "./tag";
 import AuthorModel from "./author";
+import Datetime from "../utilities/datetime";
 
 export default new (class ActivityModel {
-  static API_URL;
-
-  constructor() {
-    this.API_URL = process.env.REACT_APP_API_URL;
-  }
+  static API_URL = process.env.REACT_APP_API_URL;
 
   async getMany(data) {
     const model = {};
@@ -16,9 +13,9 @@ export default new (class ActivityModel {
     model.title = data.attributes.title || "";
     model.description = data.attributes.description || "";
     model.cover_url =
-      this.API_URL + data.attributes.cover.data.attributes.url || "";
+      ActivityModel.API_URL + data.attributes.cover.data.attributes.url || "";
     model.location_name = data.attributes.location_name || "";
-    model.start_date = data.attributes.start_date || ""; //temp
+    model.start_date = Datetime.formatDate(data.attributes.start_date) || "";
 
     return model;
   }
@@ -32,10 +29,10 @@ export default new (class ActivityModel {
     model.description = data.attributes.description || "";
     model.content = data.attributes.content;
     model.cover_url =
-      this.API_URL + data.attributes.cover.data.attributes.url || "";
+      ActivityModel.API_URL + data.attributes.cover.data.attributes.url || "";
     model.location_name = data.attributes.location_name || "";
     model.location_url = data.attributes.location_url || "";
-    model.start_date = data.attributes.start_date || ""; //temp
+    model.start_date = Datetime.formatDate(data.attributes.start_date) || "";
     model.tags =
       (await Promise.all(
         data.attributes.tags.data.map((tag) => TagModel.getOne(tag))

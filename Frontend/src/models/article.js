@@ -2,11 +2,7 @@ import TagModel from "./tag";
 import AuthorModel from "./author";
 
 export default new (class ActicleModel {
-  static API_URL;
-
-  constructor() {
-    this.API_URL = process.env.REACT_APP_API_URL;
-  }
+  static API_URL = process.env.REACT_APP_API_URL;
 
   async getMany(data) {
     const model = {};
@@ -16,7 +12,7 @@ export default new (class ActicleModel {
     model.title = data.attributes.title || "";
     model.description = data.attributes.description || "";
     model.cover_url =
-      this.API_URL + data.attributes.cover.data.attributes.url || "";
+      ActicleModel.API_URL + data.attributes.cover.data.attributes.url || "";
     model.tags =
       (await Promise.all(
         data.attributes.tags.data.map((tag) => TagModel.getOne(tag))
@@ -34,7 +30,7 @@ export default new (class ActicleModel {
     model.description = data.attributes.description || "";
     model.content = data.attributes.content;
     model.cover_url =
-      this.API_URL + data.attributes.cover.data.attributes.url || "";
+      ActicleModel.API_URL + data.attributes.cover.data.attributes.url || "";
     model.tags =
       (await Promise.all(
         data.attributes.tags.data.map((tag) => TagModel.getOne(tag))

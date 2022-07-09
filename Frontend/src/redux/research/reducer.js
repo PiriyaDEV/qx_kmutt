@@ -3,7 +3,7 @@ import ResearchModel from "../../models/research";
 
 const initialState = {
   researches:[],
-  research: ResearchModel.getOne({}),
+  research: {},
 };
 
 const reducer = (state = initialState, action) => {

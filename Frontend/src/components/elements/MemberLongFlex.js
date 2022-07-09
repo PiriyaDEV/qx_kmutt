@@ -53,8 +53,8 @@ export default function MemberLongFlex(props) {
           <div className="member-icon">
             <img src={heart} alt="" />
             {props.data &&
-              props.data.interests.map((interest) => (
-                <p className="xm-text w500 sarabun">{interest.name}</p>
+              props.data.interests.map((interest, index) => (
+                <p className="xm-text w500 sarabun" key={index}>{interest.name}</p>
               ))}
           </div>
         </div>

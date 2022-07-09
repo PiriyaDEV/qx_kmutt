@@ -3,11 +3,7 @@ import TagModel from "./tag";
 import AuthorModel from "./author";
 
 export default new (class ResearchModel {
-  static API_URL;
-
-  constructor() {
-    this.API_URL = process.env.REACT_APP_API_URL;
-  }
+  static API_URL = process.env.REACT_APP_API_URL;
 
   async getMany(data) {
     const model = {};
@@ -17,7 +13,7 @@ export default new (class ResearchModel {
     model.title = data.attributes.title || "";
     model.description = data.attributes.description || "";
     model.cover_url =
-      this.API_URL + data.attributes.cover.data.attributes.url || "";
+      ResearchModel.API_URL + data.attributes.cover.data.attributes.url || "";
     model.categories =
       (await Promise.all(
         data.attributes.categories.data.map((category) =>
@@ -37,7 +33,7 @@ export default new (class ResearchModel {
     model.description = data.attributes.description || "";
     model.content = data.attributes.content;
     model.cover_url =
-      this.API_URL + data.attributes.cover.data.attributes.url || "";
+      ResearchModel.API_URL + data.attributes.cover.data.attributes.url || "";
     model.research_database_url = data.attributes.research_database_url || "";
     model.categories =
       (await Promise.all(

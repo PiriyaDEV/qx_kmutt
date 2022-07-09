@@ -9,7 +9,6 @@ import location from "../../assets/images/icon/location-blue.svg";
 import right from "../../assets/images/icon/right.svg";
 
 export default function ArticleLongFlex(props) {
-  console.log(props.data);
   return (
     <div className="article-long-flex">
       <img
@@ -53,8 +52,10 @@ export default function ArticleLongFlex(props) {
         {props.data && props.page === "research" && (
           <div className="article-research-info-bottom">
             <div className="article-research-cat">
-              {props.data.categories.map((category) => (
-                <div className="xm3-text w400 blue-text">{category.name}</div>
+              {props.data.categories.map((category, index) => (
+                <div className="xm3-text w400 blue-text" key={index}>
+                  {category.name}
+                </div>
               ))}
             </div>
             <div>

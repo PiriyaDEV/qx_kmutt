@@ -40,21 +40,21 @@ export default function MemberTemplate() {
             </h1>
             <hr className="small-blue-hr" />
             <div id="member-name">
-              <h1 className="w700 bg-text small-ls sarabun">{member.attributes.firstname} {member.attributes.lastname}</h1>
+              <h1 className="w700 bg-text small-ls sarabun">{member.firstname} {member.lastname}</h1>
               <p className="w500 sm-text small-ls member-choice red-choice white-text sarabun">
-              {member.attributes.role}
+              {member.role}
               </p>
             </div>
 
             <hr className="small-blue-hr" />
 
             <div id="member-info-contact">
-              <p className="w500 vsm-text small-ls sarabun">{member.attributes.position}</p>
+              <p className="w500 vsm-text small-ls sarabun">{member.position}</p>
               <p className="w500 vsm-text small-ls blue-text">
-              {member.attributes.email}
+              {member.email}
               </p>
               <p className="w500 vsm-text small-ls">
-              {member.attributes.description}
+              {member.description}
               </p>
             </div>
           </div>

@@ -3,7 +3,7 @@ import InterestModel from "../../models/interest";
 
 const initialState = {
   interests: [],
-  interest: InterestModel.getOne({}),
+  interest: {},
 };
 
 const reducer = (state = initialState, action) => {

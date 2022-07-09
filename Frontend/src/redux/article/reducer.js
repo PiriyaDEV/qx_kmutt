@@ -3,7 +3,7 @@ import ArticleModel from "../../models/article";
 
 const initialState = {
   articles: [],
-  article: ArticleModel.getOne({}),
+  article: {},
 };
 
 const reducer = (state = initialState, action) => {

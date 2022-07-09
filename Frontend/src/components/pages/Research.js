@@ -91,7 +91,7 @@ export default function Research() {
               <div
                 key={index}
                 onClick={() =>
-                  linkPath("/research-post/" + research.attributes.slug)
+                  linkPath("/research-post/" + research.slug)
                 }
               >
                 <ArticleLongFlex data={research} page="research"/>

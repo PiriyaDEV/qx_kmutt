@@ -5,10 +5,17 @@ import MemberModel from "../models/member";
 
 // Member APIs
 export default new (class MemberService {
+  static ROLES = ["RESEARCHER", "CURRENT_MEMBER", "OLD_MEMBER"];
+
   // Get all members
   async getMembers(pageSize) {
     const query = qs.stringify(
       {
+        filters: {
+          role: {
+            $in: MemberService.ROLES,
+          },
+        },
         populate: {
           profile_pic: {
             fields: ["url"],
@@ -48,6 +55,9 @@ export default new (class MemberService {
         filters: {
           slug: {
             $eq: slug,
+          },
+          role: {
+            $in: MemberService.ROLES,
           },
         },
         populate: {
