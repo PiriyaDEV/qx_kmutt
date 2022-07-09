@@ -24,19 +24,19 @@ export default function Research() {
     window.location.href = path;
   };
 
-  const [researchFilter, setResearchFilter] = useState([false, false, false]);
+  // const [researchFilter, setResearchFilter] = useState([false, false, false]);
 
-  const selectFilter = (type) => {
-    let temp = [...researchFilter];
-    if (type === "journal") {
-      temp[0] = !temp[0];
-    } else if (type === "proceeding") {
-      temp[1] = !temp[1];
-    } else {
-      temp[2] = !temp[2];
-    }
-    setResearchFilter(temp);
-  };
+  // const selectFilter = (type) => {
+  //   let temp = [...researchFilter];
+  //   if (type === "journal") {
+  //     temp[0] = !temp[0];
+  //   } else if (type === "proceeding") {
+  //     temp[1] = !temp[1];
+  //   } else {
+  //     temp[2] = !temp[2];
+  //   }
+  //   setResearchFilter(temp);
+  // };
 
   return (
     <div id="research" className="section">
@@ -58,7 +58,14 @@ export default function Research() {
 
           {/* Choice */}
           <div id="research-tag" className="section">
-            <h1
+            {
+              categories && categories.map((category,index) => (
+                <h1 className="sm-text w500 tag blue-text sarabun text-center active-tag">
+              {category.name}
+            </h1>
+              ))
+            }
+            {/* <h1
               onClick={() => selectFilter("journal")}
               className={`sm-text w500 tag blue-text sarabun text-center ${
                 researchFilter[0] ? "active-tag" : null
@@ -81,7 +88,7 @@ export default function Research() {
               }`}
             >
               {t("Research.SeniorP")}
-            </h1>
+            </h1> */}
           </div>
 
           <div>

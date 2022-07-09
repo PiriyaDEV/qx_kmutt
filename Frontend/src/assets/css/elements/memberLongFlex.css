@@ -69,10 +69,22 @@
   border-color: #86bac5 !important;
 }
 
+.black-flex {
+  border-color: #C8C8C8 !important;
+}
+
 .member-icon{
   display: flex;
   align-items: center;
   gap: 7px;
+}
+
+.member-heart{
+  align-items: flex-start !important;
+}
+
+.member-heart > img{
+  margin-top: 5px;
 }
 
 .member-icon > img{

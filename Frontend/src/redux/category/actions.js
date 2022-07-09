@@ -15,8 +15,8 @@ export const fetchCategory = (pageSize = 25) => {
 export const fetchCategoryById = (id) => { 
   return (dispatch) => {
     CategoryService.getCategoryById(id).then((response) => {
-      if (response.length) {
-        dispatch(fetchCategoryByIdSuccess(response[0]));
+      if (response) {
+        dispatch(fetchCategoryByIdSuccess(response));
       }
     });
   };

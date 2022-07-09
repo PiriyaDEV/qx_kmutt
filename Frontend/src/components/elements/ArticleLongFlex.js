@@ -9,6 +9,14 @@ import location from "../../assets/images/icon/location-blue.svg";
 import right from "../../assets/images/icon/right.svg";
 
 export default function ArticleLongFlex(props) {
+  const linkPath = (path) => {
+    window.location.href = path;
+  };
+
+  const linkNewTab = (link) => {
+    window.open(link);
+  };
+
   return (
     <div className="article-long-flex">
       <img
@@ -16,6 +24,14 @@ export default function ArticleLongFlex(props) {
         src={props.data.cover_url}
         alt=""
       />
+      {props.type === "post" && (
+        <img
+          onClick={() => linkPath("/article-post/" + props.data.slug)}
+          className="article-long-homepage"
+          src={right}
+          alt=""
+        />
+      )}
       <div className="article-long-flex-info">
         <div>
           {props.data && (
@@ -32,8 +48,18 @@ export default function ArticleLongFlex(props) {
         {props.data && props.page === "activity" && (
           <div className="article-activity-info-bottom">
             <div>
-              <img className="article-long-icon" src={location} alt="" />
-              <h1 className="blue-text xm2-text w600">
+              <img
+                onClick={() => linkNewTab(props.data.location_url)}
+                className="article-long-icon"
+                style={{ cursor: `pointer` }}
+                src={location}
+                alt=""
+              />
+              <h1
+                onClick={() => linkNewTab(props.data.location_url)}
+                style={{ cursor: `pointer` }}
+                className="blue-text xm2-text w600 "
+              >
                 {props.data.location_name}
               </h1>
             </div>
@@ -43,7 +69,10 @@ export default function ArticleLongFlex(props) {
                 {props.data.start_date}
               </h1>
             </div>
-            <div>
+            <div
+              onClick={() => linkPath("/activity-post/" + props.data.slug)}
+              className="pointer"
+            >
               <h1 className="blue-text xm-text w500">สนใจเข้าร่วม</h1>
               <img className="article-long-right" src={right} alt="" />
             </div>

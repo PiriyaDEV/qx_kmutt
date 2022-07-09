@@ -43,19 +43,24 @@ export default function MemberLongFlex(props) {
             <img src={rocket} alt="" />
             <p className="vsm-text w500 sarabun">{props.data.email}</p>
           </div>
-{/* 
+          {/* 
           {props.data.profile_url && ( */}
-            <div className="member-icon">
-              <img src={globe} alt="" />
-              <p className="vsm-text w500 sarabun">{props.data.profile_url}</p>
-            </div>
-          {/* )} */}
           <div className="member-icon">
+            <img src={globe} alt="" />
+            <p className="vsm-text w500 sarabun">{props.data.profile_url}</p>
+          </div>
+          {/* )} */}
+          <div className="member-icon member-heart">
             <img src={heart} alt="" />
-            {props.data &&
-              props.data.interests.map((interest, index) => (
-                <p className="xm-text w500 sarabun" key={index}>{interest.name}</p>
-              ))}
+            <p className="xm-text w500 sarabun">
+              {props.data &&
+                props.data.interests.map((interest, index) => (
+                  <span key={index}>
+                    {interest.name}
+                    {index < props.data.interests.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+            </p>
           </div>
         </div>
       </div>

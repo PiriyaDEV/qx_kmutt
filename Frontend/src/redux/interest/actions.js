@@ -15,8 +15,8 @@ export const fetchInterest = (pageSize = 25) => {
 export const fetchInterestById = (id) => { 
   return (dispatch) => {
     InterestService.getInterestById(id).then((response) => {
-      if (response.length) {
-        dispatch(fetchInterestByIdSuccess(response[0]));
+      if (response) {
+        dispatch(fetchInterestByIdSuccess(response));
       }
     });
   };

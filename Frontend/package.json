@@ -10,6 +10,7 @@
     "i18next": "^21.8.8",
     "i18next-browser-languagedetector": "^6.1.4",
     "i18next-http-backend": "^1.4.1",
+    "lodash": "^4.17.21",
     "qs": "^6.10.3",
     "react": "^17.0.2",
     "react-burger-menu": "^3.0.8",

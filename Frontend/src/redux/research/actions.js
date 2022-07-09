@@ -15,8 +15,8 @@ export const fetchResearch = (pageSize = 25) => {
 export const fetchResearchBySlug = (slug) => { 
   return (dispatch) => {
     ResearchService.getResearchBySlug(slug).then((response) => {
-      if (response.length) {
-        dispatch(fetchResearchBySlugSuccess(response[0]));
+      if (response) {
+        dispatch(fetchResearchBySlugSuccess(response));
       }
     });
   };

@@ -15,8 +15,8 @@ export const fetchTag = (pageSize = 25) => {
 export const fetchTagById = (id) => { 
   return (dispatch) => {
     TagService.getTagById(id).then((response) => {
-      if (response.length) {
-        dispatch(fetchTagByIdSuccess(response[0]));
+      if (response) {
+        dispatch(fetchTagByIdSuccess(response));
       }
     });
   };

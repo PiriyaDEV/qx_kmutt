@@ -8,16 +8,16 @@ export default function MemberFlex(props) {
   };
 
   return (
-    <div
-      onClick={() => linkPath("/member-info/" + props.data.slug)}
-      className="member-flex"
-    >
+    <div className="member-flex">
       <div className="section">
         <img
           className={`member-clr ${
-            props.data.role === "RESEARCHER" ? "red-flex" : "blue-flex"
+            props.data.role === "RESEARCHER" && "red-flex"
+          } ${props.data.role === "CURRENT_MEMBER" && "blue-flex"} ${
+            props.data.role === "OLD_MEMBER" && "black-flex"
           }`}
           src={props.data.profile_pic}
+          alt=""
         />
       </div>
       <div className="member-flex-info">

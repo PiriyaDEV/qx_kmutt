@@ -29,9 +29,9 @@ export default function Project() {
     dispatch(fetchActivity(3));
   }, [dispatch]);
 
-  const linkPath = (path) => {
-    window.location.href = path;
-  };
+  // const linkPath = (path) => {
+  //   window.location.href = path;
+  // };
 
   return (
     <div id="project" className="section">
@@ -83,9 +83,6 @@ export default function Project() {
               activities.map((activity, index) => (
                 <div
                   key={index}
-                  onClick={() =>
-                    linkPath("/activity-post/" + activity.slug)
-                  }
                 >
                   <ArticleLongFlex data={activity} page="activity" />
                 </div>

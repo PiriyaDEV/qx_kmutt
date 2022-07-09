@@ -15,8 +15,8 @@ export const fetchArticle = (pageSize = 25) => {
 export const fetchArticleBySlug = (slug) => { 
   return (dispatch) => {
       ArticleService.getArticleBySlug(slug).then((response) => {
-          if (response.length) {
-              dispatch(fetchArticleBySlugSuccess(response[0]));
+          if (response) {
+              dispatch(fetchArticleBySlugSuccess(response));
             }
         });
   };

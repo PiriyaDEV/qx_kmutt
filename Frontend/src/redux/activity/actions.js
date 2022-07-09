@@ -15,8 +15,8 @@ export const fetchActivity = (pageSize = 25) => {
 export const fetchActivityBySlug = (slug) => { 
   return (dispatch) => {
     ActivityService.getActivityBySlug(slug).then((response) => {
-      if (response.length) {
-        dispatch(fetchActivityBySlugSuccess(response[0]));
+      if (response) {
+        dispatch(fetchActivityBySlugSuccess(response));
       }
     });
   };

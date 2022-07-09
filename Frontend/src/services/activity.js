@@ -14,6 +14,7 @@ export default new (class ActivityService {
           "title",
           "description",
           "location_name",
+          "location_url",
           "start_date",
         ],
         populate: {

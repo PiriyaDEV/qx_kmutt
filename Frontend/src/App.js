@@ -68,7 +68,7 @@ function App() {
           <Route path="/activity-post/:slug" id="app-project-post">
             <Hamburger />
             <Navbar path={"activity-post"} />
-            <PostTemplate type={"project"} />
+            <PostTemplate type={"activity"} />
             <Footer />
           </Route>
 

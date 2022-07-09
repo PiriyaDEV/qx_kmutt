@@ -15,6 +15,7 @@ export default new (class ActivityModel {
     model.cover_url =
       ActivityModel.API_URL + data.attributes.cover.data.attributes.url || "";
     model.location_name = data.attributes.location_name || "";
+    model.location_url = data.attributes.location_url || "";
     model.start_date = Datetime.formatDate(data.attributes.start_date) || "";
 
     return model;

@@ -6,6 +6,7 @@ import {
   fetchActivity,
   fetchMember,
   fetchArticle,
+  randomMember,
 } from "../../redux";
 import { useTranslation } from "react-i18next";
 
@@ -48,7 +49,7 @@ export default function Home() {
   const categories = useSelector((state) => state.categories.categories);
   const researches = useSelector((state) => state.researches.researches);
   const activities = useSelector((state) => state.activities.activities);
-  const members = useSelector((state) => state.members.members);
+  const members = useSelector((state) => state.members.random);
   const articles = useSelector((state) => state.articles.articles);
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -57,11 +58,12 @@ export default function Home() {
     dispatch(fetchCategory());
     dispatch(fetchResearch(9));
     dispatch(fetchActivity(3));
-    dispatch(fetchMember(6));
+    dispatch(fetchMember());
     dispatch(fetchArticle(2));
   }, [dispatch]);
 
   const refreshMember = () => {
+    dispatch(randomMember());
     setRefresh(!refresh);
   };
 
@@ -75,7 +77,7 @@ export default function Home() {
     research.push(
       <SwiperSlide key={`home-slide-${i}`} tag="li">
         <div className="section">
-          <ArticleFlex data={researches[i]} />
+          <ArticleFlex data={researches[i]} type="research"/>
         </div>
       </SwiperSlide>
     );
@@ -122,8 +124,10 @@ export default function Home() {
           <h1 className="nm-text white-text w700">{t("Home.Articles")}</h1>
           <div id="research-tags">
             {categories &&
-              categories.map((category,index) => (
-                <div key={index} className="sm-text w600 white-text">{category.name}</div>
+              categories.map((category, index) => (
+                <div key={index} className="sm-text w600 white-text">
+                  {category.name}
+                </div>
               ))}
           </div>
           {research && (
@@ -187,14 +191,9 @@ export default function Home() {
                 </p>
               </div>
               {/* <div className="temp-project" /> */}
-              {activities.slice(0, 3).map((activity, index) => (
-                <div
-                  key={index}
-                  onClick={() => linkPath("/activity-post/" + activity.slug)}
-                >
-                  <ActivityFlex data={activity} />
-                </div>
-              ))}
+              <ActivityFlex data={activities[0] || null} />
+              <ActivityFlex data={activities[1] || null} />
+              <ActivityFlex data={activities[2] || null} />
             </div>
           </div>
         </div>
@@ -272,8 +271,8 @@ export default function Home() {
         <div className="section">
           <div id="home-article-container" className="page-container">
             {articles &&
-              articles.map((article,index) => (
-                <ArticleLongFlex key={index} data={article} type={"post"} />
+              articles.map((article, index) => (
+                <ArticleLongFlex key={index} data={article} type={"post"}/>
               ))}
           </div>
         </div>

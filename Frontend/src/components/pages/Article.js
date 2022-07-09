@@ -63,7 +63,7 @@ export default function Article() {
             {articles &&
               articles.map((article, index) => (
                 <div key={index} className="section">
-                  <ArticleFlex data={article} />
+                  <ArticleFlex data={article} type="article"/>
                 </div>
               ))}
           </div>
