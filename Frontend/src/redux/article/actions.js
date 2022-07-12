@@ -1,24 +1,29 @@
-import { FETCH_ARTICLES , FETCH_ARTICLES_BY_SLUG } from "./type";
+import { FETCH_ARTICLES, FETCH_ARTICLES_BY_SLUG } from "./type";
 
-import ArticleService from "../../services/article.js";
+import ArticleService from "../../services/article";
+import ArticleModel from "../../models/article";
 
 export const fetchArticle = (pageSize = 25) => {
   return (dispatch) => {
-    ArticleService.getArticles(pageSize).then((response) => {
-      if (response.length) {
-        dispatch(fetchArticleSuccess(response));
+    ArticleService.getArticles(pageSize).then(async (response) => {
+      if (response.data.length) {
+        const data = await Promise.all(
+          response.data.map((article) => ArticleModel.getMany(article))
+        );
+        dispatch(fetchArticleSuccess(data));
       }
     });
   };
 };
 
-export const fetchArticleBySlug = (slug) => { 
+export const fetchArticleBySlug = (slug) => {
   return (dispatch) => {
-      ArticleService.getArticleBySlug(slug).then((response) => {
-          if (response) {
-              dispatch(fetchArticleBySlugSuccess(response));
-            }
-        });
+    ArticleService.getArticleBySlug(slug).then(async (response) => {
+      if (response) {
+        const data = await ArticleModel.getOne(response);
+        dispatch(fetchArticleBySlugSuccess(data));
+      }
+    });
   };
 };
 

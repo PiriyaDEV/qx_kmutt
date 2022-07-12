@@ -1,22 +1,27 @@
-import { FETCH_TAG , FETCH_TAG_BY_ID } from "./type";
+import { FETCH_TAG, FETCH_TAG_BY_ID } from "./type";
 
-import TagService from "../../services/tag.js";
+import TagService from "../../services/tag";
+import TagModel from "../../models/tag";
 
 export const fetchTag = (pageSize = 25) => {
   return (dispatch) => {
-    TagService.getTags(pageSize).then((response) => {
-      if (response.length) {
-        dispatch(fetchTagSuccess(response));
+    TagService.getTags(pageSize).then(async (response) => {
+      if (response.data.length) {
+        const data = await Promise.all(
+          response.data.map((tag) => TagModel.getOne(tag))
+        );
+        dispatch(fetchTagSuccess(data));
       }
     });
   };
 };
 
-export const fetchTagById = (id) => { 
+export const fetchTagById = (id) => {
   return (dispatch) => {
-    TagService.getTagById(id).then((response) => {
+    TagService.getTagById(id).then(async (response) => {
       if (response) {
-        dispatch(fetchTagByIdSuccess(response));
+        const data = await TagModel.getOne(response);
+        dispatch(fetchTagByIdSuccess(data));
       }
     });
   };

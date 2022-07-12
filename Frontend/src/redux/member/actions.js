@@ -1,13 +1,17 @@
 import { FETCH_MEMBER, FETCH_MEMBER_BY_SLUG, RANDOM_MEMBER } from "./type";
 import _ from "lodash";
 
-import MemberService from "../../services/member.js";
+import MemberService from "../../services/member";
+import MemberModel from "../../models/member";
 
 export const fetchMember = (pageSize = 100) => {
   return (dispatch) => {
-    MemberService.getMembers(pageSize).then((response) => {
-      if (response.length) {
-        dispatch(fetchMemberSuccess(response));
+    MemberService.getMembers(pageSize).then(async (response) => {
+      if (response.data.length) {
+        const data = await Promise.all(
+          response.data.map((member) => MemberModel.getMany(member))
+        );
+        dispatch(fetchMemberSuccess(data));
         dispatch(randomMember());
       }
     });
@@ -16,9 +20,10 @@ export const fetchMember = (pageSize = 100) => {
 
 export const fetchMemberBySlug = (slug) => {
   return (dispatch) => {
-    MemberService.getMemberBySlug(slug).then((response) => {
+    MemberService.getMemberBySlug(slug).then(async (response) => {
       if (response) {
-        dispatch(fetchMemberBySlugSuccess(response));
+        const data = await MemberModel.getOne(response);
+        dispatch(fetchMemberBySlugSuccess(data));
       }
     });
   };

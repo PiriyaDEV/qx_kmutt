@@ -125,7 +125,7 @@ export default function Home() {
           <div id="research-tags">
             {categories &&
               categories.map((category, index) => (
-                <div key={index} className="sm-text w600 white-text">
+                <div key={index} className="sm-text w600 white-text" onClick={() => linkPath(`/research?category=${category.name}`)}>
                   {category.name}
                 </div>
               ))}

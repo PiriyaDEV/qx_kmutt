@@ -1,7 +1,6 @@
 import http from "./http-common";
 import qs from "qs";
 import i18n from "i18next";
-import ArticleModel from "../models/article";
 
 // Article APIs
 export default new (class ArticleService {
@@ -31,11 +30,8 @@ export default new (class ArticleService {
 
     return await http
       .get("/articles?" + query)
-      .then( async (response) => {
-        const data = response.data.data
-        return await Promise.all(
-          data.map((article) => ArticleModel.getMany(article))
-        );
+      .then((response) => {
+        return response.data;
       })
       .catch((error) => {
         console.log(error);
@@ -70,9 +66,8 @@ export default new (class ArticleService {
 
     return await http
       .get("/articles?" + query)
-      .then(async (response) => {
-        const data = response.data.data[0];
-        return await ArticleModel.getOne(data);
+      .then((response) => {
+        return response.data.data[0];
       })
       .catch((error) => {
         console.log(error);

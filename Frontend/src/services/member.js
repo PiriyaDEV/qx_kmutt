@@ -1,7 +1,6 @@
 import http from "./http-common";
 import qs from "qs";
 import i18n from "i18next";
-import MemberModel from "../models/member";
 
 // Member APIs
 export default new (class MemberService {
@@ -37,11 +36,8 @@ export default new (class MemberService {
 
     return await http
       .get("/members?" + query)
-      .then(async (response) => {
-        const data = response.data.data;
-        return await Promise.all(
-          data.map((member) => MemberModel.getMany(member))
-        );
+      .then((response) => {
+        return response.data;
       })
       .catch((error) => {
         console.log(error);
@@ -76,9 +72,8 @@ export default new (class MemberService {
 
     return await http
       .get("/members?" + query)
-      .then(async (response) => {
-        const data = response.data.data[0];
-        return await MemberModel.getOne(data);
+      .then((response) => {
+        return response.data.data[0];
       })
       .catch((error) => {
         console.log(error);

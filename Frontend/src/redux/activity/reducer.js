@@ -1,5 +1,4 @@
 import { FETCH_ACTIVITY, FETCH_ACTIVITY_BY_SLUG } from "./type";
-import ActivityModel from "../../models/activity";
 
 const initialState = {
   activities: [],

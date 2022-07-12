@@ -1,6 +1,5 @@
 import http from "./http-common";
 import qs from "qs";
-import CategoryModel from "../models/category";
 
 // Category APIs
 export default new (class CategoryService {
@@ -21,11 +20,8 @@ export default new (class CategoryService {
 
     return await http
       .get("/categories?" + query)
-      .then(async (response) => {
-        const data = response.data.data;
-        return await Promise.all(
-          data.map((category) => CategoryModel.getOne(category))
-        );
+      .then((response) => {
+        return response.data;
       })
       .catch((error) => {
         console.log(error);
@@ -36,9 +32,8 @@ export default new (class CategoryService {
   async getCategoryById(id) {
     return await http
       .get("/categories/" + id)
-      .then(async (response) => {
-        const data = response.data.data[0];
-        return await CategoryModel.getOne(data);
+      .then((response) => {
+        return response.data.data[0];
       })
       .catch((error) => {
         console.log(error);

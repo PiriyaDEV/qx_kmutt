@@ -1,31 +1,54 @@
-import { FETCH_RESEARCH , FETCH_RESEARCH_BY_SLUG } from "./type";
+import { FETCH_RESEARCH, FETCH_RESEARCH_BY_SLUG, SET_META_DATA ,APPEND_TO_RESEARCH } from "./type";
 
-import ResearchService from "../../services/research.js";
+import ResearchService from "../../services/research";
+import ResearchModel from "../../models/research";
 
-export const fetchResearch = (pageSize = 25) => {
+export const fetchResearch = (pageSize = 25, page = 1) => {
   return (dispatch) => {
-    ResearchService.getResearches(pageSize).then((response) => {
-      if (response.length) {
-        dispatch(fetchResearchSuccess(response));
+    ResearchService.getResearches(pageSize).then(async (response) => {
+      if (response.data.length) {
+        const data = await Promise.all(
+          response.data.map((research) => ResearchModel.getMany(research))
+        );
+        dispatch(fetchResearchSuccess(data));
+        dispatch(setMetadata(response.meta));
       }
     });
   };
 };
 
-export const fetchResearchBySlug = (slug) => { 
+export const fetchResearchByPage = (pageSize = 25) => {
+  return (dispatch, getState) => {
+    const { meta } = getState().researches;
+    if (meta.pagination.page < meta.pagination.pageCount) {
+      ResearchService.getResearches(pageSize, meta.pagination.page + 1).then(async (response) => {
+        if (response.data.length) {
+          const data = await Promise.all(
+            response.data.map((research) => ResearchModel.getMany(research))
+          );
+          dispatch(appendToResearch(data));
+          dispatch(setMetadata(response.meta));
+        }
+      });
+    }
+  };
+};
+
+export const fetchResearchBySlug = (slug) => {
   return (dispatch) => {
-    ResearchService.getResearchBySlug(slug).then((response) => {
+    ResearchService.getResearchBySlug(slug).then(async (response) => {
       if (response) {
-        dispatch(fetchResearchBySlugSuccess(response));
+        const data = await ResearchModel.getOne(response);
+        dispatch(fetchResearchBySlugSuccess(data));
       }
     });
   };
 };
 
-export const fetchResearchSuccess = (researchs) => {
+export const fetchResearchSuccess = (researches) => {
   return {
     type: FETCH_RESEARCH,
-    payload: researchs,
+    payload: researches,
   };
 };
 
@@ -35,3 +58,17 @@ export const fetchResearchBySlugSuccess = (research) => {
     payload: research,
   };
 };
+
+export const setMetadata = (meta) => {
+  return {
+    type: SET_META_DATA,
+    payload: meta,
+  };
+};
+
+export const appendToResearch = (researches) => {
+  return {
+    type: APPEND_TO_RESEARCH,
+    payload: researches,
+  };
+}

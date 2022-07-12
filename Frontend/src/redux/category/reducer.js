@@ -1,5 +1,4 @@
 import { FETCH_CATEGORY, FETCH_CATEGORY_BY_ID } from "./type";
-import CategoryModel from "../../models/category";
 
 const initialState = {
   categories: [],

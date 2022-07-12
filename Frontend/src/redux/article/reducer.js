@@ -1,5 +1,4 @@
 import { FETCH_ARTICLES , FETCH_ARTICLES_BY_SLUG } from "./type";
-import ArticleModel from "../../models/article";
 
 const initialState = {
   articles: [],

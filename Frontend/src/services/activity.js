@@ -1,7 +1,6 @@
 import http from "./http-common";
 import qs from "qs";
 import i18n from "i18next";
-import ActivityModel from "../models/activity";
 
 // Activity APIs
 export default new (class ActivityService {
@@ -35,11 +34,8 @@ export default new (class ActivityService {
 
     return await http
       .get("/activities?" + query)
-      .then(async (response) => {
-        const data = response.data.data;
-        return await Promise.all(
-          data.map((activity) => ActivityModel.getMany(activity))
-        );
+      .then((response) => {
+        return response.data;
       })
       .catch((error) => {
         console.log(error);
@@ -74,9 +70,8 @@ export default new (class ActivityService {
 
     return await http
       .get("/activities?" + query)
-      .then(async (response) => {
-        const data = response.data.data[0];
-        return await ActivityModel.getOne(data);
+      .then((response) => {
+        return response.data.data[0];
       })
       .catch((error) => {
         console.log(error);

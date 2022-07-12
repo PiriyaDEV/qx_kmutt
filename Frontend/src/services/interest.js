@@ -1,6 +1,5 @@
 import http from "./http-common";
 import qs from "qs";
-import InterestModel from "../models/interest";
 
 // Interest APIs
 export default new (class InterestService {
@@ -21,11 +20,8 @@ export default new (class InterestService {
 
     return await http
       .get("/interests?" + query)
-      .then(async (response) => {
-        const data = response.data.data;
-        return await Promise.all(
-          data.map((interest) => InterestModel.getOne(interest))
-        );
+      .then((response) => {
+        return response.data;
       })
       .catch((error) => {
         console.log(error);
@@ -36,9 +32,8 @@ export default new (class InterestService {
   async getInterestById(id) {
     return await http
       .get("/interests/" + id)
-      .then(async (response) => {
-        const data = response.data.data[0];
-        return await InterestModel.getOne(data);
+      .then((response) => {
+        return response.data.data[0];
       })
       .catch((error) => {
         console.log(error);

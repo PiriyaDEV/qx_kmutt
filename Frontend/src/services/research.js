@@ -1,12 +1,11 @@
 import http from "./http-common";
 import qs from "qs";
 import i18n from "i18next";
-import ResearchModel from "../models/research";
 
 // Research APIs
 export default new (class ResearchService {
   // Get all researches
-  async getResearches(pageSize) {
+  async getResearches(pageSize, page) {
     const query = qs.stringify(
       {
         fields: ["slug", "title", "description"],
@@ -20,7 +19,7 @@ export default new (class ResearchService {
         },
         locale: i18n.language,
         pagination: {
-          page: 1,
+          page: page,
           pageSize: pageSize,
         },
       },
@@ -31,11 +30,8 @@ export default new (class ResearchService {
 
     return await http
       .get("/researches?" + query)
-      .then(async (response) => {
-        const data = response.data.data;
-        return await Promise.all(
-          data.map((research) => ResearchModel.getMany(research))
-        );
+      .then((response) => {
+        return response.data;
       })
       .catch((error) => {
         console.log(error);
@@ -73,9 +69,8 @@ export default new (class ResearchService {
 
     return await http
       .get("/researches?" + query)
-      .then(async (response) => {
-        const data = response.data.data[0];
-        return await ResearchModel.getOne(data);
+      .then((response) => {
+        return response.data.data[0];
       })
       .catch((error) => {
         console.log(error);

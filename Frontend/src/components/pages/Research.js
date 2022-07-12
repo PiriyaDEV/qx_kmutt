@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCategory, fetchResearch } from "../../redux";
+import { fetchCategory, fetchResearch , fetchResearchByPage } from "../../redux";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -14,94 +14,85 @@ export default function Research() {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.categories);
   const researches = useSelector((state) => state.researches.researches);
+  const [selectedCategory, setSelectedCategory] = useState([]);
+  const queryParams = new URLSearchParams(window.location.search);
 
   useEffect(() => {
     dispatch(fetchCategory());
-    dispatch(fetchResearch(3));
+    dispatch(fetchResearch(5));
+    setSelectedCategory(
+      queryParams.get("category") ? [queryParams.get("category")] : []
+    );
   }, [dispatch]);
 
   const linkPath = (path) => {
     window.location.href = path;
   };
 
-  // const [researchFilter, setResearchFilter] = useState([false, false, false]);
+  const clickSelected = (category) => {
+    if (selectedCategory.includes(category)) {
+      const index = selectedCategory.indexOf(category);
+      if (index > -1) {
+        setSelectedCategory(
+          selectedCategory.filter((element) => element !== category)
+        );
+      }
+    } else {
+      setSelectedCategory((oldArray) => [...oldArray, category]);
+    }
+  };
 
-  // const selectFilter = (type) => {
-  //   let temp = [...researchFilter];
-  //   if (type === "journal") {
-  //     temp[0] = !temp[0];
-  //   } else if (type === "proceeding") {
-  //     temp[1] = !temp[1];
-  //   } else {
-  //     temp[2] = !temp[2];
-  //   }
-  //   setResearchFilter(temp);
-  // };
+  const fetchMore = () => {
+    dispatch(fetchResearchByPage(5));
+  }
+  //filter Research
+  // useEffect(() => {
+
+  // },[selectedCategory])
 
   return (
     <div id="research" className="section">
-        <div className="page-container">
-          {/* Header */}
-          <div id="research-header">
-            <div>
-              <h1 className="vbg-text w700">{t("Research.Research")}</h1>
-              <hr className="small-blue-hr" />
-              <p className="sm-text w500 small-ls sarabun">
-                {t("Research.ResearchDescription")}
-              </p>
-            </div>
-
-            <div>
-              <hr className="small-grey-hr" />
-            </div>
-          </div>
-
-          {/* Choice */}
-          <div id="research-tag" className="section">
-            {
-              categories && categories.map((category,index) => (
-                <h1 className="sm-text w500 tag blue-text sarabun text-center active-tag">
-              {category.name}
-            </h1>
-              ))
-            }
-            {/* <h1
-              onClick={() => selectFilter("journal")}
-              className={`sm-text w500 tag blue-text sarabun text-center ${
-                researchFilter[0] ? "active-tag" : null
-              }`}
-            >
-              {t("Research.Journal")}
-            </h1>
-            <h1
-              onClick={() => selectFilter("proceeding")}
-              className={`sm-text w500 tag blue-text sarabun text-center ${
-                researchFilter[1] ? "active-tag" : null
-              }`}
-            >
-              {t("Research.Proceeding")}
-            </h1>
-            <h1
-              onClick={() => selectFilter("sn-project")}
-              className={`sm-text w500 tag blue-text sarabun text-center ${
-                researchFilter[2] ? "active-tag" : null
-              }`}
-            >
-              {t("Research.SeniorP")}
-            </h1> */}
+      <div className="page-container">
+        {/* Header */}
+        <div id="research-header">
+          <div>
+            <h1 className="vbg-text w700">{t("Research.Research")}</h1>
+            <hr className="small-blue-hr" />
+            <p className="sm-text w500 small-ls sarabun">
+              {t("Research.ResearchDescription")}
+            </p>
           </div>
 
           <div>
+            <hr className="small-grey-hr" />
+          </div>
+        </div>
+
+        {/* Choice */}
+        <div id="research-tag" className="section">
+          {categories &&
+            categories.map((category, index) => (
+              <h1
+                key={index}
+                onClick={() => clickSelected(category.name)}
+                className={`sm-text w500 tag blue-text sarabun text-center ${
+                  selectedCategory.includes(category.name) ? "active-tag" : null
+                }`}
+              >
+                {category.name}
+              </h1>
+            ))}
+        </div>
+
+        <div>
           {/* List */}
           <div id="research-list">
             {researches.map((research, index) => (
               <div
                 key={index}
-                onClick={() =>
-                  linkPath("/research-post/" + research.slug)
-                }
+                onClick={() => linkPath("/research-post/" + research.slug)}
               >
-                <ArticleLongFlex data={research} page="research"/>
+                <ArticleLongFlex data={research} page="research" />
               </div>
             ))}
             {/* <div onClick={() => linkPath("/research-post")}>
@@ -119,8 +110,10 @@ export default function Research() {
           </div>
         </div>
 
-        <div className="showmore blue-text sm-text w500 pointer">แสดงเพิ่ม ...</div>
+        <div onClick={() => fetchMore()} className="showmore blue-text sm-text w500 pointer">
+          แสดงเพิ่ม ...
         </div>
+      </div>
     </div>
   );
 }

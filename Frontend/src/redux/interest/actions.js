@@ -1,22 +1,27 @@
-import { FETCH_INTEREST , FETCH_INTEREST_BY_ID } from "./type";
+import { FETCH_INTEREST, FETCH_INTEREST_BY_ID } from "./type";
 
-import InterestService from "../../services/interest.js";
+import InterestService from "../../services/interest";
+import InterestModel from "../../models/interest";
 
 export const fetchInterest = (pageSize = 25) => {
   return (dispatch) => {
-    InterestService.getInterests(pageSize).then((response) => {
-      if (response.length) {
-        dispatch(fetchInterestSuccess(response));
+    InterestService.getInterests(pageSize).then(async (response) => {
+      if (response.data.length) {
+        const data = await Promise.all(
+          response.data.map((interest) => InterestModel.getOne(interest))
+        );
+        dispatch(fetchInterestSuccess(data));
       }
     });
   };
 };
 
-export const fetchInterestById = (id) => { 
+export const fetchInterestById = (id) => {
   return (dispatch) => {
-    InterestService.getInterestById(id).then((response) => {
+    InterestService.getInterestById(id).then(async (response) => {
       if (response) {
-        dispatch(fetchInterestByIdSuccess(response));
+        const data = await InterestModel.getOne(response);
+        dispatch(fetchInterestByIdSuccess(data));
       }
     });
   };

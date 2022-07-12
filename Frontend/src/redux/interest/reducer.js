@@ -1,5 +1,4 @@
 import { FETCH_INTEREST, FETCH_INTEREST_BY_ID } from "./type";
-import InterestModel from "../../models/interest";
 
 const initialState = {
   interests: [],

@@ -1,5 +1,4 @@
 import { FETCH_MEMBER, FETCH_MEMBER_BY_SLUG, RANDOM_MEMBER } from "./type";
-import MemberModel from "../../models/member";
 
 const initialState = {
   members: [],

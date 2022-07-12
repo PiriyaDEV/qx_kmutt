@@ -1,6 +1,5 @@
 import http from "./http-common";
 import qs from "qs";
-import TagModel from "../models/tag";
 
 // Tag APIs
 export default new (class TagService {
@@ -21,11 +20,8 @@ export default new (class TagService {
 
     return await http
       .get("/tags?" + query)
-      .then(async (response) => {
-        const data = response.data.data;
-        return await Promise.all(
-          data.map((tag) => TagModel.getOne(tag))
-        );
+      .then((response) => {
+        return response.data;
       })
       .catch((error) => {
         console.log(error);
@@ -36,9 +32,8 @@ export default new (class TagService {
   async getTagById(id) {
     return await http
       .get("/tags/" + id)
-      .then(async (response) => {
-        const data = response.data.data[0];
-        return await TagModel.getOne(data);
+      .then((response) => {
+        return response.data.data[0];
       })
       .catch((error) => {
         console.log(error);

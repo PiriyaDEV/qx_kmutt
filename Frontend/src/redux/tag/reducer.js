@@ -1,5 +1,4 @@
 import { FETCH_TAG, FETCH_TAG_BY_ID } from "./type";
-import TagModel from "../../models/tag";
 
 const initialState = {
   tags: [],
