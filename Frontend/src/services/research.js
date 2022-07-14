@@ -5,10 +5,21 @@ import i18n from "i18next";
 // Research APIs
 export default new (class ResearchService {
   // Get all researches
-  async getResearches(pageSize, page) {
+  async getResearches(pageSize, categoriesFilter, page) {
     const query = qs.stringify(
       {
         fields: ["slug", "title", "description"],
+        filters: {
+          $or: categoriesFilter.map((category) => {
+            return {
+              categories: {
+                name: {
+                  $in: category,
+                },
+              },
+            };
+          }),
+        },
         populate: {
           cover: {
             fields: ["url"],

@@ -1,3 +1,5 @@
 export const FETCH_MEMBER = "FETCH_MEMBER";
 export const FETCH_MEMBER_BY_SLUG = "FETCH_MEMBER_BY_SLUG";
+export const SET_META_DATA = "SET_META_DATA";
+export const APPEND_TO_MEMBER = "APPEND_TO_MEMBER";
 export const RANDOM_MEMBER = "RANDOM_MEMBER";

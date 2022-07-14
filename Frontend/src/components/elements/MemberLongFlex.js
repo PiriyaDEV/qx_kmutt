@@ -36,7 +36,10 @@ export default function MemberLongFlex(props) {
           {props.data.role === "OLD_MEMBER" && "สมาชิกเก่า"}
         </div>
         <h1 className="vsm-text w700 sarabun">
-          {props.data.firstname} <br /> {props.data.lastname}
+          {props.data.firstname} <br /> {props.data.lastname} 
+          {
+            props.data.is_head_of_research_center && (<span className="w500"> (หัวหน้าศูนย์วิจัย)</span>)
+          }
         </h1>
         <div className="member-icon-div">
           <div className="member-icon">

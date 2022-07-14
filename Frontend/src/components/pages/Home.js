@@ -51,6 +51,7 @@ export default function Home() {
   const activities = useSelector((state) => state.activities.activities);
   const members = useSelector((state) => state.members.random);
   const articles = useSelector((state) => state.articles.articles);
+  // const delay = ms => new Promise(res => setTimeout(res, ms));
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -62,9 +63,11 @@ export default function Home() {
     dispatch(fetchArticle(2));
   }, [dispatch]);
 
-  const refreshMember = () => {
+  const refreshMember = async () => {
     dispatch(randomMember());
     setRefresh(!refresh);
+    console.log(refresh)
+    // console.log(refresh);
   };
 
   const linkPath = (path) => {
@@ -230,7 +233,7 @@ export default function Home() {
               src={refreshIcon}
               alt=""
               onClick={() => refreshMember()}
-              className={`${refresh ? "rotate" : "rotate rotate-down"}`}
+              className={`${refresh ? "rotate rotate-up" : "rotate rotate-down"}`}
             />
             <div className="member-flex-container">
               {members.map((member, index) => (

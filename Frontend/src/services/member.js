@@ -7,7 +7,7 @@ export default new (class MemberService {
   static ROLES = ["RESEARCHER", "CURRENT_MEMBER", "OLD_MEMBER"];
 
   // Get all members
-  async getMembers(pageSize) {
+  async getMembers(pageSize, page) {
     const query = qs.stringify(
       {
         filters: {
@@ -25,7 +25,7 @@ export default new (class MemberService {
         },
         locale: i18n.language,
         pagination: {
-          page: 1,
+          page: page,
           pageSize: pageSize,
         },
       },

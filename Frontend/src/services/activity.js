@@ -5,7 +5,7 @@ import i18n from "i18next";
 // Activity APIs
 export default new (class ActivityService {
   // Get all activities
-  async getActivities(pageSize) {
+  async getActivities(pageSize, tagsFilter, page) {
     const query = qs.stringify(
       {
         fields: [
@@ -16,6 +16,17 @@ export default new (class ActivityService {
           "location_url",
           "start_date",
         ],
+        filters: {
+          $or: tagsFilter.map((tag) => {
+            return {
+              tags: {
+                name: {
+                  $in: tag,
+                },
+              },
+            };
+          }),
+        },
         populate: {
           cover: {
             fields: ["url"],
@@ -23,7 +34,7 @@ export default new (class ActivityService {
         },
         locale: i18n.language,
         pagination: {
-          page: 1,
+          page: page,
           pageSize: pageSize,
         },
       },

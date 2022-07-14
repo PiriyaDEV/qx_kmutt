@@ -5,10 +5,21 @@ import i18n from "i18next";
 // Article APIs
 export default new (class ArticleService {
   // Get all articles
-  async getArticles(pageSize) {
+  async getArticles(pageSize, tagsFilter, page) {
     const query = qs.stringify(
       {
         fields: ["slug", "title", "description"],
+        filters: {
+          $or: tagsFilter.map((tag) => {
+            return {
+              tags: {
+                name: {
+                  $in: tag,
+                },
+              },
+            };
+          }),
+        },
         populate: {
           cover: {
             fields: ["url"],
@@ -19,7 +30,7 @@ export default new (class ArticleService {
         },
         locale: i18n.language,
         pagination: {
-          page: 1,
+          page: page,
           pageSize: pageSize,
         },
       },

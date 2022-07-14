@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { fetchMember } from "../../redux";
+import { fetchMember ,fetchMemberByPage } from "../../redux";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -13,10 +13,18 @@ export default function Member() {
   const members = useSelector((state) => state.members.members);
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const isLastPage = useSelector(
+    (state) => state.members.meta.pagination.isLastPage
+  );
+  const PAGE_SIZE = 8;
 
   useEffect(() => {
-    dispatch(fetchMember(10));
+    dispatch(fetchMember(PAGE_SIZE));
   }, [dispatch]);
+
+  const fetchMore = () => {
+    dispatch(fetchMemberByPage(PAGE_SIZE));
+  };
 
   const linkPath = (path) => {
     window.location.href = path;
@@ -79,9 +87,22 @@ export default function Member() {
             </div> */}
           </div>
         </div>
-        <div className="showmore blue-text sm-text w500 pointer">
-          แสดงเพิ่ม ...
-        </div>
+        {!isLastPage && members.length > 0 && (
+          <div
+            onClick={() => fetchMore()}
+            className="showmore blue-text sm-text w500 pointer"
+          >
+            แสดงเพิ่ม ...
+          </div>
+        )}
+        { !isLastPage && members.length === 0 && (
+            <div
+              className="showmore grey-text sm-text w500"
+            >
+              ไม่พบข้อมูล ...
+            </div>
+          )
+        }
       </div>
     </div>
   );

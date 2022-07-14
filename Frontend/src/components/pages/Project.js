@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchActivity } from "../../redux";
+import { fetchActivity ,fetchActivityByPage } from "../../redux";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -14,6 +14,10 @@ export default function Project() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const activities = useSelector((state) => state.activities.activities);
+  const isLastPage = useSelector(
+    (state) => state.activities.meta.pagination.isLastPage
+  );
+  const PAGE_SIZE = 5;
 
   // const selectFilter = (type) => {
   //   let temp = [...activityFilter];
@@ -26,8 +30,12 @@ export default function Project() {
   // };
 
   useEffect(() => {
-    dispatch(fetchActivity(3));
+    dispatch(fetchActivity(PAGE_SIZE));
   }, [dispatch]);
+
+  const fetchMore = () => {
+    dispatch(fetchActivityByPage(PAGE_SIZE));
+  };
 
   // const linkPath = (path) => {
   //   window.location.href = path;
@@ -99,9 +107,22 @@ export default function Project() {
           </div>
         </div>
 
-        <div className="showmore blue-text sm-text w500 pointer">
-          แสดงเพิ่ม ...
-        </div>
+        {!isLastPage && activities.length > 0 && (
+          <div
+            onClick={() => fetchMore()}
+            className="showmore blue-text sm-text w500 pointer"
+          >
+            แสดงเพิ่ม ...
+          </div>
+        )}
+        { !isLastPage && activities.length === 0 && (
+            <div
+              className="showmore grey-text sm-text w500"
+            >
+              ไม่พบข้อมูล ...
+            </div>
+          )
+        }
       </div>
     </div>
   );

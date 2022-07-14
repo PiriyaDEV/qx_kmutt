@@ -1,18 +1,45 @@
-import { FETCH_ARTICLES, FETCH_ARTICLES_BY_SLUG } from "./type";
+import {
+  FETCH_ARTICLES,
+  FETCH_ARTICLES_BY_SLUG,
+  SET_META_DATA,
+  APPEND_TO_ARTICLE,
+} from "./type";
 
 import ArticleService from "../../services/article";
 import ArticleModel from "../../models/article";
 
-export const fetchArticle = (pageSize = 25) => {
+export const fetchArticle = (pageSize = 25, tagsFilter = [], page = 1) => {
   return (dispatch) => {
-    ArticleService.getArticles(pageSize).then(async (response) => {
-      if (response.data.length) {
+    ArticleService.getArticles(pageSize, tagsFilter, page).then(
+      async (response) => {
         const data = await Promise.all(
           response.data.map((article) => ArticleModel.getMany(article))
         );
         dispatch(fetchArticleSuccess(data));
+        dispatch(setMetadata(response.meta));
       }
-    });
+    );
+  };
+};
+
+export const fetchArticleByPage = (pageSize = 25, tagsFilter = []) => {
+  return (dispatch, getState) => {
+    const { meta } = getState().articles;
+    if (meta.pagination.page < meta.pagination.pageCount) {
+      ArticleService.getArticles(
+        pageSize,
+        tagsFilter,
+        meta.pagination.page + 1
+      ).then(async (response) => {
+        if (response.data.length) {
+          const data = await Promise.all(
+            response.data.map((article) => ArticleModel.getMany(article))
+          );
+          dispatch(appendToArticle(data));
+          dispatch(setMetadata(response.meta));
+        }
+      });
+    }
   };
 };
 
@@ -38,5 +65,21 @@ export const fetchArticleBySlugSuccess = (article) => {
   return {
     type: FETCH_ARTICLES_BY_SLUG,
     payload: article,
+  };
+};
+
+export const setMetadata = (meta) => {
+  meta.pagination.isLastPage =
+    meta.pagination.page == meta.pagination.pageCount;
+  return {
+    type: SET_META_DATA,
+    payload: meta,
+  };
+};
+
+export const appendToArticle = (articles) => {
+  return {
+    type: APPEND_TO_ARTICLE,
+    payload: articles,
   };
 };

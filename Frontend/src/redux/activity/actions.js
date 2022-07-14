@@ -1,18 +1,45 @@
-import { FETCH_ACTIVITY, FETCH_ACTIVITY_BY_SLUG } from "./type";
+import {
+  FETCH_ACTIVITY,
+  FETCH_ACTIVITY_BY_SLUG,
+  SET_META_DATA,
+  APPEND_TO_ACTIVITY,
+} from "./type";
 
 import ActivityService from "../../services/activity";
 import ActivityModel from "../../models/activity";
 
-export const fetchActivity = (pageSize = 25) => {
+export const fetchActivity = (pageSize = 25, tagsFilter = [], page = 1) => {
   return (dispatch) => {
-    ActivityService.getActivities(pageSize).then(async (response) => {
-      if (response.data.length) {
+    ActivityService.getActivities(pageSize, tagsFilter, page).then(
+      async (response) => {
         const data = await Promise.all(
           response.data.map((activity) => ActivityModel.getMany(activity))
         );
         dispatch(fetchActivitySuccess(data));
+        dispatch(setMetadata(response.meta));
       }
-    });
+    );
+  };
+};
+
+export const fetchActivityByPage = (pageSize = 25, tagsFilter = []) => {
+  return (dispatch, getState) => {
+    const { meta } = getState().articles;
+    if (meta.pagination.page < meta.pagination.pageCount) {
+      ActivityService.getActivities(
+        pageSize,
+        tagsFilter,
+        meta.pagination.page + 1
+      ).then(async (response) => {
+        if (response.data.length) {
+          const data = await Promise.all(
+            response.data.map((activity) => ActivityModel.getMany(activity))
+          );
+          dispatch(appendToActivity(data));
+          dispatch(setMetadata(response.meta));
+        }
+      });
+    }
   };
 };
 
@@ -38,5 +65,21 @@ export const fetchActivityBySlugSuccess = (activity) => {
   return {
     type: FETCH_ACTIVITY_BY_SLUG,
     payload: activity,
+  };
+};
+
+export const setMetadata = (meta) => {
+  meta.pagination.isLastPage =
+    meta.pagination.page == meta.pagination.pageCount;
+  return {
+    type: SET_META_DATA,
+    payload: meta,
+  };
+};
+
+export const appendToActivity = (activities) => {
+  return {
+    type: APPEND_TO_ACTIVITY,
+    payload: activities,
   };
 };

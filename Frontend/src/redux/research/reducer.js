@@ -10,6 +10,7 @@ const initialState = {
   research: {},
   meta: {
     pagination: {
+      isLastPage: false,
       page: 0,
       pageSize: 0,
       pageCount: 0,

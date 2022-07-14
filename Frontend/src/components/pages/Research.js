@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCategory, fetchResearch , fetchResearchByPage } from "../../redux";
+import { fetchCategory, fetchResearch, fetchResearchByPage } from "../../redux";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -14,12 +14,15 @@ export default function Research() {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.categories);
   const researches = useSelector((state) => state.researches.researches);
+  const isLastPage = useSelector(
+    (state) => state.researches.meta.pagination.isLastPage
+  );
   const [selectedCategory, setSelectedCategory] = useState([]);
   const queryParams = new URLSearchParams(window.location.search);
+  const PAGE_SIZE = 5;
 
   useEffect(() => {
     dispatch(fetchCategory());
-    dispatch(fetchResearch(5));
     setSelectedCategory(
       queryParams.get("category") ? [queryParams.get("category")] : []
     );
@@ -43,12 +46,12 @@ export default function Research() {
   };
 
   const fetchMore = () => {
-    dispatch(fetchResearchByPage(5));
-  }
+    dispatch(fetchResearchByPage(PAGE_SIZE, selectedCategory));
+  };
   //filter Research
-  // useEffect(() => {
-
-  // },[selectedCategory])
+  useEffect(() => {
+    dispatch(fetchResearch(PAGE_SIZE, selectedCategory));
+  }, [selectedCategory]);
 
   return (
     <div id="research" className="section">
@@ -110,9 +113,17 @@ export default function Research() {
           </div>
         </div>
 
-        <div onClick={() => fetchMore()} className="showmore blue-text sm-text w500 pointer">
-          แสดงเพิ่ม ...
-        </div>
+        {!isLastPage && researches.length > 0 && (
+          <div
+            onClick={() => fetchMore()}
+            className="showmore blue-text sm-text w500 pointer"
+          >
+            แสดงเพิ่ม ...
+          </div>
+        )}
+        {!isLastPage && researches.length === 0 && (
+          <div className="showmore grey-text sm-text w500">ไม่พบข้อมูล ...</div>
+        )}
       </div>
     </div>
   );
