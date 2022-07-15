@@ -17,7 +17,15 @@ export default new (class ActivityModel {
     model.location_name = data.attributes.location_name || "";
     model.location_url = data.attributes.location_url || "";
     model.start_date = Datetime.formatDate(data.attributes.start_date) || "";
-
+    model.tags =
+      (await Promise.all(
+        data.attributes.tags.data.map((tag) => TagModel.getOne(tag))
+      )) || [];
+    model.authors =
+      (await Promise.all(
+        data.attributes.authors.data.map((author) => AuthorModel.getOne(author))
+      )) || [];
+      
     return model;
   }
 

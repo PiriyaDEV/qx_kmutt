@@ -9,6 +9,7 @@ export default new (class ResearchService {
     const query = qs.stringify(
       {
         fields: ["slug", "title", "description"],
+        sort: ["createdAt:desc"],
         filters: {
           $or: categoriesFilter.map((category) => {
             return {
@@ -26,6 +27,12 @@ export default new (class ResearchService {
           },
           categories: {
             fields: ["name"],
+          },
+          tags: {
+            fields: ["name"],
+          },
+          authors: {
+            fields: ["firstname", "lastname"],
           },
         },
         locale: i18n.language,

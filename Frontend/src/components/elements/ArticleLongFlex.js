@@ -19,28 +19,31 @@ export default function ArticleLongFlex(props) {
 
   return (
     <div className="article-long-flex">
-      <img
-        className={`${props.type === "post" ? "posttp-long-flex" : null}`}
-        src={props.data.cover_url}
-        alt=""
-      />
-      {props.type === "post" && (
+      <div className="article-img-banner">
         <img
-          onClick={() => linkPath("/article-post/" + props.data.slug)}
-          className="article-long-homepage"
-          src={right}
+          className={`pointer ${props.type === "post" ? "posttp-long-flex" : null}`}
+          src={props.data.cover_url}
           alt=""
+          onClick={() => linkPath("/activity-post/" + props.data.slug)}
         />
-      )}
+        {props.type === "post" && (
+          <img
+            onClick={() => linkPath("/article-post/" + props.data.slug)}
+            className="article-long-homepage pointer"
+            src={right}
+            alt=""
+          />
+        )}
+      </div>
       <div className="article-long-flex-info">
         <div>
           {props.data && (
-            <p className="w600 vsm-text clamp-2 break-word">
+            <p className="w600 vsm-text clamp-2 break-word pointer" onClick={() => linkPath("/activity-post/" + props.data.slug)}>
               {props.data.title}
             </p>
           )}
           {props.data && (
-            <p className="w400 xm3-text clamp-3 article-long-descp">
+            <p className="w400 xm3-text clamp-3 article-long-descp pointer" onClick={() => linkPath("/activity-post/" + props.data.slug)}>
               {props.data.description}
             </p>
           )}

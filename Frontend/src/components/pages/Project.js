@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchActivity ,fetchActivityByPage } from "../../redux";
+import {
+  fetchActivity,
+  fetchActivityByPage,
+} from "../../redux";
 
 import "../../assets/css/text.css";
 import "../../assets/css/pages.css";
@@ -19,16 +22,6 @@ export default function Project() {
   );
   const PAGE_SIZE = 5;
 
-  // const selectFilter = (type) => {
-  //   let temp = [...activityFilter];
-  //   if (type === "project") {
-  //     temp[0] = !temp[0];
-  //   } else {
-  //     temp[1] = !temp[1];
-  //   }
-  //   setActivityFilter(temp);
-  // };
-
   useEffect(() => {
     dispatch(fetchActivity(PAGE_SIZE));
   }, [dispatch]);
@@ -36,10 +29,6 @@ export default function Project() {
   const fetchMore = () => {
     dispatch(fetchActivityByPage(PAGE_SIZE));
   };
-
-  // const linkPath = (path) => {
-  //   window.location.href = path;
-  // };
 
   return (
     <div id="project" className="section">
@@ -89,9 +78,7 @@ export default function Project() {
           <div id="project-list">
             {activities &&
               activities.map((activity, index) => (
-                <div
-                  key={index}
-                >
+                <div key={index}>
                   <ArticleLongFlex data={activity} page="activity" />
                 </div>
               ))}
@@ -115,14 +102,9 @@ export default function Project() {
             แสดงเพิ่ม ...
           </div>
         )}
-        { !isLastPage && activities.length === 0 && (
-            <div
-              className="showmore grey-text sm-text w500"
-            >
-              ไม่พบข้อมูล ...
-            </div>
-          )
-        }
+        {!isLastPage && activities.length === 0 && (
+          <div className="showmore grey-text sm-text w500">ไม่พบข้อมูล ...</div>
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import {
   FETCH_RESEARCH,
   FETCH_RESEARCH_BY_SLUG,
+  FETCH_RELATED_RESEARCH,
   SET_META_DATA,
   APPEND_TO_RESEARCH,
 } from "./type";
@@ -8,6 +9,7 @@ import {
 const initialState = {
   researches: [],
   research: {},
+  relatedResearches: [],
   meta: {
     pagination: {
       isLastPage: false,
@@ -30,6 +32,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         research: action.payload,
+      };
+    case FETCH_RELATED_RESEARCH:
+      return {
+        ...state,
+        relatedResearches: action.payload,
       };
     case SET_META_DATA:
       return {

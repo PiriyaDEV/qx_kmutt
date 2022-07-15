@@ -25,7 +25,7 @@ export const fetchMember = (pageSize = 100, page = 1) => {
 
 export const fetchMemberByPage = (pageSize = 25) => {
   return (dispatch, getState) => {
-    const { meta } = getState().articles;
+    const { meta } = getState().members;
     if (meta.pagination.page < meta.pagination.pageCount) {
       MemberService.getMembers(pageSize, meta.pagination.page + 1).then(
         async (response) => {

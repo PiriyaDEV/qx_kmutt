@@ -85,9 +85,12 @@ function App() {
             <Footer />
           </Route> */}
 
-          {/* <Route path="/:id">
-          <p>ไม่มี pathนี้</p>
-        </Route> */}
+          <Route path='*' exact={true}>
+          <Hamburger />
+            <Navbar path={"home"} />
+            <Home />
+          <Footer />
+          </Route>
         </Switch>
       </div>
     </Suspense>

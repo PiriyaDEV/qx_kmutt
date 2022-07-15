@@ -20,6 +20,14 @@ export default new (class ResearchModel {
           CategoryModel.getOne(category)
         )
       )) || [];
+    model.tags =
+      (await Promise.all(
+        data.attributes.tags.data.map((tag) => TagModel.getOne(tag))
+      )) || [];
+    model.authors =
+      (await Promise.all(
+        data.attributes.authors.data.map((author) => AuthorModel.getOne(author))
+      )) || [];
 
     return model;
   }

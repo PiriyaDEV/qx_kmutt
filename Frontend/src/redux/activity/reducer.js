@@ -1,6 +1,7 @@
 import {
   FETCH_ACTIVITY,
   FETCH_ACTIVITY_BY_SLUG,
+  FETCH_RELATED_ACTIVITY,
   SET_META_DATA,
   APPEND_TO_ACTIVITY,
 } from "./type";
@@ -8,6 +9,7 @@ import {
 const initialState = {
   activities: [],
   activity: {},
+  relatedActivities: [],
   meta: {
     pagination: {
       isLastPage: false,
@@ -30,6 +32,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         activity: action.payload,
+      };
+    case FETCH_RELATED_ACTIVITY:
+      return {
+        ...state,
+        relatedActivities: action.payload,
       };
     case SET_META_DATA:
       return {

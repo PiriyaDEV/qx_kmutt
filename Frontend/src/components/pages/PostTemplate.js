@@ -8,6 +8,8 @@ import "../../assets/css/pages.css";
 import "../../assets/css/pages/postTemplate.css";
 
 import postArrow from "../../assets/images/icon/Vector 1.png";
+import calendar from "../../assets/images/icon/calendar-blue.svg";
+import location from "../../assets/images/icon/location-blue.svg";
 
 import ArticleLongFlex from "../elements/ArticleLongFlex";
 import ArticleFlex from "../elements/ArticleFlex";
@@ -22,6 +24,15 @@ export default function PostTemplate(props) {
   const article = useSelector((state) => state.articles.article);
   const activity = useSelector((state) => state.activities.activity);
   const research = useSelector((state) => state.researches.research);
+  const relatedActivities = useSelector(
+    (state) => state.activities.relatedActivities
+  );
+  // const relatedResearches = useSelector(
+  //   (state) => state.researches.relatedResearches
+  // );
+  const relatedArticles = useSelector(
+    (state) => state.articles.relatedArticles
+  );
   const dispatch = useDispatch();
   const { slug } = useParams();
   const [post, setPost] = useState({});
@@ -79,7 +90,7 @@ export default function PostTemplate(props) {
         {/* Header */}
         <div id="post-header">
           <p
-            className="vsm-text w700 blue-text small-ls pointer sarabun"
+            className="vsm-text w700 blue-text small-ls pointer sarabun break-word"
             onClick={() => linkPath(props.type)}
           >
             {props.type === "article" && t("PostTemplate.PostTitle.article")}
@@ -88,7 +99,7 @@ export default function PostTemplate(props) {
           </p>
           <img className="post-arrow" src={postArrow} alt="" />
           {post && (
-            <p className="vsm-text w700 blue-text small-ls sarabun">
+            <p className="vsm-text w700 blue-text small-ls sarabun break-word">
               {post.title}
             </p>
           )}
@@ -97,6 +108,31 @@ export default function PostTemplate(props) {
         {/* Title */}
         <div id="post-title">
           {post && <h1 className="bg-text w700 sarabun">{post.title}</h1>}
+          {props.type === "activity" && post && (
+            <div className="post-template-icon-container">
+              <div className="post-template-icon">
+                <img
+                  className="article-long-icon pointer"
+                  src={location}
+                  alt=""
+                  onClick={() => linkNewTab(post.location_url)}
+                />
+                <h1
+                  className="vsm-text w700 blue-text small-ls sarabun break-word pointer"
+                  onClick={() => linkNewTab(post.location_url)}
+                >
+                  {post.location_name}
+                </h1>
+              </div>
+
+              <div className="post-template-icon">
+                <img className="article-long-icon" src={calendar} alt="" />
+                <h1 className="vsm-text w700 blue-text small-ls sarabun break-word">
+                  {post.start_date}
+                </h1>
+              </div>
+            </div>
+          )}
           <hr className="small-blue-hr" />
         </div>
 
@@ -175,9 +211,16 @@ export default function PostTemplate(props) {
               {t("PostTemplate.Article")}
             </p>
             <div>
-              <ArticleFlex type={"article"} />
-              <ArticleFlex type={"article"} />
-              <ArticleFlex type={"article"} />
+              {relatedArticles &&
+                relatedArticles
+                  .slice(0, 3)
+                  .map((relatedArticle, index) => (
+                    <ArticleFlex
+                      key={index}
+                      data={relatedArticle}
+                      type={"article"}
+                    />
+                  ))}
             </div>
           </div>
         )}
@@ -188,8 +231,16 @@ export default function PostTemplate(props) {
               {t("PostTemplate.Article")}
             </p>
             <div>
-              <ArticleLongFlex data={activity} type={"post"} />
-              <ArticleLongFlex data={activity} type={"post"} />
+              {relatedActivities &&
+                relatedActivities
+                  .slice(0, 2)
+                  .map((relatedActivity, index) => (
+                    <ArticleLongFlex
+                      key={index}
+                      data={relatedActivity}
+                      type={"post"}
+                    />
+                  ))}
             </div>
           </div>
         )}

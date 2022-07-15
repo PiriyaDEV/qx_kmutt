@@ -16,6 +16,7 @@ export default new (class ActivityService {
           "location_url",
           "start_date",
         ],
+        sort: ["createdAt:desc"],
         filters: {
           $or: tagsFilter.map((tag) => {
             return {
@@ -30,6 +31,12 @@ export default new (class ActivityService {
         populate: {
           cover: {
             fields: ["url"],
+          },
+          tags: {
+            fields: ["name"],
+          },
+          authors: {
+            fields: ["firstname", "lastname"],
           },
         },
         locale: i18n.language,

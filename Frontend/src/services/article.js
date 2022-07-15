@@ -9,6 +9,7 @@ export default new (class ArticleService {
     const query = qs.stringify(
       {
         fields: ["slug", "title", "description"],
+        sort: ["createdAt:desc"],
         filters: {
           $or: tagsFilter.map((tag) => {
             return {
@@ -26,6 +27,9 @@ export default new (class ArticleService {
           },
           tags: {
             fields: ["name"],
+          },
+          authors: {
+            fields: ["firstname", "lastname"],
           },
         },
         locale: i18n.language,

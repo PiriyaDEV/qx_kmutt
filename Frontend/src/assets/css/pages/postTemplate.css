@@ -18,6 +18,19 @@
   margin-top: 27px;
 }
 
+.post-template-icon-container {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top:20px;
+}
+
+.post-template-icon{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 #post-title > hr {
   margin-top: 39px;
   margin-bottom: 31px;
@@ -81,7 +94,23 @@
     padding-top: 120px;
   }
 
+  #post-header{
+    flex-wrap: wrap;
+  }
+
   #article-post-list > div{
     grid-template-columns: 1fr 1fr;
+  }
+
+  #project-post-list > div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .research-img {
+    height: 250px !important;
   }
 }

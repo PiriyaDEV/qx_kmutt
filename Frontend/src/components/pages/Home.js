@@ -66,8 +66,6 @@ export default function Home() {
   const refreshMember = async () => {
     dispatch(randomMember());
     setRefresh(!refresh);
-    console.log(refresh)
-    // console.log(refresh);
   };
 
   const linkPath = (path) => {

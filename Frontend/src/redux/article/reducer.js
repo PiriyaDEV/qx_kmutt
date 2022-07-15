@@ -1,6 +1,7 @@
 import {
   FETCH_ARTICLES,
   FETCH_ARTICLES_BY_SLUG,
+  FETCH_RELATED_ARTICLE,
   SET_META_DATA,
   APPEND_TO_ARTICLE,
 } from "./type";
@@ -8,6 +9,7 @@ import {
 const initialState = {
   articles: [],
   article: {},
+  relatedArticles: [],
   meta: {
     pagination: {
       isLastPage: false,
@@ -30,6 +32,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         article: action.payload,
+      };
+    case FETCH_RELATED_ARTICLE:
+      return {
+        ...state,
+        relatedArticles: action.payload,
       };
     case SET_META_DATA:
       return {

@@ -17,6 +17,10 @@ export default new (class ActicleModel {
       (await Promise.all(
         data.attributes.tags.data.map((tag) => TagModel.getOne(tag))
       )) || [];
+    model.authors =
+      (await Promise.all(
+        data.attributes.authors.data.map((author) => AuthorModel.getOne(author))
+      )) || [];
 
     return model;
   }
